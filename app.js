@@ -32,7 +32,7 @@ map.addLayer({
   
   paint: {
     'line-color': ['get', 'color'],
-    'line-emissive-strength': 2,
+    'line-emissive-strength': 1,
     'line-width': ['*', 100, ['get', 'betweenness_metric_e']]
   }
 
