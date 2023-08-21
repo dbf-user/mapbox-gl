@@ -1,5 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import { id1200 } from "./data/1200Id.js";
+import { id1500 } from "./data/1500Id.js";
+import { id900 } from "./data/900Id.js";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
