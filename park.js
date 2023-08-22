@@ -10,9 +10,12 @@ mapboxgl.accessToken =
     const map = new mapboxgl.Map({
       style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm", 
       container,
-      center: [-0.122596,51.506727],
-      zoom: 15,
+      center: [-0.127997,51.507969],  
+      zoom: 16,
       pitch: 45,
+      maxBounds: [[-0.140922, 51.500648],[-0.104640, 51.521270]], // Define the bounding box
+      minZoom: 16, // Set the minimum zoom level
+      maxZoom: 18, // Set the maximum zoom level
     });
     
   
@@ -56,7 +59,7 @@ mapboxgl.accessToken =
     ]);
 
     const combinedExpressions = expressions.flat();
-    combinedExpressions.push("#aaa"); // Default color
+    combinedExpressions.push("grey"); // Default color
     map.setPaintProperty("add-3d-buildings", "fill-extrusion-color", [
       "case",
       ...combinedExpressions,
