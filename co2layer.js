@@ -13,11 +13,10 @@ export function renderToDOM(container, data) {
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm", 
     container,
     center: [-0.122596,51.506727],
-
-
     zoom: 15,
     pitch: 0,
   });
+  
 
   map.on("load", () => {
 
@@ -29,8 +28,8 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 14,
       paint: {
+        'fill-extrusion-ambient-occlusion-intensity': 0.8,
         "fill-extrusion-color": "#7182A6",
-
         "fill-extrusion-height": [
           "interpolate",
           ["linear"],
@@ -49,7 +48,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 1,
+        "fill-extrusion-opacity": .8,
       },
     });
 
@@ -66,11 +65,13 @@ map.addLayer({
   source: 'buildings',
   paint: {
     'fill-color': ['get', 'color'],
-    'fill-emissive-strength': .5,
-'fill-opacity': 0.4
+    'fill-outline-color': '#00008B',
+    'fill-emissive-strength': .4,
+'fill-opacity': 0.6
   }
 
 });
+
 
     // map.setConfigProperty('basemap', 'lightPreset', 'night');
     // map.setConfigProperty('basemap', 'showPointOfInterestLabels', false);
@@ -91,7 +92,7 @@ map.addLayer({
       source: 'paths',
       paint: {
         "line-color": "rgba(0, 0, 0, 0)",
-        'line-emissive-strength': 2,
+        'line-emissive-strength': 3,
         "line-width": 4,
       }
     });
@@ -99,7 +100,7 @@ map.addLayer({
     map.moveLayer('add-3d-buildings');
 
     let startTime;
-    const duration = 3000;
+    const duration = 15000;
   
     const frame = (time) => {
       if (!startTime) startTime = time;
@@ -110,7 +111,7 @@ map.addLayer({
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#67001f",
+        "#67001f", // 
         animationPhase,
         "rgba(0, 0, 0, 0)"
       ]);

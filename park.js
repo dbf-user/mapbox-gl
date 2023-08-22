@@ -6,46 +6,49 @@ import { idsX } from "./data/bIds.js";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
 
-export function renderToDOM(container, data) {
-  const map = new mapboxgl.Map({
-    style: "mapbox://styles/mapbox/dark-v11",
-    container,
-    center: [-0.1328665, 51.5162463],
-    zoom: 13,
-  });
-
-  map.on("load", () => {
-    map.addLayer({
-      id: "add-3d-buildings",
-      source: "composite",
-      "source-layer": "building",
-      filter: ["==", "extrude", "true"],
-      type: "fill-extrusion",
-      minzoom: 13,
-      paint: {
-        "fill-extrusion-color": "#aaa",
-
-        "fill-extrusion-height": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          15,
-          0,
-          15.05,
-          ["get", "height"],
-        ],
-        "fill-extrusion-base": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          15,
-          0,
-          15.05,
-          ["get", "min_height"],
-        ],
-        "fill-extrusion-opacity": 0.8,
-      },
+  export function renderToDOM(container, data) {
+    const map = new mapboxgl.Map({
+      style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm", 
+      container,
+      center: [-0.122596,51.506727],
+      zoom: 15,
+      pitch: 45,
     });
+    
+  
+    map.on("load", () => {
+  
+      map.addLayer({
+        id: "add-3d-buildings",
+        source: "composite",
+        "source-layer": "building",
+        filter: ["==", "extrude", "true"],
+        type: "fill-extrusion",
+        minzoom: 14,
+        paint: {
+          'fill-extrusion-ambient-occlusion-intensity': 0.6,
+          "fill-extrusion-color": "#7182A6",
+          "fill-extrusion-height": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            15,
+            0,
+            15.05,
+            ["get", "height"],
+          ],
+          "fill-extrusion-base": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            15,
+            0,
+            15.05,
+            ["get", "min_height"],
+          ],
+          "fill-extrusion-opacity": 1,
+        },
+      });
 
     const expressions = idsX.map((entry) => [
       ["==", ["id"], entry.id], // Check if the ID matches
