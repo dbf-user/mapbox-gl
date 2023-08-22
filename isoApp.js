@@ -1,28 +1,27 @@
-import mapboxgl from 'mapbox-gl';
-import { MapboxLayer } from '@deck.gl/mapbox';
-import { GeoJsonLayer } from '@deck.gl/layers';
+import mapboxgl from "mapbox-gl";
+import { id1200 } from "./data/1200Id.js";
+import { id1500 } from "./data/1500Id.js";
+import { id900 } from "./data/900Id.js";
 
-import build from "./data/isochrones.json";
 import pathways from "./data/co2.json";
 
 // Set your Mapbox token here
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA';
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
 
-export function renderToDOM(container, data) {
-  const map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm", 
-    container,
-    center: [-0.127997,51.507969],  
-    zoom: 16,
-    pitch: 45,
-    maxBounds: [[-0.140922, 51.500648],[-0.104640, 51.521270]], // Define the bounding box
-    minZoom: 16, // Set the minimum zoom level
-    maxZoom: 18, // Set the maximum zoom level
-  });
-  
+  export function renderToDOM(container, data) {
+    const map = new mapboxgl.Map({
+      style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm", 
+      container,
+      center: [-0.127997,51.507969],  
+      zoom: 16,
+      pitch: 45,
+      maxBounds: [[-0.140922, 51.500648],[-0.104640, 51.521270]], // Define the bounding box
+      minZoom: 16, // Set the minimum zoom level
+      maxZoom: 18, // Set the maximum zoom level
+    });
 
   map.on("load", () => {
-
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",
@@ -31,8 +30,8 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 14,
       paint: {
-        'fill-extrusion-ambient-occlusion-intensity': 0.8,
         "fill-extrusion-color": "#7182A6",
+
         "fill-extrusion-height": [
           "interpolate",
           ["linear"],
@@ -51,36 +50,9 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": .8,
+        "fill-extrusion-opacity": 1,
       },
     });
-
-// Add GeoJSON source
-map.addSource('buildings', {
-  'type': 'geojson',
-  data: build,
-});
-
-// Add a GeoJSON layer with lines
-map.addLayer({
-  id: 'lines',
-  type: 'fill',
-  source: 'buildings',
-  paint: {
-    'fill-color': ['get', 'color'],
-    'fill-outline-color': '#00008B',
-    'fill-emissive-strength': .4,
-'fill-opacity': 0.6
-  }
-
-});
-
-
-    // map.setConfigProperty('basemap', 'lightPreset', 'night');
-    // map.setConfigProperty('basemap', 'showPointOfInterestLabels', false);
-    // map.setConfigProperty('basemap', 'showPlaceLabels', false);
-    // map.setConfigProperty('basemap', 'showRoadLabels', false);
-    // map.setConfigProperty('basemap', 'showTransitLabels', false);
 
     map.addSource('paths', {
       'type': 'geojson',
@@ -95,7 +67,7 @@ map.addLayer({
       source: 'paths',
       paint: {
         "line-color": "rgba(0, 0, 0, 0)",
-        'line-emissive-strength': 3,
+        'line-emissive-strength': 2,
         "line-width": 4,
       }
     });
@@ -103,7 +75,7 @@ map.addLayer({
     map.moveLayer('add-3d-buildings');
 
     let startTime;
-    const duration = 15000;
+    const duration = 3000;
   
     const frame = (time) => {
       if (!startTime) startTime = time;
@@ -114,7 +86,7 @@ map.addLayer({
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#67001f", // 
+        "#FD805D",
         animationPhase,
         "rgba(0, 0, 0, 0)"
       ]);
@@ -126,6 +98,13 @@ map.addLayer({
     };
   
     window.requestAnimationFrame(frame);
+  
+    // repeat
+    setInterval(() => {
+      startTime = undefined;
+      window.requestAnimationFrame(frame);
+    }, duration + 1500);
+  
 
   });
 }
