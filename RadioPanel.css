@@ -1,0 +1,32 @@
+.panel {
+    background-color: black;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    width: 80px;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 30px;
+    left: 10px;
+  }
+
+  .radio-button {
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 1px;
+    font-size: medium;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="radio"] {
+    margin-right: 20px;
+  }

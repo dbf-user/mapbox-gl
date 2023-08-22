@@ -9,7 +9,11 @@
         "build": "vite build"
     },
     "dependencies": {
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
         "@loaders.gl/csv": "^3.4.2",
+        "@mui/material": "^5.14.5",
+        "@mui/system": "^5.14.5",
         "d3-scale": "^2.0.0",
         "deck.gl": "^8.9.0",
         "mapbox-gl": "^3.0.0-beta.1"
