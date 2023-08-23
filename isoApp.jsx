@@ -318,10 +318,9 @@ export const App = () => {
   return (
     <>
       <div class="overlay">
-        <div class="overlay-content">
-          <h2>Welcome to My Website</h2>
-          <p>This is a black-transparent overlay example.</p>
-        </div>
+          <h1>Understanding access to green spaces is</h1>
+          
+          <h1>critical to build better cities</h1>
       </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
