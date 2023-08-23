@@ -1,1 +1,58 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"distance_metro":256,"metro_station":"Drive International","distance_competitor_facility":2021,"competitor_facility":"St Thomas' Hospital","distance_busstop":339},"geometry":{"coordinates":[[[-0.1263391481063536,51.51271180863415],[-0.12661474266923278,51.51257597451547],[-0.12621963564001248,51.51219636488298],[-0.1258991382513841,51.512329917943106],[-0.1263391481063536,51.51271180863415]]],"type":"Polygon"}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "distance_metro": 256,
+        "metro_station": "Drive International",
+        "distance_competitor_facility": 2021,
+        "competitor_facility": "St Thomas' Hospital",
+        "distance_busstop": 339
+      },
+      "geometry": {
+        "coordinates": [
+            [
+              [
+                -0.12589962943829391,
+                51.51232276658098
+              ],
+              [
+                -0.12632543548909325,
+                51.51268647805381
+              ],
+              [
+                -0.12646707863785878,
+                51.51261830507846
+              ],
+              [
+                -0.12638475603804977,
+                51.51254359046868
+              ],
+              [
+                -0.1264547863985399,
+                51.512519230899386
+              ],
+              [
+                -0.1262672340029667,
+                51.512326277230216
+              ],
+              [
+                -0.1263866349735281,
+                51.51227361745774
+              ],
+              [
+                -0.12628697747024376,
+                51.51215952107441
+              ],
+              [
+                -0.12589962943829391,
+                51.51232276658098
+              ]
+            ]
+          ],
+        "type": "Polygon"
+      }
+    }
+  ]
+}

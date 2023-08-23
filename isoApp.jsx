@@ -4,15 +4,20 @@ import mapboxgl from "mapbox-gl";
 import { id1200 } from "./data/1200Id.js";
 import { id1500 } from "./data/1500Id.js";
 import { id900 } from "./data/900Id.js";
-import { idsX } from "./data/bIds.js";
+import { idx } from "./data/bIds.js";
+import parks from "./data/parks.json";
 import "./RadioPanel.css";
+import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
 
+let maxValue = 500;
 let minValue = 0;
+let title = "15 Parks";
+let buildingCount = 353;
 let cId = "#31a354";
 let map;
 
@@ -32,23 +37,30 @@ const SliderPanel = () => {
         setSelectedOption("500");
         minValue = 251;
         cId = "#edf8e9";
+        buildingCount = 370;
         updateBuildingColor(cId);
         break;
       case 2:
         setSelectedOption("250");
         minValue = 101;
+        maxValue = 500;
+        buildingCount = 1531;
         cId = "#bae4b3";
         updateBuildingColor(cId);
         break;
       case 3:
         setSelectedOption("100");
         minValue = 51;
+        maxValue = 500;
+        buildingCount = 412;
         cId = "#74c476";
         updateBuildingColor(cId);
         break;
       case 4:
         setSelectedOption("50");
         minValue = 0;
+        maxValue = 500;
+        buildingCount = 353;
         cId = "#31a354";
         updateBuildingColor(cId);
         break;
@@ -166,10 +178,11 @@ const SliderPanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/mapbox/dark-v11",
+    style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.1328665, 51.5162463],
-    zoom: 13,
+    center: [-0.127997,51.507969],  
+    zoom: 16,
+    maxBounds: [[-0.140922, 51.500648],[-0.104640, 51.521270]], 
   });
 
   map.on("load", () => {
@@ -181,8 +194,8 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 13,
       paint: {
-        "fill-extrusion-color": "#aaa",
-
+        "fill-extrusion-color": "white",
+        'fill-extrusion-ambient-occlusion-intensity': 0.8,
         "fill-extrusion-height": [
           "interpolate",
           ["linear"],
@@ -205,11 +218,32 @@ export function renderToDOM(container, data) {
       },
     });
     updateBuildingColor(cId);
+
+    map.addSource('buildings', {
+      'type': 'geojson',
+      data: parks,
+    });
+    
+    // Add a GeoJSON layer with lines
+    map.addLayer({
+      id: 'lines',
+      type: 'fill',
+      source: 'buildings',
+      paint: {
+        'fill-color': '#A7DD88',
+        'fill-emissive-strength': .2,
+    'fill-opacity': 0.8
+      }
+    
+    });
+    map.moveLayer('add-3d-buildings');
+
+
   });
 }
 
 export const updateBuildingColor = (cId) => {
-  const expressions = idsX.map((entry) => [
+  const expressions = idx.map((entry) => [
     ["==", ["id"], entry.id],
     entry.color,
   ]);
@@ -219,7 +253,7 @@ export const updateBuildingColor = (cId) => {
   );
 
   const combinedExpressions = selectedColor.flat();
-  combinedExpressions.push("#aaa");
+  combinedExpressions.push("white");
   map.setPaintProperty("add-3d-buildings", "fill-extrusion-color", [
     "case",
     ...combinedExpressions,
@@ -232,6 +266,7 @@ export const App = () => {
   }, []);
 
   return (
+    <>
     <div style={{ width: "100vw", height: "100vh" }}>
       <div
         id="map"
@@ -242,6 +277,11 @@ export const App = () => {
       ></div>
       <SliderPanel />
     </div>
+    <div className="transparent-panels">
+    <h2 className="title">{buildingCount}</h2>
+    <div className="middle-text">Buildings are close to park</div>
+  </div>
+  </>
   );
 };
 
