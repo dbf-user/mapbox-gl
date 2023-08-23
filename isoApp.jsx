@@ -181,66 +181,63 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.127997,51.507969],  
+    center: [-0.127997, 51.507969],
     zoom: 16,
-    maxBounds: [[-0.140922, 51.500648],[-0.104640, 51.521270]], 
+    maxBounds: [
+      [-0.140922, 51.500648],
+      [-0.10464, 51.52127],
+    ],
   });
 
-  
-
   map.on("load", () => {
-
-    map.loadImage(
-      './data/park.png',
-      (error, image) => {
+    map.loadImage("./data/park.png", (error, image) => {
       if (error) throw error;
-       
+
       // Add the image to the map style.
-      map.addImage('cat', image);
-       
+      map.addImage("cat", image);
+
       // Add a data source containing one point feature.
-      map.addSource('point', {
-      'type': 'geojson',
-      'data': park_names
+      map.addSource("point", {
+        type: "geojson",
+        data: park_names,
       });
-       
+
       // Add a layer to use the image to represent the data.
       map.addLayer({
-      'id': 'points',
-      'type': 'symbol',
-      'source': 'point', // reference the data source
-      'layout': {
-      'icon-image': 'cat', // reference the image
-      'icon-size': .75
-      }
+        id: "points",
+        type: "symbol",
+        source: "point", // reference the data source
+        layout: {
+          "icon-image": "cat", // reference the image
+          "icon-size": 0.75,
+        },
       });
-      }
-      ); 
+    });
 
-    map.on('click', 'points', (e) => {
+    map.on("click", "points", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.name;
 
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
-        
+
       new mapboxgl.Popup()
-      .setLngLat(coordinates)
-      .setHTML(description)
-      .addTo(map);
-      });
-        
-      // Change the cursor to a pointer when the mouse is over the places layer.
-      map.on('mouseenter', 'points', () => {
-      map.getCanvas().style.cursor = 'pointer';
-      });
-        
-      // Change it back to a pointer when it leaves.
-      map.on('mouseleave', 'points', () => {
-      map.getCanvas().style.cursor = '';
-      });
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points", () => {
+      map.getCanvas().style.cursor = "";
+    });
 
     map.addLayer({
       id: "add-3d-buildings",
@@ -251,7 +248,7 @@ export function renderToDOM(container, data) {
       minzoom: 13,
       paint: {
         "fill-extrusion-color": "white",
-        'fill-extrusion-ambient-occlusion-intensity': 0.8,
+        "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
           ["linear"],
@@ -275,26 +272,23 @@ export function renderToDOM(container, data) {
     });
     updateBuildingColor(cId);
 
-    map.addSource('buildings', {
-      'type': 'geojson',
+    map.addSource("buildings", {
+      type: "geojson",
       data: parks,
     });
-    
+
     // Add a GeoJSON layer with lines
     map.addLayer({
-      id: 'lines',
-      type: 'fill',
-      source: 'buildings',
+      id: "lines",
+      type: "fill",
+      source: "buildings",
       paint: {
-        'fill-color': '#A7DD88',
-        'fill-emissive-strength': .2,
-    'fill-opacity': 0.8
-      }
-    
+        "fill-color": "#A7DD88",
+        "fill-emissive-strength": 0.2,
+        "fill-opacity": 0.8,
+      },
     });
-    map.moveLayer('add-3d-buildings');
-
-
+    map.moveLayer("add-3d-buildings");
   });
 }
 
@@ -323,21 +317,27 @@ export const App = () => {
 
   return (
     <>
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <div
-        id="map"
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      ></div>
-      <SliderPanel />
-    </div>
-    <div className="transparent-panels">
-    <h2 className="title">{buildingCount}</h2>
-    <div className="middle-text">Buildings are close to park</div>
-  </div>
-  </>
+      <div class="overlay">
+        <div class="overlay-content">
+          <h2>Welcome to My Website</h2>
+          <p>This is a black-transparent overlay example.</p>
+        </div>
+      </div>
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <div
+          id="map"
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        ></div>
+        <SliderPanel />
+      </div>
+      <div className="transparent-panels">
+        <h2 className="title">{buildingCount}</h2>
+        <div className="middle-text">Buildings are close to park</div>
+      </div>
+    </>
   );
 };
 
