@@ -6,6 +6,7 @@ import { id1500 } from "./data/1500Id.js";
 import { id900 } from "./data/900Id.js";
 import { idx } from "./data/bIds.js";
 import parks from "./data/parks.json";
+import park_names from "./data/park_names.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
@@ -185,7 +186,62 @@ export function renderToDOM(container, data) {
     maxBounds: [[-0.140922, 51.500648],[-0.104640, 51.521270]], 
   });
 
+  
+
   map.on("load", () => {
+
+    map.loadImage(
+      './data/park.png',
+      (error, image) => {
+      if (error) throw error;
+       
+      // Add the image to the map style.
+      map.addImage('cat', image);
+       
+      // Add a data source containing one point feature.
+      map.addSource('point', {
+      'type': 'geojson',
+      'data': park_names
+      });
+       
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+      'id': 'points',
+      'type': 'symbol',
+      'source': 'point', // reference the data source
+      'layout': {
+      'icon-image': 'cat', // reference the image
+      'icon-size': .75
+      }
+      });
+      }
+      ); 
+
+    map.on('click', 'points', (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+        
+      new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      .setHTML(description)
+      .addTo(map);
+      });
+        
+      // Change the cursor to a pointer when the mouse is over the places layer.
+      map.on('mouseenter', 'points', () => {
+      map.getCanvas().style.cursor = 'pointer';
+      });
+        
+      // Change it back to a pointer when it leaves.
+      map.on('mouseleave', 'points', () => {
+      map.getCanvas().style.cursor = '';
+      });
+
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",

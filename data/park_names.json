@@ -1,0 +1,174 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "0",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Leicester Square"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13008724055453977, 51.51042442539327]
+      }
+    },
+    {
+      "id": "1",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Kings chapel of the Savoy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.11958609246615469, 51.51064185986575]
+      }
+    },
+    {
+      "id": "2",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Victoria Embankment Gardens"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.12148534683003546, 51.50847448898853]
+      }
+    },
+    {
+      "id": "3",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Golden Square"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13718875550559298, 51.51164844808963]
+      }
+    },
+    {
+      "id": "4",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Whitehall Garden"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.12335412919196269, 51.5056299990703]
+      }
+    },
+    {
+      "id": "5",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Whitehall Garden"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.12393352180733537, 51.50395089534743]
+      }
+    },
+    {
+      "id": "6",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "St James's Square Gardens"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13525764901016352, 51.507171163327065]
+      }
+    },
+    {
+      "id": "7",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Jubilee Gardens"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.11818405376181819, 51.503920394476424]
+      }
+    },
+    {
+      "id": "8",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Waterloo Gardens"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13286772529836616, 51.50629765807954]
+      }
+    },
+    {
+      "id": "9",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Carlton Gardens"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13143533232736024, 51.50679394861343]
+      }
+    },
+    {
+      "id": "10",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "St. James's Park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1337171976577788, 51.502729711541456]
+      }
+    },
+    {
+      "id": "11",
+      "type": "Feature",
+      "properties": {
+        "element_type": "relation",
+        "color": "#A7DD88",
+        "name": "Mountbatten Green"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.12863219149345723, 51.50359558320073]
+      }
+    },
+    {
+      "id": "12",
+      "type": "Feature",
+      "properties": {
+        "element_type": "relation",
+        "color": "#A7DD88",
+        "name": "The National Police Memorial"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1300290593961255, 51.505721979531224]
+      }
+    }
+  ]
+}
