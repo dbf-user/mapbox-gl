@@ -19,7 +19,6 @@ let maxValue = 500;
 let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
-let cId = "#31a354";
 let map;
 
 const SliderPanel = () => {
@@ -37,33 +36,29 @@ const SliderPanel = () => {
       case 1:
         setSelectedOption("500");
         minValue = 251;
-        cId = "#edf8e9";
         buildingCount = 370;
-        updateBuildingColor(cId);
+        updateBuildingColor();
         break;
       case 2:
         setSelectedOption("250");
         minValue = 101;
         maxValue = 500;
         buildingCount = 1531;
-        cId = "#bae4b3";
-        updateBuildingColor(cId);
+        updateBuildingColor();
         break;
       case 3:
         setSelectedOption("100");
         minValue = 51;
         maxValue = 500;
         buildingCount = 412;
-        cId = "#74c476";
-        updateBuildingColor(cId);
+        updateBuildingColor();
         break;
       case 4:
         setSelectedOption("50");
         minValue = 0;
         maxValue = 500;
         buildingCount = 353;
-        cId = "#31a354";
-        updateBuildingColor(cId);
+        updateBuildingColor();
         break;
       default:
         break;
@@ -71,109 +66,119 @@ const SliderPanel = () => {
   };
 
   return (
-    <div>
-      <div className="panel">
-        <h2>Distance:</h2>
-        <label>
-          <input
-            style={{
-              WebkitAppearance: "none",
-              MozAppearance: "none",
-              appearance: "none",
-              backgroundColor: minValue >= 50 ? "white" : "#31a354",
-              display: "inline-block",
-              width: "13px",
-              height: "13px",
-              padding: "1px",
-              backgroundClip: "content-box",
-              border: "1px solid #bbbbbb",
-              borderRadius: "50%",
-            }}
-            type="radio"
-            value="50"
-            checked={selectedOption === "50"}
-            onChange={handleRadioChange}
+    <>
+      <div>
+        <div className="panel">
+          <h2>Distance:</h2>
+          <label>
+            <input
+              style={{
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                appearance: "none",
+                backgroundColor: minValue >= 50 ? "white" : "#31a354",
+                display: "inline-block",
+                width: "13px",
+                height: "13px",
+                padding: "1px",
+                backgroundClip: "content-box",
+                border: "1px solid #bbbbbb",
+                borderRadius: "50%",
+              }}
+              type="radio"
+              value="50"
+              checked={selectedOption === "50"}
+              onChange={handleRadioChange}
+            />
+            50m
+          </label>
+          <label>
+            <input
+              style={{
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                appearance: "none",
+                backgroundColor: minValue >= 100 ? "white" : "#74c476",
+                display: "inline-block",
+                width: "13px",
+                height: "13px",
+                padding: "1px",
+                backgroundClip: "content-box",
+                border: "1px solid #bbbbbb",
+                borderRadius: "50%",
+              }}
+              type="radio"
+              value="100"
+              checked={selectedOption === "100"}
+              onChange={handleRadioChange}
+            />
+            100m
+          </label>
+          <label>
+            <input
+              style={{
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                appearance: "none",
+                backgroundColor: minValue >= 250 ? "white" : "#bae4b3",
+                display: "inline-block",
+                width: "13px",
+                height: "13px",
+                padding: "1px",
+                backgroundClip: "content-box",
+                border: "1px solid #bbbbbb",
+                borderRadius: "50%",
+              }}
+              type="radio"
+              value="250"
+              checked={selectedOption === "250"}
+              onChange={handleRadioChange}
+            />
+            250m
+          </label>
+          <label>
+            <input
+              style={{
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                appearance: "none",
+                backgroundColor: minValue >= 500 ? "white" : "#edf8e9",
+                display: "inline-block",
+                width: "13px",
+                height: "13px",
+                padding: "1px",
+                backgroundClip: "content-box",
+                border: "1px solid #bbbbbb",
+                borderRadius: "50%",
+              }}
+              type="radio"
+              value="500"
+              checked={selectedOption === "500"}
+              onChange={handleRadioChange}
+            />
+            500m
+          </label>
+        </div>
+        <div
+          style={{ position: "absolute", left: 130, bottom: 60, height: 100 }}
+        >
+          <CustomSlider
+            orientation="vertical"
+            value={value}
+            onChange={handleChange}
+            step={1}
+            min={1}
+            max={4}
           />
-          50m
-        </label>
-        <label>
-          <input
-            style={{
-              WebkitAppearance: "none",
-              MozAppearance: "none",
-              appearance: "none",
-              backgroundColor: minValue >= 100 ? "white" : "#74c476",
-              display: "inline-block",
-              width: "13px",
-              height: "13px",
-              padding: "1px",
-              backgroundClip: "content-box",
-              border: "1px solid #bbbbbb",
-              borderRadius: "50%",
-            }}
-            type="radio"
-            value="100"
-            checked={selectedOption === "100"}
-            onChange={handleRadioChange}
-          />
-          100m
-        </label>
-        <label>
-          <input
-            style={{
-              WebkitAppearance: "none",
-              MozAppearance: "none",
-              appearance: "none",
-              backgroundColor: minValue >= 250 ? "white" : "#bae4b3",
-              display: "inline-block",
-              width: "13px",
-              height: "13px",
-              padding: "1px",
-              backgroundClip: "content-box",
-              border: "1px solid #bbbbbb",
-              borderRadius: "50%",
-            }}
-            type="radio"
-            value="250"
-            checked={selectedOption === "250"}
-            onChange={handleRadioChange}
-          />
-          250m
-        </label>
-        <label>
-          <input
-            style={{
-              WebkitAppearance: "none",
-              MozAppearance: "none",
-              appearance: "none",
-              backgroundColor: minValue >= 500 ? "white" : "#edf8e9",
-              display: "inline-block",
-              width: "13px",
-              height: "13px",
-              padding: "1px",
-              backgroundClip: "content-box",
-              border: "1px solid #bbbbbb",
-              borderRadius: "50%",
-            }}
-            type="radio"
-            value="500"
-            checked={selectedOption === "500"}
-            onChange={handleRadioChange}
-          />
-          500m
-        </label>
+        </div>
       </div>
-      <div style={{ position: "absolute", left: 130, bottom: 60, height: 100 }}>
-        <CustomSlider
-          orientation="vertical"
-          value={value}
-          onChange={handleChange}
-          step={1}
-          min={1}
-          max={4}
-        />
+      <div className="transparent-panels">
+        <h2 className="title">Urban Insight</h2>
+        <div className="separator"></div>
+        <h2 className="count">{buildingCount}</h2>
+        <div className="middle-text">Buildings are close to a park</div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -270,7 +275,7 @@ export function renderToDOM(container, data) {
         "fill-extrusion-opacity": 0.8,
       },
     });
-    updateBuildingColor(cId);
+    updateBuildingColor();
 
     map.addSource("buildings", {
       type: "geojson",
@@ -292,15 +297,16 @@ export function renderToDOM(container, data) {
   });
 }
 
-export const updateBuildingColor = (cId) => {
-  const expressions = idx.map((entry) => [
-    ["==", ["id"], entry.id],
-    entry.color,
-  ]);
-
-  const selectedColor = expressions.filter(
-    (buildingColor) => buildingColor[1] == cId
-  );
+export const updateBuildingColor = () => {
+  const selectedColor = idx
+    .filter(
+      (buildingColor) =>
+        buildingColor.range >= minValue && buildingColor.range <= maxValue
+    )
+    .map((buildingColor) => [
+      ["==", ["id"], buildingColor.id],
+      buildingColor.color,
+    ]);
 
   const combinedExpressions = selectedColor.flat();
   combinedExpressions.push("white");
@@ -318,9 +324,9 @@ export const App = () => {
   return (
     <>
       <div class="overlay">
-          <h1>Understanding access to green spaces is</h1>
-          
-          <h1>critical to build better cities</h1>
+        <h1>Understanding access to green spaces is</h1>
+
+        <h1>critical to build better cities</h1>
       </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
@@ -331,10 +337,6 @@ export const App = () => {
           }}
         ></div>
         <SliderPanel />
-      </div>
-      <div className="transparent-panels">
-        <h2 className="title">{buildingCount}</h2>
-        <div className="middle-text">Buildings are close to park</div>
       </div>
     </>
   );

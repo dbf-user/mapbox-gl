@@ -3,11 +3,12 @@
     padding: 20px;
     border-radius: 5px;
     color: white;
-    width: 80px;
+    width: 85px;
     margin: 0 auto;
     position: fixed;
     bottom: 30px;
     left: 10px;
+    font-family: 'IBM Plex Mono', monospace;
   }
 
   .radio-button {
@@ -19,12 +20,13 @@
   h2 {
     margin-bottom: 5px;
     margin-top: 1px;
-    font-size: medium;
+    font-size: 18px;
   }
   
   label {
     display: block;
     margin-bottom: 10px;
+    font-size: 15px;
   }
   
   input[type="radio"] {
