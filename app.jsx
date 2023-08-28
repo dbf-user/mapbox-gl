@@ -7,10 +7,11 @@ import { id900 } from "./data/900Id.js";
 import { idx } from "./data/bIds.js";
 import parks from "./data/parks.json";
 import park_names from "./data/park_names.json";
+
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
-import pathways from "./data/trips.json";
+import pathways from "./data/tripsNew.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -38,6 +39,72 @@ export function renderToDOM(container, data) {
   });
 
   map.on("load", () => {
+    map.loadImage("./data/park.png", (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point", {
+        type: "geojson",
+        data: park_names,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points",
+        type: "symbol",
+        source: "point", // reference the data source
+        layout: {
+          "icon-image": "cat", // reference the image
+          "icon-size": 0.75,
+        },
+      });
+    });
+
+    map.on("click", "points", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+    map.addSource("buildings", {
+      type: "geojson",
+      data: parks,
+    });
+
+    // Add a GeoJSON layer with lines
+    map.addLayer({
+      id: "lines",
+      type: "fill",
+      source: "buildings",
+      paint: {
+        "fill-color": "#A7DD88",
+        "fill-emissive-strength": 0.2,
+        "fill-opacity": 0.8,
+      },
+    });
+
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",

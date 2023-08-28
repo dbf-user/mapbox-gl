@@ -93,7 +93,7 @@ export function renderToDOM(container, data) {
         "line-color": "rgba(0, 0, 0, 0)",
         'line-emissive-strength': 2,
         "line-width": 4,
-      }
+      }, 
     });
 
     map.addSource('buildings', {
@@ -111,15 +111,14 @@ export function renderToDOM(container, data) {
         'fill-outline-color': '#00008B',
         'fill-emissive-strength': .4,
     'fill-opacity': 0.6
-      }
-    
+      }    
     });
     
     map.moveLayer('tp-line-line');
     map.moveLayer('add-3d-buildings');
 
     let startTime;
-    const duration = 3000;
+    const duration = 10000;
   
     const frame = (time) => {
       if (!startTime) startTime = time;
@@ -130,7 +129,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "red",
+        "#C96A6A",
         animationPhase,
         "rgba(0, 0, 0, 0)"
       ]);

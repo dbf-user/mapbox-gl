@@ -3,7 +3,7 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "color": "#fff7ec" },
+      "properties": { "color": "#44C7FF" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -166,7 +166,7 @@
     },
     {
       "type": "Feature",
-      "properties": { "color": "#fdbb84" },
+      "properties": { "color": "#44C7FF" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -600,7 +600,7 @@
     },
     {
       "type": "Feature",
-      "properties": { "color": "#ef6548" },
+      "properties": { "color": "#44C7FF" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
