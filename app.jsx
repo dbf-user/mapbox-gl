@@ -10,7 +10,7 @@ import park_names from "./data/park_names.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
-import pathways from "./data/co2.json";
+import pathways from "./data/trips.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -116,7 +116,7 @@ export function renderToDOM(container, data) {
       });
 
     let startTime;
-    const duration = 3000;
+    const duration = 8000;
   
     const frame = (time) => {
       if (!startTime) startTime = time;
