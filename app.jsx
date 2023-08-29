@@ -10,7 +10,7 @@ import park_names from "./data/park_names.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
-import pathways from "./data/co2.json";
+//import pathways from "./data/co2.json";
 import "./App.css";
 import treeIcon from "./icons/tree-silhouette.png";
 import co2Icon from "./icons/Co2.png";
@@ -18,6 +18,7 @@ import houseIcon from "./icons/flooded-house.png";
 import otherIcon from "./icons/other.png";
 import IsoApp from "./isoApp.jsx";
 import Co2App from "./co2.jsx";
+import pathways from "./data/trips.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -122,8 +123,8 @@ export function renderToDOM(container, data) {
     });
 
     let startTime;
-    const duration = 3000;
-
+    const duration = 8000;
+  
     const frame = (time) => {
       if (!startTime) startTime = time;
       const animationPhase = (time - startTime) / duration;
