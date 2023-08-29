@@ -9,8 +9,7 @@ import { MapboxLayer } from "@deck.gl/mapbox";
 import parks from "./data/parks.json";
 import { TripsLayer } from "@deck.gl/geo-layers";
 import park_names from "./data/park_names.json";
-import trips from "./data/tripp.json";
-
+import trips from "./data/tripsUpdated.json"; //
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
@@ -89,13 +88,13 @@ export const App = () => {
       type: TripsLayer,
       id: "trips",
       data: trips,
-      getPath: (d) => d.path,
-      getTimestamps: (d) => d.timestamps,
+      getPath: (d) => d.geometry.coordinates,
+      getTimestamps: (d) => d.properties.timestamps,
       getColor: [253, 128, 93],
       opacity: 0.9,
       widthMinPixels: 4,
       jointRounded: true,
-      trailLength: 120,
+      trailLength: 180,
       currentTime: myTime,
       shadowEnabled: false,
     });
@@ -214,36 +213,6 @@ export const App = () => {
         },
       });
 
-      let startTime;
-      const duration = 8000;
-
-      const frame = (time) => {
-        if (!startTime) startTime = time;
-        const animationPhase = (time - startTime) / duration;
-
-        // Reduce the visible length of the line by using a line-gradient to cutoff the line
-        // animationPhase is a value between 0 and 1 that reprents the progress of the animation
-        map.setPaintProperty("tp-line-line", "line-gradient", [
-          "step",
-          ["line-progress"],
-          "#FD805D",
-          animationPhase,
-          "rgba(0, 0, 0, 0)",
-        ]);
-
-        if (animationPhase > 1) {
-          return;
-        }
-        window.requestAnimationFrame(frame);
-      };
-
-      window.requestAnimationFrame(frame);
-
-      // repeat
-      setInterval(() => {
-        startTime = undefined;
-        window.requestAnimationFrame(frame);
-      }, duration + 1500);
     });
   }, []);
 
