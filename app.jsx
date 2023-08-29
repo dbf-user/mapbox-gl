@@ -5,8 +5,13 @@ import { id1200 } from "./data/1200Id.js";
 import { id1500 } from "./data/1500Id.js";
 import { id900 } from "./data/900Id.js";
 import { idx } from "./data/bIds.js";
+import { MapboxLayer } from '@deck.gl/mapbox';
 import parks from "./data/parks.json";
+import {TripsLayer} from '@deck.gl/geo-layers';
 import park_names from "./data/park_names.json";
+import trips from "./data/tripp.json";
+
+
 
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
@@ -33,7 +38,6 @@ let title = "15 Parks";
 let buildingCount = 353;
 let map;
 
-
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
@@ -49,7 +53,39 @@ export function renderToDOM(container, data) {
     ],
   });
 
+  const [time, setTime] = useState(0);
+  const [animation] = useState({});
+
+  const animate = () => {
+    setTime(t => (t + 2) % 1800);
+    animation.id = window.requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    animation.id = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(animation.id);
+  }, [animation]);
+
+  const heatMarkersLayer = new MapboxLayer({
+    type: TripsLayer,
+    id: 'trips',
+      data: trips,
+      getPath: d => d.path,
+      getTimestamps: d => d.timestamps,
+      getColor: [253, 128, 93],
+      opacity: 0.3,
+      widthMinPixels: 4,
+      rounded: true,
+      trailLength: 180,
+      currentTime: time,
+
+      shadowEnabled: false
+  });
+
+
   map.on("load", () => {
+    map.addLayer(heatMarkersLayer);
+    
     map.loadImage("./data/park.png", (error, image) => {
       if (error) throw error;
 
@@ -177,8 +213,6 @@ export function renderToDOM(container, data) {
         "line-width": 4,
       },
     });
-
-    map.moveLayer("add-3d-buildings");
 
     map.flyTo({
       center: [-0.128343, 51.511364],
