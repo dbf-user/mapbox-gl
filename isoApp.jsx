@@ -320,7 +320,7 @@ export const App = () => {
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
-
+  
   return (
     <>
       <div class="overlay">
@@ -342,4 +342,4 @@ export const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default App;
