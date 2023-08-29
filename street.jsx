@@ -8,6 +8,9 @@ import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 
 import t from "./data/test.json";
+import sol from "./data/geo.json";
+import sol1 from "./data/Solution-Blocks.json";
+import sol4 from "./data/Sol4.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -23,9 +26,9 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.126323, 51.504758],// [-0.127997, 51.507969],
-    zoom: 15,
-    pitch: 45,
+    center: [-0.118969, 51.511692],// [-0.127997, 51.507969], , 
+    zoom: 16,
+    pitch: 60,
     minZoom: 14, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
@@ -35,9 +38,9 @@ export function renderToDOM(container, data) {
   });
 
 
-  const modelOrigin = [-0.12095121167105409, 51.510261573370585];
+  const modelOrigin = [-0.119360145693761,51.5148376818842];
 const modelAltitude = 0;
-const modelRotate = [Math.PI / 2, 0, 0];
+const modelRotate = [Math.PI / 2, 1.5, 0];
  
 const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
 modelOrigin,
@@ -82,7 +85,7 @@ this.scene.add(directionalLight2);
 // use the three.js GLTF loader to add the 3D model to the three.js scene
 const loader = new THREE.GLTFLoader();
 loader.load(
-'./data/dbf.gltf',
+'./data/sol3.gltf',
 (gltf) => {
 this.scene.add(gltf.scene);
 }
@@ -137,47 +140,47 @@ this.map.triggerRepaint();
 }
 };
 
-map.on('style.load', () => {
-  map.addLayer(customLayer);
-  });
+// map.on('style.load', () => {
+//   map.addLayer(customLayer);
+//   });
   
 
   map.on("load", () => {
-    // map.addLayer({
-    //   id: "add-3d-buildings",
-    //   source: "composite",
-    //   "source-layer": "building",
-    //   filter: ["==", "extrude", "true"],
-    //   type: "fill-extrusion",
-    //   minzoom: 13,
-    //   paint: {
-    //     "fill-extrusion-color": "#7182A6",
-    //     "fill-extrusion-ambient-occlusion-intensity": 0.8,
-    //     "fill-extrusion-height": [
-    //       "interpolate",
-    //       ["linear"],
-    //       ["zoom"],
-    //       15,
-    //       0,
-    //       15.05,
-    //       ["get", "height"],
-    //     ],
-    //     "fill-extrusion-base": [
-    //       "interpolate",
-    //       ["linear"],
-    //       ["zoom"],
-    //       15,
-    //       0,
-    //       15.05,
-    //       ["get", "min_height"],
-    //     ],
-    //     "fill-extrusion-opacity": 0.8,
-    //   },
-    // });
+    map.addLayer({
+      id: "add-3d-buildings",
+      source: "composite",
+      "source-layer": "building",
+      filter: ["==", "extrude", "true"],
+      type: "fill-extrusion",
+      minzoom: 13,
+      paint: {
+        "fill-extrusion-color": "#7182A6",
+        "fill-extrusion-ambient-occlusion-intensity": 0.8,
+        "fill-extrusion-height": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          0,
+          15.05,
+          ["get", "height"],
+        ],
+        "fill-extrusion-base": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          15,
+          0,
+          15.05,
+          ["get", "min_height"],
+        ],
+        "fill-extrusion-opacity": 0.8,
+      },
+    });
 
     map.addSource('my_test', {
       'type': 'geojson',
-      'data': t
+      'data': sol
   });
 
   map.addLayer({
@@ -188,9 +191,44 @@ map.on('style.load', () => {
         'fill-extrusion-color': ['get', 'color'],
         'fill-extrusion-height': ["get", "height"],
         'fill-extrusion-base': ["get", "base_height"],
-        'fill-extrusion-opacity': 0.9
+        'fill-extrusion-opacity': 1
     }
 });
+
+
+    map.addSource('my_test1', {
+      'type': 'geojson',
+      'data': sol1
+    });
+
+    map.addLayer({
+    'id': 'extrusion1',
+    'type': 'fill-extrusion',
+    'source': 'my_test1',
+    'paint': {
+        'fill-extrusion-color': ['get', 'color'],
+        'fill-extrusion-height': ["get", "height"],
+        'fill-extrusion-base': ["get", "base_height"],
+        'fill-extrusion-opacity': 1
+    }
+    });
+
+    map.addSource('my_test2', {
+      'type': 'geojson',
+      'data': sol4
+    });
+
+    map.addLayer({
+    'id': 'extrusion2',
+    'type': 'fill-extrusion',
+    'source': 'my_test2',
+    'paint': {
+        'fill-extrusion-color': ['get', 'color'],
+        'fill-extrusion-height': ["get", "height"],
+        'fill-extrusion-base': ["get", "base_height"],
+        'fill-extrusion-opacity': 1
+    }
+    });
 
     
     map.addSource('buildings', {
@@ -208,9 +246,10 @@ map.on('style.load', () => {
         "line-width": 4,
       }, 
     });
+    map.moveLayer('extrusion');
+    map.moveLayer('extrusion1');
+    map.moveLayer('extrusion2');
 
-    
-    map.moveLayer('lines');
     map.moveLayer('add-3d-buildings');
 
   });
