@@ -159,11 +159,6 @@ export const App = () => {
 
   return (
     <>
-      <div class="overlay">
-        <h1>Reduce Carbon Emissions for your</h1>  
-
-        <h1>neighborhood</h1>
-      </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"

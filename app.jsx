@@ -91,11 +91,11 @@ export const App = () => {
       data: trips,
       getPath: (d) => d.path,
       getTimestamps: (d) => d.timestamps,
-      getColor: [255, 0, 0],
+      getColor: [253, 128, 93],
       opacity: 0.9,
       widthMinPixels: 4,
       jointRounded: true,
-      trailLength: 180,
+      trailLength: 120,
       currentTime: myTime,
       shadowEnabled: false,
     });
@@ -201,35 +201,7 @@ export const App = () => {
         },
       });
 
-      // Add a GeoJSON layer with lines
-      map.addLayer({
-        id: "lines2",
-        type: "fill",
-        source: "buildings",
-        paint: {
-          "fill-color": "#A7DD88",
-          "fill-emissive-strength": 0.5,
-          "fill-opacity": 0.8,
-        },
-      });
       map.moveLayer("add-3d-buildings");
-
-      map.addSource("paths", {
-        type: "geojson",
-        data: pathways,
-        lineMetrics: true,
-      });
-
-      map.addLayer({
-        id: "tp-line-line",
-        type: "line",
-        source: "paths",
-        paint: {
-          "line-color": "rgba(0, 0, 0, 0)",
-          "line-emissive-strength": 2,
-          "line-width": 4,
-        },
-      });
 
       map.flyTo({
         center: [-0.128343, 51.511364],
@@ -298,11 +270,6 @@ export const App = () => {
   return (
     <>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-        <div class="overlay">
-          <h1>AI-Powered Planning and Designis</h1>
-
-          <h1>for Complex Urban Projects</h1>
-        </div>
       </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
