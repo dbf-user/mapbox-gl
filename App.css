@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .buttons-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .map-button {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    background-color: #2C3032;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .png-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .co2-icon {
+    width: 35px;
+    height: 17px;
+  }
+
+  .selected {
+    background-color: #bdbcbc;
+    border: 2.5px solid #ffffff;
+  }
+
+  .app-container.hide {
+    display: none;
+  }

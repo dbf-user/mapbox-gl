@@ -11,6 +11,13 @@ import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 import pathways from "./data/co2.json";
+import "./App.css";
+import treeIcon from "./icons/tree-silhouette.png";
+import co2Icon from "./icons/Co2.png";
+import houseIcon from "./icons/flooded-house.png";
+import otherIcon from "./icons/other.png";
+import IsoApp from "./isoApp.jsx";
+import Co2App from "./co2.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -22,11 +29,12 @@ let title = "15 Parks";
 let buildingCount = 353;
 let map;
 
+
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.126323, 51.504758],// [-0.127997, 51.507969],
+    center: [-0.126323, 51.504758], // [-0.127997, 51.507969],
     zoom: 16,
     pitch: 45,
     minZoom: 15, // Set the minimum zoom level
@@ -83,25 +91,24 @@ export function renderToDOM(container, data) {
     });
     map.moveLayer("add-3d-buildings");
 
-    map.addSource('paths', {
-      'type': 'geojson',
+    map.addSource("paths", {
+      type: "geojson",
       data: pathways,
-      lineMetrics: true
+      lineMetrics: true,
     });
-    
-    
+
     map.addLayer({
       id: "tp-line-line",
       type: "line",
-      source: 'paths',
+      source: "paths",
       paint: {
         "line-color": "rgba(0, 0, 0, 0)",
-        'line-emissive-strength': 2,
+        "line-emissive-strength": 2,
         "line-width": 4,
-      }
+      },
     });
 
-    map.moveLayer('add-3d-buildings');
+    map.moveLayer("add-3d-buildings");
 
     map.flyTo({
       center: [-0.128343, 51.511364],
@@ -110,18 +117,17 @@ export function renderToDOM(container, data) {
       zoom: 18,
       curve: 1,
       easing(t) {
-      return t;
-      }
-
-      });
+        return t;
+      },
+    });
 
     let startTime;
     const duration = 3000;
-  
+
     const frame = (time) => {
       if (!startTime) startTime = time;
       const animationPhase = (time - startTime) / duration;
-  
+
       // Reduce the visible length of the line by using a line-gradient to cutoff the line
       // animationPhase is a value between 0 and 1 that reprents the progress of the animation
       map.setPaintProperty("tp-line-line", "line-gradient", [
@@ -129,37 +135,61 @@ export function renderToDOM(container, data) {
         ["line-progress"],
         "#FD805D",
         animationPhase,
-        "rgba(0, 0, 0, 0)"
+        "rgba(0, 0, 0, 0)",
       ]);
-  
+
       if (animationPhase > 1) {
         return;
       }
       window.requestAnimationFrame(frame);
     };
-  
+
     window.requestAnimationFrame(frame);
-  
+
     // repeat
     setInterval(() => {
       startTime = undefined;
       window.requestAnimationFrame(frame);
     }, duration + 1500);
-
   });
 }
 
 export const App = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [showAnotherComponent, setShowAnotherComponent] = useState(false);
+
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
 
+  const handleButtonClick = (buttonId) => {
+    if (selectedButton === buttonId) {
+      setSelectedButton(null);
+    } else {
+      setSelectedButton(buttonId); 
+      setShowAnotherComponent(true);
+    }
+  };
+
+  const renderSelectedComponent = () => {
+    switch (selectedButton) {
+      case "park":
+        return <IsoApp />;
+      case "co2":
+        return <Co2App />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
+      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
       <div class="overlay">
         <h1>AI-Powered Planning and Designis</h1>
 
         <h1>for Complex Urban Projects</h1>
+      </div>
       </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
@@ -170,6 +200,40 @@ export const App = () => {
           }}
         ></div>
       </div>
+      <div className="buttons-container">
+        <button
+          className={`map-button ${
+            selectedButton === "park" ? "selected" : ""
+          }`}
+          onClick={() => handleButtonClick("park")}
+        >
+          <img src={treeIcon} alt="Icon" className="png-icon" />
+        </button>
+        <button
+          className={`map-button ${selectedButton === "co2" ? "selected" : ""}`}
+          onClick={() => handleButtonClick("co2")}
+        >
+          <img src={co2Icon} alt="Icon" className="co2-icon" />
+        </button>
+        <button
+          className={`map-button ${
+            selectedButton === "flood" ? "selected" : ""
+          }`}
+          onClick={() => handleButtonClick("flood")}
+        >
+          <img src={houseIcon} alt="Icon" className="png-icon" />
+        </button>
+        <button
+          className={`map-button ${
+            selectedButton === "other" ? "selected" : ""
+          }`}
+          onClick={() => handleButtonClick("other")}
+        >
+          <img src={otherIcon} alt="Icon" className="png-icon" />
+        </button>
+      </div>
+
+      {renderSelectedComponent()}
     </>
   );
 };
