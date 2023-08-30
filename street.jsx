@@ -140,6 +140,10 @@ export function renderToDOM(container, data) {
   //   map.addLayer(customLayer);
   //   });
 
+  const getPopUp = (data) => `<strong>${data}</strong><p>
+  <div style="font-weight:600; padding:4px;margin:0px 2px 0px 0px;display:inline;background-color:red;border-radius:6px;">test</div>
+  </p>`;
+
   map.on("load", () => {
     map.addLayer({
       id: "add-3d-buildings",
@@ -254,10 +258,26 @@ export function renderToDOM(container, data) {
     // } else {
     //   filter_map = ["all", ...filter_map, filter];
     // }
-
-    console.log(filter_map);
-
     map.setFilter("add-3d-buildings", filter_map);
+
+    map.on("click", "extrusion", (e) => {
+      const description = e.features[0].properties.program;
+
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(getPopUp(description))
+        .addTo(map);
+    });
+
+    map.on("click", "extrusion1", (e) => {
+      console.log(e.features[0]);
+      const description = e.features[0].properties.program;
+
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(getPopUp(description))
+        .addTo(map);
+    });
   });
 }
 
