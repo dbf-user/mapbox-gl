@@ -23,6 +23,7 @@ import otherIcon from "./icons/other.png";
 import Floods from "./floods.jsx";
 import IsoApp from "./isoApp.jsx";
 import Co2App from "./co2.jsx";
+import StreetApp from "./street.jsx";
 import pathways from "./data/trips.json";
 
 // Set your Mapbox token here
@@ -234,6 +235,9 @@ export const App = () => {
         return <Floods />;
       case "co2":
         return <Co2App />;
+      case "other":
+          return <StreetApp />;
+        
       default:
         return null;
     }
