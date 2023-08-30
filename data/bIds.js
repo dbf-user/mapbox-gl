@@ -361,12 +361,12 @@ export const idx = [
   },
   {
     id: 153342457,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 153342473,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -376,7 +376,7 @@ export const idx = [
   },
   {
     id: 1171085533,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -406,7 +406,7 @@ export const idx = [
   },
   {
     id: 1012865718,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1406,7 +1406,7 @@ export const idx = [
   },
   {
     id: 558503742,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1451,7 +1451,7 @@ export const idx = [
   },
   {
     id: 558503748,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1471,7 +1471,7 @@ export const idx = [
   },
   {
     id: 488459121,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1491,7 +1491,7 @@ export const idx = [
   },
   {
     id: 558503749,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1536,7 +1536,7 @@ export const idx = [
   },
   {
     id: 558503751,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1556,7 +1556,7 @@ export const idx = [
   },
   {
     id: 107035575,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1566,7 +1566,7 @@ export const idx = [
   },
   {
     id: 107035577,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1581,7 +1581,7 @@ export const idx = [
   },
   {
     id: 107035584,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1601,12 +1601,12 @@ export const idx = [
   },
   {
     id: 107035579,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 487924796,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1681,7 +1681,7 @@ export const idx = [
   },
   {
     id: 107035580,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1936,7 +1936,7 @@ export const idx = [
   },
   {
     id: 67864973,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1956,7 +1956,7 @@ export const idx = [
   },
   {
     id: 68155984,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -1996,7 +1996,7 @@ export const idx = [
   },
   {
     id: 100013449,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2011,7 +2011,7 @@ export const idx = [
   },
   {
     id: 100013425,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2026,7 +2026,7 @@ export const idx = [
   },
   {
     id: 68155989,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2216,7 +2216,7 @@ export const idx = [
   },
   {
     id: 670350874,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2251,7 +2251,7 @@ export const idx = [
   },
   {
     id: 68155992,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2261,7 +2261,7 @@ export const idx = [
   },
   {
     id: 487103528,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2286,7 +2286,7 @@ export const idx = [
   },
   {
     id: 670350873,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2331,12 +2331,12 @@ export const idx = [
   },
   {
     id: 670350872,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670350859,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2381,7 +2381,7 @@ export const idx = [
   },
   {
     id: 670350857,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2471,7 +2471,7 @@ export const idx = [
   },
   {
     id: 670350858,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2486,7 +2486,7 @@ export const idx = [
   },
   {
     id: 140519664,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2501,7 +2501,7 @@ export const idx = [
   },
   {
     id: 670350856,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2581,7 +2581,7 @@ export const idx = [
   },
   {
     id: 670350862,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2611,7 +2611,7 @@ export const idx = [
   },
   {
     id: 183362117,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2651,7 +2651,7 @@ export const idx = [
   },
   {
     id: 670350868,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2706,7 +2706,7 @@ export const idx = [
   },
   {
     id: 183362087,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2756,7 +2756,7 @@ export const idx = [
   },
   {
     id: 183362101,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2766,7 +2766,7 @@ export const idx = [
   },
   {
     id: 183362092,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2866,7 +2866,7 @@ export const idx = [
   },
   {
     id: 183362112,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2881,7 +2881,7 @@ export const idx = [
   },
   {
     id: 183362088,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2916,7 +2916,7 @@ export const idx = [
   },
   {
     id: 183362116,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2951,7 +2951,7 @@ export const idx = [
   },
   {
     id: 146481553,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -2996,7 +2996,7 @@ export const idx = [
   },
   {
     id: 632799215,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3016,7 +3016,7 @@ export const idx = [
   },
   {
     id: 109548828,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3051,7 +3051,7 @@ export const idx = [
   },
   {
     id: 632799217,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3096,12 +3096,12 @@ export const idx = [
   },
   {
     id: 632799216,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 175155037,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3121,7 +3121,7 @@ export const idx = [
   },
   {
     id: 173544229,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3186,7 +3186,7 @@ export const idx = [
   },
   {
     id: 565171597,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3321,12 +3321,12 @@ export const idx = [
   },
   {
     id: 632799212,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 632799220,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3341,7 +3341,7 @@ export const idx = [
   },
   {
     id: 632799206,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3401,7 +3401,7 @@ export const idx = [
   },
   {
     id: 146481551,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3426,7 +3426,7 @@ export const idx = [
   },
   {
     id: 183360812,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3451,17 +3451,17 @@ export const idx = [
   },
   {
     id: 183361414,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 146481552,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 146481552,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3491,7 +3491,7 @@ export const idx = [
   },
   {
     id: 183360823,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3506,17 +3506,17 @@ export const idx = [
   },
   {
     id: 183360822,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 565171633,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 140519663,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3531,7 +3531,7 @@ export const idx = [
   },
   {
     id: 146481550,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3571,7 +3571,7 @@ export const idx = [
   },
   {
     id: 183360805,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3591,7 +3591,7 @@ export const idx = [
   },
   {
     id: 632799209,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3621,7 +3621,7 @@ export const idx = [
   },
   {
     id: 565171598,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3631,7 +3631,7 @@ export const idx = [
   },
   {
     id: 183360831,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3686,17 +3686,17 @@ export const idx = [
   },
   {
     id: 183361415,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 183361415,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 632799218,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3716,7 +3716,7 @@ export const idx = [
   },
   {
     id: 183360804,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3776,7 +3776,7 @@ export const idx = [
   },
   {
     id: 565171634,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3846,7 +3846,7 @@ export const idx = [
   },
   {
     id: 183360811,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3891,12 +3891,12 @@ export const idx = [
   },
   {
     id: 48615822,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 183360813,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3916,7 +3916,7 @@ export const idx = [
   },
   {
     id: 183360815,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3926,12 +3926,12 @@ export const idx = [
   },
   {
     id: 183361418,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 183361416,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -3981,7 +3981,7 @@ export const idx = [
   },
   {
     id: 83247417,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4026,7 +4026,7 @@ export const idx = [
   },
   {
     id: 183360818,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4051,7 +4051,7 @@ export const idx = [
   },
   {
     id: 565171603,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4061,7 +4061,7 @@ export const idx = [
   },
   {
     id: 183360814,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4176,7 +4176,7 @@ export const idx = [
   },
   {
     id: 565171602,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4196,7 +4196,7 @@ export const idx = [
   },
   {
     id: 183360807,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4251,7 +4251,7 @@ export const idx = [
   },
   {
     id: 48615823,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4276,7 +4276,7 @@ export const idx = [
   },
   {
     id: 183360842,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4296,7 +4296,7 @@ export const idx = [
   },
   {
     id: 183361420,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4336,7 +4336,7 @@ export const idx = [
   },
   {
     id: 186337081,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4431,7 +4431,7 @@ export const idx = [
   },
   {
     id: 183360828,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4476,7 +4476,7 @@ export const idx = [
   },
   {
     id: 175155084,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4586,7 +4586,7 @@ export const idx = [
   },
   {
     id: 183360827,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4616,7 +4616,7 @@ export const idx = [
   },
   {
     id: 83247416,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4626,7 +4626,7 @@ export const idx = [
   },
   {
     id: 175155025,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4681,7 +4681,7 @@ export const idx = [
   },
   {
     id: 186337065,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4701,7 +4701,7 @@ export const idx = [
   },
   {
     id: 186337052,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4721,7 +4721,7 @@ export const idx = [
   },
   {
     id: 183360797,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4751,12 +4751,12 @@ export const idx = [
   },
   {
     id: 186337061,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 186337089,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4831,7 +4831,7 @@ export const idx = [
   },
   {
     id: 175151258,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4911,7 +4911,7 @@ export const idx = [
   },
   {
     id: 183360798,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -4941,7 +4941,7 @@ export const idx = [
   },
   {
     id: 570405439,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5006,12 +5006,12 @@ export const idx = [
   },
   {
     id: 157779529,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 157779556,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5061,7 +5061,7 @@ export const idx = [
   },
   {
     id: 207104926,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5076,7 +5076,7 @@ export const idx = [
   },
   {
     id: 562915970,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5091,7 +5091,7 @@ export const idx = [
   },
   {
     id: 562915972,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5121,7 +5121,7 @@ export const idx = [
   },
   {
     id: 183360801,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5131,7 +5131,7 @@ export const idx = [
   },
   {
     id: 186337073,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5146,7 +5146,7 @@ export const idx = [
   },
   {
     id: 175151251,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5166,12 +5166,12 @@ export const idx = [
   },
   {
     id: 274456438,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 274456437,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5186,22 +5186,22 @@ export const idx = [
   },
   {
     id: 564154540,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 564154540,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 207104925,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 207104925,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5226,7 +5226,7 @@ export const idx = [
   },
   {
     id: 183360808,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5256,7 +5256,7 @@ export const idx = [
   },
   {
     id: 564154536,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5271,7 +5271,7 @@ export const idx = [
   },
   {
     id: 175151249,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5281,7 +5281,7 @@ export const idx = [
   },
   {
     id: 175151256,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5321,7 +5321,7 @@ export const idx = [
   },
   {
     id: 183360809,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5361,7 +5361,7 @@ export const idx = [
   },
   {
     id: 175151248,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5416,7 +5416,7 @@ export const idx = [
   },
   {
     id: 183360800,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5441,12 +5441,12 @@ export const idx = [
   },
   {
     id: 175151260,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 186337094,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5471,7 +5471,7 @@ export const idx = [
   },
   {
     id: 186337093,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5496,7 +5496,7 @@ export const idx = [
   },
   {
     id: 175151254,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5506,7 +5506,7 @@ export const idx = [
   },
   {
     id: 173544292,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5531,7 +5531,7 @@ export const idx = [
   },
   {
     id: 183360820,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5541,7 +5541,7 @@ export const idx = [
   },
   {
     id: 186337067,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5551,7 +5551,7 @@ export const idx = [
   },
   {
     id: 183360826,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5596,7 +5596,7 @@ export const idx = [
   },
   {
     id: 173544306,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5611,7 +5611,7 @@ export const idx = [
   },
   {
     id: 183360806,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5651,12 +5651,12 @@ export const idx = [
   },
   {
     id: 173544287,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 157779542,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5671,7 +5671,7 @@ export const idx = [
   },
   {
     id: 173544254,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5706,7 +5706,7 @@ export const idx = [
   },
   {
     id: 175151246,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5726,7 +5726,7 @@ export const idx = [
   },
   {
     id: 186337085,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5746,7 +5746,7 @@ export const idx = [
   },
   {
     id: 173544291,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5761,12 +5761,12 @@ export const idx = [
   },
   {
     id: 562915973,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 562915968,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5791,7 +5791,7 @@ export const idx = [
   },
   {
     id: 186337090,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5846,7 +5846,7 @@ export const idx = [
   },
   {
     id: 173544267,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5866,7 +5866,7 @@ export const idx = [
   },
   {
     id: 175151253,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5881,12 +5881,12 @@ export const idx = [
   },
   {
     id: 186337068,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544289,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5896,7 +5896,7 @@ export const idx = [
   },
   {
     id: 186337059,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5916,7 +5916,7 @@ export const idx = [
   },
   {
     id: 173544313,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5956,7 +5956,7 @@ export const idx = [
   },
   {
     id: 186337080,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -5971,7 +5971,7 @@ export const idx = [
   },
   {
     id: 186337076,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6046,17 +6046,17 @@ export const idx = [
   },
   {
     id: 562915967,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986888107,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544268,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6071,12 +6071,12 @@ export const idx = [
   },
   {
     id: 173544226,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544320,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6111,12 +6111,12 @@ export const idx = [
   },
   {
     id: 565171623,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544293,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6166,7 +6166,7 @@ export const idx = [
   },
   {
     id: 173544298,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6251,7 +6251,7 @@ export const idx = [
   },
   {
     id: 173544246,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6261,7 +6261,7 @@ export const idx = [
   },
   {
     id: 485638351,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6296,32 +6296,32 @@ export const idx = [
   },
   {
     id: 40470534,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 139810560,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 139810560,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 139810560,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 139810560,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 139810560,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6411,7 +6411,7 @@ export const idx = [
   },
   {
     id: 123318572,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6481,12 +6481,12 @@ export const idx = [
   },
   {
     id: 485638349,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 485638350,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6526,7 +6526,7 @@ export const idx = [
   },
   {
     id: 485638347,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6541,7 +6541,7 @@ export const idx = [
   },
   {
     id: 206248411,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6556,7 +6556,7 @@ export const idx = [
   },
   {
     id: 173544657,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6606,22 +6606,22 @@ export const idx = [
   },
   {
     id: 569883326,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883326,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883326,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883326,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6656,7 +6656,7 @@ export const idx = [
   },
   {
     id: 123318579,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6666,32 +6666,32 @@ export const idx = [
   },
   {
     id: 569883324,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883324,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883324,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883324,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883324,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883324,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6706,7 +6706,7 @@ export const idx = [
   },
   {
     id: 186337078,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6746,7 +6746,7 @@ export const idx = [
   },
   {
     id: 173544662,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6781,37 +6781,37 @@ export const idx = [
   },
   {
     id: 569883330,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883330,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883330,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883330,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883330,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883330,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 485638348,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6876,32 +6876,32 @@ export const idx = [
   },
   {
     id: 569883333,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883333,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883333,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883333,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883333,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 569883333,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6946,7 +6946,7 @@ export const idx = [
   },
   {
     id: 186337075,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6961,7 +6961,7 @@ export const idx = [
   },
   {
     id: 83247415,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -6991,12 +6991,12 @@ export const idx = [
   },
   {
     id: 173544663,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 186337095,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7016,7 +7016,7 @@ export const idx = [
   },
   {
     id: 186337053,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7036,7 +7036,7 @@ export const idx = [
   },
   {
     id: 186337079,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7171,7 +7171,7 @@ export const idx = [
   },
   {
     id: 173544664,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7251,7 +7251,7 @@ export const idx = [
   },
   {
     id: 559946421,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7311,7 +7311,7 @@ export const idx = [
   },
   {
     id: 986906895,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7351,7 +7351,7 @@ export const idx = [
   },
   {
     id: 173544659,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7436,7 +7436,7 @@ export const idx = [
   },
   {
     id: 186337058,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7491,12 +7491,12 @@ export const idx = [
   },
   {
     id: 80119137,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544660,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7566,7 +7566,7 @@ export const idx = [
   },
   {
     id: 173544661,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7591,7 +7591,7 @@ export const idx = [
   },
   {
     id: 186337064,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7616,7 +7616,7 @@ export const idx = [
   },
   {
     id: 123318580,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7761,7 +7761,7 @@ export const idx = [
   },
   {
     id: 186337062,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7791,12 +7791,12 @@ export const idx = [
   },
   {
     id: 986906896,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123318574,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7846,7 +7846,7 @@ export const idx = [
   },
   {
     id: 186337082,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7876,7 +7876,7 @@ export const idx = [
   },
   {
     id: 123318583,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7916,7 +7916,7 @@ export const idx = [
   },
   {
     id: 173544317,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -7996,7 +7996,7 @@ export const idx = [
   },
   {
     id: 123318584,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8016,7 +8016,7 @@ export const idx = [
   },
   {
     id: 123318575,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8041,7 +8041,7 @@ export const idx = [
   },
   {
     id: 559946401,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8096,7 +8096,7 @@ export const idx = [
   },
   {
     id: 206248412,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8151,7 +8151,7 @@ export const idx = [
   },
   {
     id: 173544318,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8196,7 +8196,7 @@ export const idx = [
   },
   {
     id: 206248408,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8261,7 +8261,7 @@ export const idx = [
   },
   {
     id: 206248406,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8291,7 +8291,7 @@ export const idx = [
   },
   {
     id: 173544281,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8336,7 +8336,7 @@ export const idx = [
   },
   {
     id: 206248409,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8351,12 +8351,12 @@ export const idx = [
   },
   {
     id: 80058703,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544280,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8446,7 +8446,7 @@ export const idx = [
   },
   {
     id: 206248410,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8526,7 +8526,7 @@ export const idx = [
   },
   {
     id: 109548831,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8571,22 +8571,22 @@ export const idx = [
   },
   {
     id: 80208389,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80208384,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80208384,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544243,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8621,7 +8621,7 @@ export const idx = [
   },
   {
     id: 173544259,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8666,7 +8666,7 @@ export const idx = [
   },
   {
     id: 987016404,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8711,7 +8711,7 @@ export const idx = [
   },
   {
     id: 173544230,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8746,7 +8746,7 @@ export const idx = [
   },
   {
     id: 80058704,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8891,7 +8891,7 @@ export const idx = [
   },
   {
     id: 80058708,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8911,12 +8911,12 @@ export const idx = [
   },
   {
     id: 80208388,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 173544232,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8941,7 +8941,7 @@ export const idx = [
   },
   {
     id: 559946378,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8971,7 +8971,7 @@ export const idx = [
   },
   {
     id: 173544276,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -8991,12 +8991,12 @@ export const idx = [
   },
   {
     id: 559946375,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 559946379,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9011,7 +9011,7 @@ export const idx = [
   },
   {
     id: 559946381,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9021,12 +9021,12 @@ export const idx = [
   },
   {
     id: 173544231,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988767810,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9041,12 +9041,12 @@ export const idx = [
   },
   {
     id: 988767808,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988767808,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9056,12 +9056,12 @@ export const idx = [
   },
   {
     id: 987016405,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 987016405,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9071,12 +9071,12 @@ export const idx = [
   },
   {
     id: 55727801,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 561948,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9111,7 +9111,7 @@ export const idx = [
   },
   {
     id: 80208385,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9161,7 +9161,7 @@ export const idx = [
   },
   {
     id: 559946382,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9186,7 +9186,7 @@ export const idx = [
   },
   {
     id: 559946380,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9201,12 +9201,12 @@ export const idx = [
   },
   {
     id: 559946377,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80058712,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9246,7 +9246,7 @@ export const idx = [
   },
   {
     id: 80208386,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9341,7 +9341,7 @@ export const idx = [
   },
   {
     id: 559946376,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9361,7 +9361,7 @@ export const idx = [
   },
   {
     id: 475721750,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9401,7 +9401,7 @@ export const idx = [
   },
   {
     id: 987016385,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9441,7 +9441,7 @@ export const idx = [
   },
   {
     id: 987016387,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9471,7 +9471,7 @@ export const idx = [
   },
   {
     id: 475721760,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9521,7 +9521,7 @@ export const idx = [
   },
   {
     id: 559946413,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9536,12 +9536,12 @@ export const idx = [
   },
   {
     id: 559946414,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475721762,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9586,7 +9586,7 @@ export const idx = [
   },
   {
     id: 987016389,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9621,7 +9621,7 @@ export const idx = [
   },
   {
     id: 987016391,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9641,7 +9641,7 @@ export const idx = [
   },
   {
     id: 80208387,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9651,7 +9651,7 @@ export const idx = [
   },
   {
     id: 80058706,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9661,7 +9661,7 @@ export const idx = [
   },
   {
     id: 987016386,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9676,12 +9676,12 @@ export const idx = [
   },
   {
     id: 475721764,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475721770,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9701,7 +9701,7 @@ export const idx = [
   },
   {
     id: 477598173,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9711,7 +9711,7 @@ export const idx = [
   },
   {
     id: 560380541,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9731,7 +9731,7 @@ export const idx = [
   },
   {
     id: 559946372,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9746,7 +9746,7 @@ export const idx = [
   },
   {
     id: 987016383,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9756,17 +9756,17 @@ export const idx = [
   },
   {
     id: 559946412,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475721767,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 477598220,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9786,7 +9786,7 @@ export const idx = [
   },
   {
     id: 478686286,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9821,17 +9821,17 @@ export const idx = [
   },
   {
     id: 987016384,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 559946373,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 987016388,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9841,7 +9841,7 @@ export const idx = [
   },
   {
     id: 987016390,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9861,7 +9861,7 @@ export const idx = [
   },
   {
     id: 475721771,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9946,7 +9946,7 @@ export const idx = [
   },
   {
     id: 560380540,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9956,7 +9956,7 @@ export const idx = [
   },
   {
     id: 477598221,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9981,7 +9981,7 @@ export const idx = [
   },
   {
     id: 477598177,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -9991,12 +9991,12 @@ export const idx = [
   },
   {
     id: 986977630,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80120140,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10016,7 +10016,7 @@ export const idx = [
   },
   {
     id: 560380554,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10066,12 +10066,12 @@ export const idx = [
   },
   {
     id: 560380536,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380537,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10111,12 +10111,12 @@ export const idx = [
   },
   {
     id: 477598223,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 98535848,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10166,12 +10166,12 @@ export const idx = [
   },
   {
     id: 560380561,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380544,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10201,12 +10201,12 @@ export const idx = [
   },
   {
     id: 560380543,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380542,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10281,12 +10281,12 @@ export const idx = [
   },
   {
     id: 560380538,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 61926915,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10306,7 +10306,7 @@ export const idx = [
   },
   {
     id: 560380535,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10316,12 +10316,12 @@ export const idx = [
   },
   {
     id: 98535869,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380564,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10336,7 +10336,7 @@ export const idx = [
   },
   {
     id: 986977633,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10376,7 +10376,7 @@ export const idx = [
   },
   {
     id: 477598226,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10391,17 +10391,17 @@ export const idx = [
   },
   {
     id: 560380566,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148522891,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380545,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10426,7 +10426,7 @@ export const idx = [
   },
   {
     id: 477598227,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10456,12 +10456,12 @@ export const idx = [
   },
   {
     id: 560380547,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 477598198,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10481,17 +10481,17 @@ export const idx = [
   },
   {
     id: 98535857,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988767802,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148522903,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10516,12 +10516,12 @@ export const idx = [
   },
   {
     id: 560380539,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 98535873,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10546,7 +10546,7 @@ export const idx = [
   },
   {
     id: 475721732,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10566,7 +10566,7 @@ export const idx = [
   },
   {
     id: 65489526,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10591,7 +10591,7 @@ export const idx = [
   },
   {
     id: 560380569,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10606,7 +10606,7 @@ export const idx = [
   },
   {
     id: 474509246,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10621,7 +10621,7 @@ export const idx = [
   },
   {
     id: 61509992,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10631,12 +10631,12 @@ export const idx = [
   },
   {
     id: 80120139,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 478529813,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10646,7 +10646,7 @@ export const idx = [
   },
   {
     id: 986977634,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10676,7 +10676,7 @@ export const idx = [
   },
   {
     id: 560380549,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10686,7 +10686,7 @@ export const idx = [
   },
   {
     id: 98535855,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10696,17 +10696,17 @@ export const idx = [
   },
   {
     id: 148522890,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148522890,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148522892,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10731,7 +10731,7 @@ export const idx = [
   },
   {
     id: 560380580,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10761,7 +10761,7 @@ export const idx = [
   },
   {
     id: 98535860,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10781,7 +10781,7 @@ export const idx = [
   },
   {
     id: 65489509,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10806,7 +10806,7 @@ export const idx = [
   },
   {
     id: 148519549,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10821,7 +10821,7 @@ export const idx = [
   },
   {
     id: 65489545,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10836,12 +10836,12 @@ export const idx = [
   },
   {
     id: 476776071,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 477598228,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10851,7 +10851,7 @@ export const idx = [
   },
   {
     id: 477598202,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10861,22 +10861,22 @@ export const idx = [
   },
   {
     id: 98535870,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 98535875,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986977635,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 476776078,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10941,7 +10941,7 @@ export const idx = [
   },
   {
     id: 148522901,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10956,12 +10956,12 @@ export const idx = [
   },
   {
     id: 476776074,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148388404,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10971,7 +10971,7 @@ export const idx = [
   },
   {
     id: 560380578,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -10981,7 +10981,7 @@ export const idx = [
   },
   {
     id: 560380582,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11001,7 +11001,7 @@ export const idx = [
   },
   {
     id: 476776075,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11026,17 +11026,17 @@ export const idx = [
   },
   {
     id: 98535846,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 476776076,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380602,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11051,7 +11051,7 @@ export const idx = [
   },
   {
     id: 98535858,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11066,7 +11066,7 @@ export const idx = [
   },
   {
     id: 477598205,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11086,7 +11086,7 @@ export const idx = [
   },
   {
     id: 560380598,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11106,7 +11106,7 @@ export const idx = [
   },
   {
     id: 98535862,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11121,12 +11121,12 @@ export const idx = [
   },
   {
     id: 148519540,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380585,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11136,12 +11136,12 @@ export const idx = [
   },
   {
     id: 560380551,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475721731,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11161,22 +11161,22 @@ export const idx = [
   },
   {
     id: 148388414,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380591,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 40470552,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 476776065,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11186,17 +11186,17 @@ export const idx = [
   },
   {
     id: 560380594,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 98535845,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988767797,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11206,12 +11206,12 @@ export const idx = [
   },
   {
     id: 148519552,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988767796,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11266,12 +11266,12 @@ export const idx = [
   },
   {
     id: 476776085,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 98535866,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11286,7 +11286,7 @@ export const idx = [
   },
   {
     id: 475721726,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11326,12 +11326,12 @@ export const idx = [
   },
   {
     id: 560380571,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 28416499,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11361,17 +11361,17 @@ export const idx = [
   },
   {
     id: 148388416,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560380573,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 474509247,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11396,12 +11396,12 @@ export const idx = [
   },
   {
     id: 61509999,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475957289,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11446,7 +11446,7 @@ export const idx = [
   },
   {
     id: 65489530,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11471,7 +11471,7 @@ export const idx = [
   },
   {
     id: 277929222,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11496,7 +11496,7 @@ export const idx = [
   },
   {
     id: 474509248,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11511,7 +11511,7 @@ export const idx = [
   },
   {
     id: 988777682,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11521,12 +11521,12 @@ export const idx = [
   },
   {
     id: 148388411,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988777683,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11551,7 +11551,7 @@ export const idx = [
   },
   {
     id: 560417482,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11566,7 +11566,7 @@ export const idx = [
   },
   {
     id: 474509266,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11596,7 +11596,7 @@ export const idx = [
   },
   {
     id: 476776087,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11656,7 +11656,7 @@ export const idx = [
   },
   {
     id: 475957290,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11671,7 +11671,7 @@ export const idx = [
   },
   {
     id: 988767791,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11686,7 +11686,7 @@ export const idx = [
   },
   {
     id: 988767793,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11696,7 +11696,7 @@ export const idx = [
   },
   {
     id: 148388412,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11706,7 +11706,7 @@ export const idx = [
   },
   {
     id: 988767792,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11731,12 +11731,12 @@ export const idx = [
   },
   {
     id: 148522895,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 476776090,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11771,7 +11771,7 @@ export const idx = [
   },
   {
     id: 475957291,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11791,12 +11791,12 @@ export const idx = [
   },
   {
     id: 358615181,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988767799,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11816,7 +11816,7 @@ export const idx = [
   },
   {
     id: 277929203,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11831,7 +11831,7 @@ export const idx = [
   },
   {
     id: 560417523,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11871,12 +11871,12 @@ export const idx = [
   },
   {
     id: 475721703,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 476776095,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11901,7 +11901,7 @@ export const idx = [
   },
   {
     id: 277929205,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11936,7 +11936,7 @@ export const idx = [
   },
   {
     id: 277929232,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11951,7 +11951,7 @@ export const idx = [
   },
   {
     id: 560417529,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -11976,7 +11976,7 @@ export const idx = [
   },
   {
     id: 476776096,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12006,7 +12006,7 @@ export const idx = [
   },
   {
     id: 475957292,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12021,12 +12021,12 @@ export const idx = [
   },
   {
     id: 560417534,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 277929233,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12041,7 +12041,7 @@ export const idx = [
   },
   {
     id: 475721721,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12051,12 +12051,12 @@ export const idx = [
   },
   {
     id: 123314486,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560417477,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12081,7 +12081,7 @@ export const idx = [
   },
   {
     id: 277929211,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12121,12 +12121,12 @@ export const idx = [
   },
   {
     id: 277929224,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148522896,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12136,7 +12136,7 @@ export const idx = [
   },
   {
     id: 560417498,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12146,12 +12146,12 @@ export const idx = [
   },
   {
     id: 475957293,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 988777679,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12181,7 +12181,7 @@ export const idx = [
   },
   {
     id: 560417503,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12201,7 +12201,7 @@ export const idx = [
   },
   {
     id: 148522887,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12281,7 +12281,7 @@ export const idx = [
   },
   {
     id: 278113383,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12311,17 +12311,17 @@ export const idx = [
   },
   {
     id: 560417531,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475721718,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560417507,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12331,7 +12331,7 @@ export const idx = [
   },
   {
     id: 560417483,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12341,7 +12341,7 @@ export const idx = [
   },
   {
     id: 148522898,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12356,12 +12356,12 @@ export const idx = [
   },
   {
     id: 278113372,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 278113386,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12371,12 +12371,12 @@ export const idx = [
   },
   {
     id: 277929223,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 475721717,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12386,7 +12386,7 @@ export const idx = [
   },
   {
     id: 278113385,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12396,7 +12396,7 @@ export const idx = [
   },
   {
     id: 148522900,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12406,12 +12406,12 @@ export const idx = [
   },
   {
     id: 278113387,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 560417509,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12431,7 +12431,7 @@ export const idx = [
   },
   {
     id: 278113384,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12441,7 +12441,7 @@ export const idx = [
   },
   {
     id: 807588021,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -12456,7 +12456,7 @@ export const idx = [
   },
   {
     id: 278113370,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -13691,7 +13691,7 @@ export const idx = [
   },
   {
     id: 196651383,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -13756,7 +13756,7 @@ export const idx = [
   },
   {
     id: 100013419,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -13786,7 +13786,7 @@ export const idx = [
   },
   {
     id: 558928377,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -13806,7 +13806,7 @@ export const idx = [
   },
   {
     id: 558928376,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -14056,7 +14056,7 @@ export const idx = [
   },
   {
     id: 632799203,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -14101,7 +14101,7 @@ export const idx = [
   },
   {
     id: 632799219,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -15276,27 +15276,27 @@ export const idx = [
   },
   {
     id: 986906890,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986906891,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986906892,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314481,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80207928,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -15311,7 +15311,7 @@ export const idx = [
   },
   {
     id: 80207930,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -15321,252 +15321,252 @@ export const idx = [
   },
   {
     id: 81071469,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148386198,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986952081,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80058710,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986554,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 181939031,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 181939031,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314475,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 13261813,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986529,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986952082,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986535,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986538,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986540,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986553,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986543,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986546,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314487,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314483,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 257269028,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123315493,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314478,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986547,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 148386204,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80120142,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123315492,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670990648,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670990648,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 670986515,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 257269032,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123315491,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 986977654,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 23613985,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314484,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314479,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 181939041,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123308586,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 23613986,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 31509554,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 80120141,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 30942443,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 308816623,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 114668823,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 468882865,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 181939040,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 468882863,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 181939032,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 31509552,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 23613987,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
     id: 123314485,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
@@ -19736,7 +19736,7 @@ export const idx = [
   },
   {
     id: 276075229,
-    color: '#edf8e9',
+    color: '#ccece6',
     range: 500,
   },
   {
