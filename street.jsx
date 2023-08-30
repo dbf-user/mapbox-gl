@@ -242,6 +242,7 @@ export function renderToDOM(container, data) {
         "line-width": 4,
       },
     });
+    map.moveLayer("lines");
     map.moveLayer("extrusion");
     map.moveLayer("extrusion1");
     map.moveLayer("extrusion2");
@@ -260,23 +261,62 @@ export function renderToDOM(container, data) {
     map.setFilter("add-3d-buildings", filter_map);
 
     map.on("click", "extrusion", (e) => {
-      const description = e.features[0].properties.program;
-
+      // const description = e.features[0].properties.program;
+    
+      // Replace the popup content with an image
+      const imageUrl = './data/image2.png'; // Replace with the actual image URL
+    
+      const imgElement = document.createElement('img');
+      imgElement.src = imageUrl;
+      imgElement.style.width = '220px'; // Set the width of the image
+    
+      const imgContainer = document.createElement('div');
+      imgContainer.appendChild(imgElement);
+    
       new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(getPopUp(description))
+        .setDOMContent(imgContainer) // Set the image container as the content
         .addTo(map);
     });
 
     map.on("click", "extrusion1", (e) => {
-      console.log(e.features[0]);
-      const description = e.features[0].properties.program;
-
+      // const description = e.features[0].properties.program;
+    
+      // Replace the popup content with an image
+      const imageUrl = './data/image1.png'; // Replace with the actual image URL
+    
+      const imgElement = document.createElement('img');
+      imgElement.src = imageUrl;
+      imgElement.style.width = '220px'; // Set the width of the image
+    
+      const imgContainer = document.createElement('div');
+      imgContainer.appendChild(imgElement);
+    
       new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(getPopUp(description))
+        .setDOMContent(imgContainer) // Set the image container as the content
         .addTo(map);
     });
+
+    map.on("click", "extrusion2", (e) => {
+      // const description = e.features[0].properties.program;
+    
+      // Replace the popup content with an image
+      const imageUrl = './data/image.png'; // Replace with the actual image URL
+    
+      const imgElement = document.createElement('img');
+      imgElement.src = imageUrl;
+      imgElement.style.width = '220px'; // Set the width of the image
+    
+      const imgContainer = document.createElement('div');
+      imgContainer.appendChild(imgElement);
+    
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setDOMContent(imgContainer) // Set the image container as the content
+        .addTo(map);
+    });
+
   });
 }
 
