@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import build from "./data/isochrones.json";
 import pathways from "./data/co2.json";
-
+import ways from "./data/walk.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
@@ -93,7 +93,24 @@ export function renderToDOM(container, data) {
       paint: {
         "line-color": "rgba(0, 0, 0, 0)",
         'line-emissive-strength': 2,
-        "line-width": 4,
+        "line-width": 6,
+      }, 
+    });
+
+    map.addSource('walkPaths', {  // Add source for walk.json
+      type: 'geojson',
+      data: ways,
+      lineMetrics: true
+    });
+    
+    map.addLayer({
+      id: "walk-line-line",  // Add a new layer ID
+      type: "line",
+      source: 'walkPaths',  // Use the new source
+      paint: {
+        "line-color": "rgba(0, 0, 0, 0)",  // Blue color
+        'line-emissive-strength': 2,
+        "line-width": 6,
       }, 
     });
 
@@ -116,6 +133,7 @@ export function renderToDOM(container, data) {
     });
     
     map.moveLayer('tp-line-line');
+    map.moveLayer('walk-line-line');
     map.moveLayer('add-3d-buildings');
 
     let startTime;
@@ -134,20 +152,23 @@ export function renderToDOM(container, data) {
         animationPhase,
         "rgba(0, 0, 0, 0)"
       ]);
+
+      map.setPaintProperty("walk-line-line", "line-gradient", [
+        "step",
+        ["line-progress"],
+        "#225ea8",  // Blue color
+        animationPhase,
+        "rgba(0, 0, 255, 0)"
+      ]);
+    
   
-      if (animationPhase > 1) {
-        return;
+      if (animationPhase <= 1) {  // Continue animation until completion
+        window.requestAnimationFrame(frame);
       }
-      window.requestAnimationFrame(frame);
+    
     };
   
     window.requestAnimationFrame(frame);
-  
-    // repeat
-    setInterval(() => {
-      startTime = undefined;
-      window.requestAnimationFrame(frame);
-    }, duration + 1500);
 
   });
 }

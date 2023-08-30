@@ -62,7 +62,6 @@ export function renderToDOM(container, data) {
   };
 
   const THREE = window.THREE;
-  const gui = new dat.GUI();
 
   // configuration of the custom layer for a 3D model per the CustomLayerInterface
   const customLayer = {
@@ -169,7 +168,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 0.3,
       },
     });
 
@@ -281,4 +280,4 @@ export const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default App;
