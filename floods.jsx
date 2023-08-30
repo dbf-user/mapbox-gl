@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import { id1200 } from "./data/1200Id.js";
 import { id1500 } from "./data/1500Id.js";
-import { id900 } from "./data/900Id.js";
+import { id600 } from "./data/600Id.js";
 import { idx } from "./data/bIds.js";
 import parks from "./data/parks.json";
 import park_names from "./data/park_names.json";
@@ -15,14 +15,14 @@ import CustomSlider from "./customSlider.jsx";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
 
-let maxValue = 500;
+let maxValue = 600;
 let minValue = 0;
 let title = "15 Parks";
-let buildingCount = 353;
+let buildingCount = 190;
 let map;
 
 const SliderPanel = () => {
-  const [selectedOption, setSelectedOption] = useState("50");
+  const [selectedOption, setSelectedOption] = useState("600");
 
   const handleRadioChange = (event) => {
     //setSelectedOption(value);
@@ -34,30 +34,31 @@ const SliderPanel = () => {
     setValue(newValue);
     switch (newValue) {
       case 1:
-        setSelectedOption("500");
-        minValue = 251;
-        buildingCount = 370;
+        setSelectedOption("1500");
+        minValue = 1400;
+        maxValue = 1600;
+        buildingCount = 5915;
         updateBuildingColor();
         break;
       case 2:
-        setSelectedOption("250");
-        minValue = 101;
-        maxValue = 500;
-        buildingCount = 1531;
+        setSelectedOption("1200");
+        minValue = 901;
+        maxValue = 1400;
+        buildingCount = 3015;
         updateBuildingColor();
         break;
       case 3:
-        setSelectedOption("100");
-        minValue = 51;
-        maxValue = 500;
-        buildingCount = 412;
+        setSelectedOption("900");
+        minValue = 601;
+        maxValue = 1100;
+        buildingCount = 2307;
         updateBuildingColor();
         break;
       case 4:
-        setSelectedOption("50");
+        setSelectedOption("600");
         minValue = 0;
-        maxValue = 500;
-        buildingCount = 353;
+        maxValue = 600;
+        buildingCount = 190;
         updateBuildingColor();
         break;
       default:
@@ -69,14 +70,14 @@ const SliderPanel = () => {
     <>
       <div>
         <div className="panel">
-          <h2>Distance to Parks</h2>
+          <h2>Sea Level Rise</h2>
           <label>
             <input
               style={{
                 WebkitAppearance: "none",
                 MozAppearance: "none",
                 appearance: "none",
-                backgroundColor: minValue >= 50 ? "white" : "#31a354",
+                backgroundColor: minValue >= 600 ? "white" : "#9ECAE1",
                 display: "inline-block",
                 width: "13px",
                 height: "13px",
@@ -86,11 +87,11 @@ const SliderPanel = () => {
                 borderRadius: "50%",
               }}
               type="radio"
-              value="50"
-              checked={selectedOption === "50"}
+              value="600"
+              checked={selectedOption === "600"}
               onChange={handleRadioChange}
             />
-            50m
+            0.6m
           </label>
           <label>
             <input
@@ -98,7 +99,7 @@ const SliderPanel = () => {
                 WebkitAppearance: "none",
                 MozAppearance: "none",
                 appearance: "none",
-                backgroundColor: minValue >= 100 ? "white" : "#74c476",
+                backgroundColor: minValue >= 900 ? "white" : "#6BAED6",
                 display: "inline-block",
                 width: "13px",
                 height: "13px",
@@ -108,11 +109,11 @@ const SliderPanel = () => {
                 borderRadius: "50%",
               }}
               type="radio"
-              value="100"
-              checked={selectedOption === "100"}
+              value="900"
+              checked={selectedOption === "900"}
               onChange={handleRadioChange}
             />
-            100m
+            0.9m
           </label>
           <label>
             <input
@@ -120,7 +121,7 @@ const SliderPanel = () => {
                 WebkitAppearance: "none",
                 MozAppearance: "none",
                 appearance: "none",
-                backgroundColor: minValue >= 250 ? "white" : "#bae4b3",
+                backgroundColor: minValue >= 1200 ? "white" : "#3182BD",
                 display: "inline-block",
                 width: "13px",
                 height: "13px",
@@ -130,11 +131,11 @@ const SliderPanel = () => {
                 borderRadius: "50%",
               }}
               type="radio"
-              value="250"
-              checked={selectedOption === "250"}
+              value="1200"
+              checked={selectedOption === "1200"}
               onChange={handleRadioChange}
             />
-            250m
+            1.2m
           </label>
           <label>
             <input
@@ -142,7 +143,7 @@ const SliderPanel = () => {
                 WebkitAppearance: "none",
                 MozAppearance: "none",
                 appearance: "none",
-                backgroundColor: minValue >= 500 ? "white" : "#edf8e9",
+                backgroundColor: minValue >= 1500 ? "white" : "#08519C",
                 display: "inline-block",
                 width: "13px",
                 height: "13px",
@@ -152,11 +153,11 @@ const SliderPanel = () => {
                 borderRadius: "50%",
               }}
               type="radio"
-              value="500"
-              checked={selectedOption === "500"}
+              value="1500"
+              checked={selectedOption === "1500"}
               onChange={handleRadioChange}
             />
-            500m
+            1.5m
           </label>
         </div>
         <div
@@ -176,7 +177,7 @@ const SliderPanel = () => {
         <h2 className="title">Urban Insight</h2>
         <div className="separator"></div>
         <h2 className="count">{buildingCount}</h2>
-        <div className="middle-text">Buildings are close to a park</div>
+        <div className="middle-text">Buildings at the risk of flooding</div>
       </div>
     </>
   );
@@ -186,10 +187,10 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.127997, 51.507969],
-    zoom: 16,
-    pitch: 45,
-    minZoom: 15, // Set the minimum zoom level
+    center: [-0.122577, 51.504410],
+    zoom: 15,
+    pitch: 60,
+    minZoom: 14, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
       [-0.140922, 51.500648],
@@ -198,54 +199,6 @@ export function renderToDOM(container, data) {
   });
 
   map.on("load", () => {
-    map.loadImage("./data/park.png", (error, image) => {
-      if (error) throw error;
-
-      // Add the image to the map style.
-      map.addImage("cat", image);
-
-      // Add a data source containing one point feature.
-      map.addSource("point", {
-        type: "geojson",
-        data: park_names,
-      });
-
-      // Add a layer to use the image to represent the data.
-      map.addLayer({
-        id: "points",
-        type: "symbol",
-        source: "point", // reference the data source
-        layout: {
-          "icon-image": "cat", // reference the image
-          "icon-size": 0.75,
-        },
-      });
-    });
-
-    map.on("click", "points", (e) => {
-      // Copy coordinates array.
-      const coordinates = e.features[0].geometry.coordinates.slice();
-      const description = e.features[0].properties.name;
-
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
-    });
-
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on("mouseenter", "points", () => {
-      map.getCanvas().style.cursor = "pointer";
-    });
-
-    // Change it back to a pointer when it leaves.
-    map.on("mouseleave", "points", () => {
-      map.getCanvas().style.cursor = "";
-    });
 
     map.addLayer({
       id: "add-3d-buildings",
@@ -279,29 +232,12 @@ export function renderToDOM(container, data) {
       },
     });
     updateBuildingColor();
-
-    map.addSource("buildings", {
-      type: "geojson",
-      data: parks,
-    });
-
-    // Add a GeoJSON layer with lines
-    map.addLayer({
-      id: "lines",
-      type: "fill",
-      source: "buildings",
-      paint: {
-        "fill-color": "#A7DD88",
-        "fill-emissive-strength": 0.2,
-        "fill-opacity": 0.8,
-      },
-    });
     map.moveLayer("add-3d-buildings");
   });
 }
 
 export const updateBuildingColor = () => {
-  const selectedColor = idx
+  const selectedColor = id600
     .filter(
       (buildingColor) =>
         buildingColor.range >= minValue && buildingColor.range <= maxValue

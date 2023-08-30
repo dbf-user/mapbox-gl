@@ -20,6 +20,7 @@ import treeIcon from "./icons/tree-silhouette.png";
 import co2Icon from "./icons/Co2.png";
 import houseIcon from "./icons/flooded-house.png";
 import otherIcon from "./icons/other.png";
+import Floods from "./floods.jsx";
 import IsoApp from "./isoApp.jsx";
 import Co2App from "./co2.jsx";
 import pathways from "./data/trips.json";
@@ -229,6 +230,8 @@ export const App = () => {
     switch (selectedButton) {
       case "park":
         return <IsoApp />;
+      case "flood":
+        return <Floods />;
       case "co2":
         return <Co2App />;
       default:
