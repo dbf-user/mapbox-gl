@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "0",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "St Thomas' Hospital Complex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.118087, 51.499155]
+      }
+    }
+  ]
+}

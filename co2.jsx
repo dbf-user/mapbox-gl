@@ -7,6 +7,9 @@ import ways from "./data/walk.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
+import school_names from "./data/school_names.json";
+import hsptl_names from "./data/hsptl_names.json";
+
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -18,14 +21,27 @@ let title = "15 Parks";
 let buildingCount = 353;
 let map;
 
+const SliderPanel = () => {
+  return (
+    <>
+      <div className="transparent-panels">
+        <h2 className="title">Urban Insight</h2>
+        <div className="separator"></div>
+        <h2 className="count">321</h2>
+        <div className="ton-text">Tons of carbon emission are generated to reach key facilities</div>
+      </div>
+    </>
+  );
+};
+
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.126323, 51.504758],// [-0.127997, 51.507969],
+    center: [-0.127997, 51.507969],
     zoom: 16,
     pitch: 45,
-    minZoom: 15, // Set the minimum zoom level
+    minZoom: 14, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
       [-0.140922, 51.500648],
@@ -34,6 +50,105 @@ export function renderToDOM(container, data) {
   });
 
   map.on("load", () => {
+    map.loadImage("./data/school.png", (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point", {
+        type: "geojson",
+        data: school_names,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points",
+        type: "symbol",
+        source: "point", // reference the data source
+        layout: {
+          "icon-image": "cat", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.loadImage("./data/hsptl.png", (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat1", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point1", {
+        type: "geojson",
+        data: hsptl_names,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points1",
+        type: "symbol",
+        source: "point1", // reference the data source
+        layout: {
+          "icon-image": "cat1", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.on("click", "points", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points", () => {
+      map.getCanvas().style.cursor = "";
+    });
+   ///
+   map.on("click", "points1", (e) => {
+    // Copy coordinates array.
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const description = e.features[0].properties.name;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    new mapboxgl.Popup()
+      .setLngLat(coordinates)
+      .setHTML(description)
+      .addTo(map);
+  });
+
+  // Change the cursor to a pointer when the mouse is over the places layer.
+  map.on("mouseenter", "points1", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+
+  // Change it back to a pointer when it leaves.
+  map.on("mouseleave", "points1", () => {
+    map.getCanvas().style.cursor = "";
+  });
+    
+
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",
@@ -136,6 +251,17 @@ export function renderToDOM(container, data) {
     map.moveLayer('walk-line-line');
     map.moveLayer('add-3d-buildings');
 
+    map.flyTo({
+      center: [-0.127997, 51.507969],
+      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      speed: 0.05,
+      zoom: 14,
+      curve: 1,
+      easing(t) {
+        return t;
+      },
+    });
+
     let startTime;
     const duration = 10000;
   
@@ -177,7 +303,7 @@ export const App = () => {
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
-
+  
   return (
     <>
       <div style={{ width: "100vw", height: "100vh" }}>
@@ -188,6 +314,7 @@ export const App = () => {
             height: "100%",
           }}
         ></div>
+        <SliderPanel />
       </div>
     </>
   );

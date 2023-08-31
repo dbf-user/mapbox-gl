@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "0",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "St Clement Danes C of E Primary School"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1193004, 51.5134716]
+      }
+    },
+    {
+      "id": "1",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "St Josephs R C Primary School"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.122008,51.516223]
+      }
+    },
+    {
+      "id": "2",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Steiner School of Beauty Therapy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1358546, 51.5155353]
+      }
+    },
+    {
+      "id": "3",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Westminster School"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1280671, 51.4985932]
+      }
+    },
+    {
+      "id": "4",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Soho Parish Primary School"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1345, 51.51166]
+      }
+    }
+  ]
+}
