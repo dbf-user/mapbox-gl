@@ -161,6 +161,8 @@ export function renderToDOM(container, data) {
       window.requestAnimationFrame(frame);
     }, duration + 1500);
   });
+
+  return map;
 }
 
 export const App = () => {
