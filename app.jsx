@@ -42,7 +42,7 @@ export function renderToDOM(container, data) {
   const map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.126323, 51.504758], // [-0.127997, 51.507969],
+    center: [-0.126162, 51.500971], // [-0.127997, 51.507969], , 
     zoom: 16,
     pitch: 45,
     minZoom: 15, // Set the minimum zoom level
@@ -315,10 +315,12 @@ export const App = () => {
       map.moveLayer("add-3d-buildings");
 
       map.flyTo({
-        center: [-0.128343, 51.511364],
+
+        center: [-0.127997, 51.507969],
+        zoom: 16,
+        pitch: 45,
         essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-        speed: 0.02,
-        zoom: 18,
+        speed: 0.03,
         curve: 1,
         easing(t) {
           return t;
@@ -356,11 +358,7 @@ export const App = () => {
   return (
     <>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-        <div class="overlay">
-          <h1>AI-Powered Planning and Designis</h1>
 
-          <h1>for Complex Urban Projects</h1>
-        </div>
       </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div

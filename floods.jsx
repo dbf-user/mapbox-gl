@@ -15,20 +15,20 @@ import CustomSlider from "./customSlider.jsx";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
 
-let maxValue = 600;
-let minValue = 0;
+let maxValue = 1600;
+let minValue = 1400;
 let title = "15 Parks";
-let buildingCount = 190;
+let buildingCount = 5915;
 let map;
 
 const SliderPanel = () => {
-  const [selectedOption, setSelectedOption] = useState("600");
+  const [selectedOption, setSelectedOption] = useState("1500");
 
   const handleRadioChange = (event) => {
     //setSelectedOption(value);
   };
 
-  const [value, setValue] = useState(4);
+  const [value, setValue] = useState(1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -187,9 +187,9 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.122577, 51.504410],
-    zoom: 15,
-    pitch: 60,
+    center: [-0.127997, 51.507969],
+    zoom: 16,
+    pitch: 45,
     minZoom: 14, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
@@ -233,6 +233,17 @@ export function renderToDOM(container, data) {
     });
     updateBuildingColor();
     map.moveLayer("add-3d-buildings");
+    map.flyTo({
+      center: [-0.119997, 51.500570],  
+      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      speed: 0.03,
+      zoom: 15,
+      curve: 1,
+      easing(t) {
+        return t;
+      },
+    });
+
   });
 }
 

@@ -17,6 +17,8 @@ import houseIcon from "./icons/flooded-house.png";
 import otherIcon from "./icons/other.png";
 import Co2App from "./co2.jsx";
 import IsoApp from "./isoApp.jsx";
+import Floods from "./floods.jsx";
+import Street from "./street.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -351,6 +353,12 @@ export const App = () => {
         return <IsoApp />;
       case "co2":
         return <Co2App />;
+
+      case "flood":
+        return <Floods />;
+
+      case "other":
+        return <Street />;
       default:
         return null;
     }
@@ -359,11 +367,6 @@ export const App = () => {
   return (
     <>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-        <div class="overlay">
-          <h1>Understanding access to green spaces is</h1>
-
-          <h1>critical to build better cities</h1>
-        </div>
       </div>
 
       <div style={{ width: "100vw", height: "100vh" }}>

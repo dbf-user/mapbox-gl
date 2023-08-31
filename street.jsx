@@ -6,7 +6,7 @@ import pathways from "./data/co2.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
-
+import parks from "./data/parks.json";
 import t from "./data/test.json";
 import sol from "./data/geo.json";
 import sol1 from "./data/Solution-Blocks.json";
@@ -27,10 +27,10 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
     container,
-    center: [-0.118969, 51.511692], // [-0.127997, 51.507969], ,
+    center: [-0.127997, 51.507969],
     zoom: 16,
-    pitch: 60,
-    minZoom: 14, // Set the minimum zoom level
+    pitch: 45,
+    minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
       [-0.140922, 51.500648],
@@ -176,6 +176,23 @@ export function renderToDOM(container, data) {
       },
     });
 
+        // // 
+        // map.addSource("buildings", {
+        //   type: "geojson",
+        //   data: parks,
+        // });
+    
+        // // Add a GeoJSON layer with lines
+        // map.addLayer({
+        //   id: "lines",
+        //   type: "fill",
+        //   source: "buildings",
+        //   paint: {
+        //     "fill-color": "#A7DD88",
+        //     "fill-opacity": 0.4,
+        //   },
+        // });
+
     map.addSource("my_test", {
       type: "geojson",
       data: sol,
@@ -248,6 +265,18 @@ export function renderToDOM(container, data) {
     map.moveLayer("extrusion2");
 
     map.moveLayer("add-3d-buildings");
+
+    map.flyTo({
+      center: [-0.123385, 51.514332],  
+      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      speed: 0.1,
+      zoom: 17,
+      pitch: 60,
+      curve: 1,
+      easing(t) {
+        return t;
+      },
+    });
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
