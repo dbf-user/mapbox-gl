@@ -12,13 +12,9 @@ import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 //import pathways from "./data/co2.json";
 import "./App.css";
-import treeIcon from "./icons/tree-silhouette.png";
-import co2Icon from "./icons/Co2.png";
-import houseIcon from "./icons/flooded-house.png";
-import otherIcon from "./icons/other.png";
 import IsoApp from "./isoApp.jsx";
-import Co2App from "./co2.jsx";
 import pathways from "./data/trips.json";
+import startIcon from "./icons/start.png";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -29,7 +25,6 @@ let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
 let map;
-
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
@@ -124,7 +119,7 @@ export function renderToDOM(container, data) {
 
     let startTime;
     const duration = 8000;
-  
+
     const frame = (time) => {
       if (!startTime) startTime = time;
       const animationPhase = (time - startTime) / duration;
@@ -167,17 +162,15 @@ export const App = () => {
     if (selectedButton === buttonId) {
       setSelectedButton(null);
     } else {
-      setSelectedButton(buttonId); 
+      setSelectedButton(buttonId);
       setShowAnotherComponent(true);
     }
   };
 
   const renderSelectedComponent = () => {
     switch (selectedButton) {
-      case "park":
+      case "start":
         return <IsoApp />;
-      case "co2":
-        return <Co2App />;
       default:
         return null;
     }
@@ -186,11 +179,11 @@ export const App = () => {
   return (
     <>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-      <div class="overlay">
-        <h1>AI-Powered Planning and Designis</h1>
+        <div class="overlay">
+          <h1>AI-Powered Planning and Designis</h1>
 
-        <h1>for Complex Urban Projects</h1>
-      </div>
+          <h1>for Complex Urban Projects</h1>
+        </div>
       </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
@@ -201,39 +194,18 @@ export const App = () => {
           }}
         ></div>
       </div>
-      <div className="buttons-container">
-        <button
-          className={`map-button ${
-            selectedButton === "park" ? "selected" : ""
-          }`}
-          onClick={() => handleButtonClick("park")}
-        >
-          <img src={treeIcon} alt="Icon" className="png-icon" />
-        </button>
-        <button
-          className={`map-button ${selectedButton === "co2" ? "selected" : ""}`}
-          onClick={() => handleButtonClick("co2")}
-        >
-          <img src={co2Icon} alt="Icon" className="co2-icon" />
-        </button>
-        <button
-          className={`map-button ${
-            selectedButton === "flood" ? "selected" : ""
-          }`}
-          onClick={() => handleButtonClick("flood")}
-        >
-          <img src={houseIcon} alt="Icon" className="png-icon" />
-        </button>
-        <button
-          className={`map-button ${
-            selectedButton === "other" ? "selected" : ""
-          }`}
-          onClick={() => handleButtonClick("other")}
-        >
-          <img src={otherIcon} alt="Icon" className="png-icon" />
-        </button>
+      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        <div className="buttons-container">
+          <button
+            className={`map-button ${
+              selectedButton === "start" ? "selected" : ""
+            }`}
+            onClick={() => handleButtonClick("start")}
+          >
+            <img src={startIcon} alt="Icon" className="png-icon" />
+          </button>
+        </div>
       </div>
-
       {renderSelectedComponent()}
     </>
   );

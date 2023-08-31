@@ -10,6 +10,13 @@ import park_names from "./data/park_names.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
+import "./IsoApp.css";
+import treeIcon from "./icons/tree-silhouette.png";
+import co2Icon from "./icons/Co2.png";
+import houseIcon from "./icons/flooded-house.png";
+import otherIcon from "./icons/other.png";
+import Co2App from "./co2.jsx";
+import IsoApp from "./isoApp.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -69,7 +76,10 @@ const SliderPanel = () => {
     <>
       <div>
         <div className="panel">
-          <h2>Distance:</h2>
+          <h2>
+            Distance
+          </h2>
+          <div className="radio-separator"></div>
           <label>
             <input
               style={{
@@ -160,7 +170,7 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 130, bottom: 60, height: 100 }}
+          style={{ position: "absolute", left: 150, bottom: 60, height: 100 }}
         >
           <CustomSlider
             orientation="vertical"
@@ -317,17 +327,42 @@ export const updateBuildingColor = () => {
 };
 
 export const App = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [showAnotherComponent, setShowAnotherComponent] = useState(false);
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
-  
+
+  const handleButtonClick = (buttonId) => {
+    if (selectedButton === buttonId) {
+      setSelectedButton(null);
+    } else {
+      setSelectedButton(buttonId);
+      setShowAnotherComponent(true);
+    }
+  };
+
+  const renderSelectedComponent = () => {
+    switch (selectedButton) {
+      case "park":
+        return <IsoApp />;
+      case "co2":
+        return <Co2App />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
-      <div class="overlay">
-        <h1>Understanding access to green spaces is</h1>
+      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        <div class="overlay">
+          <h1>Understanding access to green spaces is</h1>
 
-        <h1>critical to build better cities</h1>
+          <h1>critical to build better cities</h1>
+        </div>
       </div>
+
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"
@@ -336,8 +371,48 @@ export const App = () => {
             height: "100%",
           }}
         ></div>
-        <SliderPanel />
+        <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+          <SliderPanel />
+        </div>
+
+        <div className="iso-buttons-container">
+          <button
+            className={`iso-map-button ${
+              selectedButton === "park" || selectedButton === null
+                ? "iso-selected"
+                : ""
+            }`}
+            onClick={() => handleButtonClick("park")}
+          >
+            <img src={treeIcon} alt="Icon" className="iso-png-icon" />
+          </button>
+          <button
+            className={`iso-map-button ${
+              selectedButton === "co2" ? "iso-selected" : ""
+            }`}
+            onClick={() => handleButtonClick("co2")}
+          >
+            <img src={co2Icon} alt="Icon" className="iso-co2-icon" />
+          </button>
+          <button
+            className={`iso-map-button ${
+              selectedButton === "flood" ? "iso-selected" : ""
+            }`}
+            onClick={() => handleButtonClick("flood")}
+          >
+            <img src={houseIcon} alt="Icon" className="iso-png-icon" />
+          </button>
+          <button
+            className={`iso-map-button ${
+              selectedButton === "other" ? "iso-selected" : ""
+            }`}
+            onClick={() => handleButtonClick("other")}
+          >
+            <img src={otherIcon} alt="Icon" className="iso-png-icon" />
+          </button>
+        </div>
       </div>
+      {renderSelectedComponent()}
     </>
   );
 };
