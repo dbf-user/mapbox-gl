@@ -51,6 +51,7 @@ export function renderToDOM(container, data) {
       [-0.140922, 51.500648],
       [-0.10464, 51.52127],
     ],
+    interactive: false,
   });
 
   map.on("load", () => {
