@@ -198,6 +198,9 @@ export function renderToDOM(container, data) {
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
+    pitch: 45,
+    minZoom: 15, // Set the minimum zoom level
+    maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
       [-0.140922, 51.500648],
       [-0.10464, 51.52127],

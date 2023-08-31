@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import build from "./data/isochrones.json";
 import pathways from "./data/co2.json";
+import ways from "./data/walk.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
@@ -92,8 +93,25 @@ export function renderToDOM(container, data) {
       paint: {
         "line-color": "rgba(0, 0, 0, 0)",
         'line-emissive-strength': 2,
-        "line-width": 4,
-      }
+        "line-width": 6,
+      }, 
+    });
+
+    map.addSource('walkPaths', {  // Add source for walk.json
+      type: 'geojson',
+      data: ways,
+      lineMetrics: true
+    });
+    
+    map.addLayer({
+      id: "walk-line-line",  // Add a new layer ID
+      type: "line",
+      source: 'walkPaths',  // Use the new source
+      paint: {
+        "line-color": "rgba(0, 0, 0, 0)",  // Blue color
+        'line-emissive-strength': 2,
+        "line-width": 6,
+      }, 
     });
 
     map.addSource('buildings', {
@@ -111,15 +129,15 @@ export function renderToDOM(container, data) {
         'fill-outline-color': '#00008B',
         'fill-emissive-strength': .4,
     'fill-opacity': 0.6
-      }
-    
+      }    
     });
     
     map.moveLayer('tp-line-line');
+    map.moveLayer('walk-line-line');
     map.moveLayer('add-3d-buildings');
 
     let startTime;
-    const duration = 3000;
+    const duration = 10000;
   
     const frame = (time) => {
       if (!startTime) startTime = time;
@@ -130,24 +148,27 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "red",
+        "#C96A6A",
         animationPhase,
         "rgba(0, 0, 0, 0)"
       ]);
+
+      map.setPaintProperty("walk-line-line", "line-gradient", [
+        "step",
+        ["line-progress"],
+        "#225ea8",  // Blue color
+        animationPhase,
+        "rgba(0, 0, 255, 0)"
+      ]);
+    
   
-      if (animationPhase > 1) {
-        return;
+      if (animationPhase <= 1) {  // Continue animation until completion
+        window.requestAnimationFrame(frame);
       }
-      window.requestAnimationFrame(frame);
+    
     };
   
     window.requestAnimationFrame(frame);
-  
-    // repeat
-    setInterval(() => {
-      startTime = undefined;
-      window.requestAnimationFrame(frame);
-    }, duration + 1500);
 
   });
 }
@@ -159,11 +180,6 @@ export const App = () => {
 
   return (
     <>
-      <div class="overlay">
-        <h1>Reduce Carbon Emissions for your</h1>  
-
-        <h1>neighborhood</h1>
-      </div>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"
