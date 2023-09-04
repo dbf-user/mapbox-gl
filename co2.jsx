@@ -9,7 +9,10 @@ import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 import school_names from "./data/school_names.json";
 import hsptl_names from "./data/hsptl_names.json";
-
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import CustomSwitch from "./customSwitch.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -28,11 +31,94 @@ const SliderPanel = () => {
         <h2 className="title">Urban Insight</h2>
         <div className="separator"></div>
         <h2 className="count">321</h2>
-        <div className="ton-text">Tons of carbon emission are generated to reach key facilities</div>
+        <div className="ton-text">
+          Tons of carbon emission are generated to reach key facilities
+        </div>
       </div>
     </>
   );
 };
+
+const TogglePanel = () => {
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleState = () => {
+    setIsOn(!isOn);
+
+    if(isOn===false){
+      //Walk button event
+    }else if (isOn===true){
+      //Car button event
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        left: 20,
+        bottom: 30,
+        width: 120,
+        borderRadius: 5,
+        backgroundColor: "black",
+        color: "white",
+        padding: 2,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+        transition: "background-color 0.3s ease-in-out",
+      }}
+    >
+      <Typography
+        variant="h6"
+        style={{
+          marginBottom: "5px",
+          lineHeight: "1.2",
+          textAlign: "center",
+          fontSize: 16,
+          fontFamily:'IBM Plex Mono, monospace',
+        }}
+      >
+        Trips to key facilities
+      </Typography>
+      <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+      <Typography
+        variant="body1"
+        style={{
+          textAlign: "center",
+          fontSize: 12,
+          marginTop:"8px",
+          fontFamily:'IBM Plex Mono, monospace',
+        }}
+      >
+        Transport Mode
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          cursor: "pointer",
+          marginTop: "10px",
+        }}
+        onClick={toggleState}
+      >
+        <div
+          style={{
+            marginRight: "10px",
+            fontSize: "24px",
+          }}
+        >
+        </div>
+        <CustomSwitch
+          checked={isOn}
+          color="default"
+          inputProps={{ "aria-label": "toggle" }}
+        />
+      </Box>
+    </Box>
+  );
+}
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
@@ -122,32 +208,31 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points", () => {
       map.getCanvas().style.cursor = "";
     });
-   ///
-   map.on("click", "points1", (e) => {
-    // Copy coordinates array.
-    const coordinates = e.features[0].geometry.coordinates.slice();
-    const description = e.features[0].properties.name;
+    ///
+    map.on("click", "points1", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
 
-    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    }
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
 
-    new mapboxgl.Popup()
-      .setLngLat(coordinates)
-      .setHTML(description)
-      .addTo(map);
-  });
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
 
-  // Change the cursor to a pointer when the mouse is over the places layer.
-  map.on("mouseenter", "points1", () => {
-    map.getCanvas().style.cursor = "pointer";
-  });
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points1", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
 
-  // Change it back to a pointer when it leaves.
-  map.on("mouseleave", "points1", () => {
-    map.getCanvas().style.cursor = "";
-  });
-    
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points1", () => {
+      map.getCanvas().style.cursor = "";
+    });
 
     map.addLayer({
       id: "add-3d-buildings",
@@ -193,63 +278,62 @@ export function renderToDOM(container, data) {
       },
     });
 
-
-    map.addSource('paths', {
-      'type': 'geojson',
+    map.addSource("paths", {
+      type: "geojson",
       data: pathways,
-      lineMetrics: true
+      lineMetrics: true,
     });
-    
-    
+
     map.addLayer({
       id: "tp-line-line",
       type: "line",
-      source: 'paths',
+      source: "paths",
       paint: {
         "line-color": "rgba(0, 0, 0, 0)",
-        'line-emissive-strength': 2,
+        "line-emissive-strength": 2,
         "line-width": 6,
-      }, 
+      },
     });
 
-    map.addSource('walkPaths', {  // Add source for walk.json
-      type: 'geojson',
+    map.addSource("walkPaths", {
+      // Add source for walk.json
+      type: "geojson",
       data: ways,
-      lineMetrics: true
-    });
-    
-    map.addLayer({
-      id: "walk-line-line",  // Add a new layer ID
-      type: "line",
-      source: 'walkPaths',  // Use the new source
-      paint: {
-        "line-color": "rgba(0, 0, 0, 0)",  // Blue color
-        'line-emissive-strength': 2,
-        "line-width": 6,
-      }, 
+      lineMetrics: true,
     });
 
-    map.addSource('buildings', {
-      'type': 'geojson',
+    map.addLayer({
+      id: "walk-line-line", // Add a new layer ID
+      type: "line",
+      source: "walkPaths", // Use the new source
+      paint: {
+        "line-color": "rgba(0, 0, 0, 0)", // Blue color
+        "line-emissive-strength": 2,
+        "line-width": 6,
+      },
+    });
+
+    map.addSource("buildings", {
+      type: "geojson",
       data: build,
     });
-    
+
     // Add a GeoJSON layer with lines
     map.addLayer({
-      id: 'lines',
-      type: 'fill',
-      source: 'buildings',
+      id: "lines",
+      type: "fill",
+      source: "buildings",
       paint: {
-        'fill-color': ['get', 'color'],
-        'fill-outline-color': '#00008B',
-        'fill-emissive-strength': .4,
-    'fill-opacity': 0.6
-      }    
+        "fill-color": ["get", "color"],
+        "fill-outline-color": "#00008B",
+        "fill-emissive-strength": 0.4,
+        "fill-opacity": 0.6,
+      },
     });
-    
-    map.moveLayer('tp-line-line');
-    map.moveLayer('walk-line-line');
-    map.moveLayer('add-3d-buildings');
+
+    map.moveLayer("tp-line-line");
+    map.moveLayer("walk-line-line");
+    map.moveLayer("add-3d-buildings");
 
     map.flyTo({
       center: [-0.127997, 51.507969],
@@ -264,11 +348,11 @@ export function renderToDOM(container, data) {
 
     let startTime;
     const duration = 10000;
-  
+
     const frame = (time) => {
       if (!startTime) startTime = time;
       const animationPhase = (time - startTime) / duration;
-  
+
       // Reduce the visible length of the line by using a line-gradient to cutoff the line
       // animationPhase is a value between 0 and 1 that reprents the progress of the animation
       map.setPaintProperty("tp-line-line", "line-gradient", [
@@ -276,34 +360,34 @@ export function renderToDOM(container, data) {
         ["line-progress"],
         "#C96A6A",
         animationPhase,
-        "rgba(0, 0, 0, 0)"
+        "rgba(0, 0, 0, 0)",
       ]);
 
       map.setPaintProperty("walk-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#225ea8",  // Blue color
+        "#225ea8", // Blue color
         animationPhase,
-        "rgba(0, 0, 255, 0)"
+        "rgba(0, 0, 255, 0)",
       ]);
-    
-  
-      if (animationPhase <= 1) {  // Continue animation until completion
+
+      if (animationPhase <= 1) {
+        // Continue animation until completion
         window.requestAnimationFrame(frame);
       }
-    
     };
-  
-    window.requestAnimationFrame(frame);
 
+    window.requestAnimationFrame(frame);
   });
+
+  return map;
 }
 
 export const App = () => {
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
-  
+
   return (
     <>
       <div style={{ width: "100vw", height: "100vh" }}>
@@ -315,6 +399,7 @@ export const App = () => {
           }}
         ></div>
         <SliderPanel />
+        <TogglePanel/>
       </div>
     </>
   );
