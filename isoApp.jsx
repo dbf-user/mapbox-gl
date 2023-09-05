@@ -29,6 +29,7 @@ let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
 let map;
+let pageText;
 
 const SliderPanel = () => {
   const [selectedOption, setSelectedOption] = useState("50");
@@ -78,9 +79,7 @@ const SliderPanel = () => {
     <>
       <div>
         <div className="panel">
-          <h2>
-            Distance
-          </h2>
+          <h2>Distance</h2>
           <div className="radio-separator"></div>
           <label>
             <input
@@ -350,14 +349,23 @@ export const App = () => {
   const renderSelectedComponent = () => {
     switch (selectedButton) {
       case "park":
+        pageText = (
+          <h1>
+            Understanding <b>access to green spaces</b> is critical to build
+            better cities
+          </h1>
+        );
         return <IsoApp />;
       case "co2":
+        pageText = <h1>Reduce Carbon Emissions for your neighborhood</h1>;
         return <Co2App />;
 
       case "flood":
+        pageText = <h1>Identify threats and risk zones in your city</h1>;
         return <Floods />;
 
       case "other":
+        pageText = <h1></h1>;
         return <Street />;
       default:
         return null;
@@ -366,13 +374,15 @@ export const App = () => {
 
   return (
     <>
-    {/* <div class="typewriter"> */}
-  <h1>Understanding <b>access to green spaces</b> is critical to build better cities</h1>
-{/* </div> */}
+      {/* <div class="typewriter"> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        <h1>
+          Understanding <b>access to green spaces</b> is critical to build
+          better cities
+        </h1>
       </div>
-
-      <div style={{ width: "100vw", height: "100vh" }}>
+      {pageText}
+      <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
           style={{
@@ -422,7 +432,6 @@ export const App = () => {
         </div>
       </div>
       {renderSelectedComponent()}
-      
     </>
   );
 };

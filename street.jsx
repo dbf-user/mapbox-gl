@@ -67,7 +67,7 @@ const StreetPanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: 30,
+        bottom: 210,
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
