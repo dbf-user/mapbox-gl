@@ -367,7 +367,7 @@ export const App = () => {
   return (
     <>
     {/* <div class="typewriter"> */}
-  <h1>Understanding access to green spaces is critical to build better cities</h1>
+  <h1>Understanding <b>access to green spaces</b> is critical to build better cities</h1>
 {/* </div> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
       </div>
