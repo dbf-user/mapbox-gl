@@ -265,7 +265,7 @@ export function renderToDOM(container, data) {
     map.moveLayer("extrusion2");
 
     map.moveLayer("add-3d-buildings");
-
+    // FLYTO
     map.flyTo({
       center: [-0.123385, 51.514332],  
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
@@ -356,6 +356,7 @@ export const App = () => {
 
   return (
     <>
+
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"
