@@ -76,9 +76,10 @@ h1 {
   padding-bottom: 24px;
     padding-top: 10px;
     padding-left: 4px;
-  font: 44px/.1 "IBM Plex Mono", monospace;
+  font: 2rem/.1 "IBM Plex Mono", monospace;
   /* text-wrap: normal; */
-  line-height: 1;
+  line-height: 150%;
+  
     letter-spacing: 4px;}
 
 /* The typing effect */

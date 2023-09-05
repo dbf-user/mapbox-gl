@@ -273,7 +273,7 @@ export const App = () => {
   
   return (
     <>
-    <h1>Identify threats and risk zones in your city</h1>
+    <h1>Identify <b>threats</b> and <b>risk zones</b> in your city</h1>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"

@@ -11,10 +11,10 @@ import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 import "./IsoApp.css";
-import treeIcon from "./icons/tree-silhouette.png";
+import treeIcon from "./icons/leave.png";
 import co2Icon from "./icons/Co2.png";
 import houseIcon from "./icons/flooded-house.png";
-import otherIcon from "./icons/other.png";
+import otherIcon from "./icons/construction.png";
 import Co2App from "./co2.jsx";
 import IsoApp from "./isoApp.jsx";
 import Floods from "./floods.jsx";
@@ -357,15 +357,15 @@ export const App = () => {
         );
         return <IsoApp />;
       case "co2":
-        pageText = <h1>Reduce Carbon Emissions for your neighborhood</h1>;
+        pageText = <h1>Reduce <b>carbon emissions</b> for your neighborhood</h1>;
         return <Co2App />;
 
       case "flood":
-        pageText = <h1>Identify threats and risk zones in your city</h1>;
+        pageText = <h1>Identify <b>threats</b> and <b>risk zones</b> in your city</h1>;
         return <Floods />;
 
       case "other":
-        pageText = <h1></h1>;
+        pageText = <h1>Evaluate and compare <b>development opportunities</b> for critical buildings and facilities in your city</h1>;
         return <Street />;
       default:
         return null;
