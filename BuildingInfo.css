@@ -1,12 +1,12 @@
 .transparent-panel {
     position: fixed;
-    background-color: rgba(58,62,62, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 10px;
     border-radius: 5px; 
     width: 170px;
     height: 40px;
-    bottom: 20px;
+    bottom: 190px;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -16,13 +16,13 @@
 
   .transparent-panels {
     position: fixed;
-    background-color: rgba(58,62,62, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 10px;
     border-radius: 8px; 
     width: 200px;
     height: 150px;
-    bottom: 30px;
+    bottom: 190px;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -116,13 +116,3 @@
   z-index: 9999; /* Ensure the overlay is on top of other content */
   pointer-events: none;
 }
-
-h1 {
-  color: white;
-  text-align: center;
-  font: bold 44px/.1 "IBM Plex Mono", monospace; /* Use IBM Plex Mono font */
-  margin-top: 70px; /* Add space from the top */
-  letter-spacing: 4px; /* Add space between letters */
-
-}
-

@@ -57,7 +57,7 @@ const TogglePanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: 30,
+        bottom: 190,
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -390,6 +390,7 @@ export const App = () => {
 
   return (
     <>
+    
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"
@@ -401,6 +402,7 @@ export const App = () => {
         <SliderPanel />
         <TogglePanel/>
       </div>
+      <h1>Reduce Carbon Emissions for your neighborhood</h1>
     </>
   );
 };

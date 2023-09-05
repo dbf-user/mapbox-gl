@@ -13,7 +13,7 @@ import CustomSlider from "./customSlider.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
+  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2xtNXQwdHhvMWd3cjNmcDY2aGc4NDZrNSJ9.1OTywkIt0KA1sMPAxUrCzg";
 
 let maxValue = 1600;
 let minValue = 1400;
@@ -161,7 +161,7 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 130, bottom: 60, height: 100 }}
+          style={{ position: "absolute", left: 150, bottom: 220, height: 100 }}
         >
           <CustomSlider
             orientation="vertical"
@@ -273,6 +273,7 @@ export const App = () => {
   
   return (
     <>
+    <h1>Identify threats and risk zones in your city</h1>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"
