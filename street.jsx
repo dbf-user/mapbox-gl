@@ -12,6 +12,11 @@ import sol from "./data/geo.json";
 import sol1 from "./data/Solution-Blocks.json";
 import sol4 from "./data/Sol4.json";
 import { overlapBuildingIds } from "./data/overlapingBuildingsId";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Button from "@mui/material/Button";
+import BuildingIcon from "./icons/building.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -22,6 +27,182 @@ let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
 let map;
+
+
+const StreetPanel = () => {
+
+  const [activeButton, setActiveButton] = useState(null);
+
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+    switch (buttonName) {
+      case "Caring":
+        //Caring button click event
+        map.flyTo({
+          center: [-0.123385, 51.514332],
+          essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          speed: 0.1,
+          zoom: 17,
+          pitch: 60,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+        break;
+      case "Community":
+        //Community button click event
+        
+        break;
+      case "Learning":
+        //Learning button click event
+        break;
+      default:
+        break;
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        left: 20,
+        bottom: 30,
+        width: 120,
+        borderRadius: 5,
+        backgroundColor: "black",
+        color: "white",
+        padding: 2,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+        transition: "background-color 0.3s ease-in-out",
+      }}
+    >
+      <Typography
+        variant="h6"
+        style={{
+          marginBottom: "5px",
+          lineHeight: "1.2",
+          textAlign: "center",
+          fontSize: 16,
+          fontFamily: "IBM Plex Mono, monospace",
+        }}
+      >
+        Development opportunities
+      </Typography>
+      <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+      <Typography
+        variant="body1"
+        style={{
+          textAlign: "center",
+          fontSize: 12,
+          marginTop: "8px",
+          fontFamily: "IBM Plex Mono, monospace",
+        }}
+      >
+        Show potential development sites:
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "8px",
+          marginTop: "8px",
+        }}
+      >
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#34C6F5",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#34C6F5 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Caring")}
+          disabled={activeButton === "Caring"}
+        >
+          Caring
+        </Button>
+
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#A900F8",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#A900F8 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Community")}
+          disabled={activeButton === "Community"}
+        >
+          Community
+        </Button>
+
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#0014F8",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#0014F8 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Learning")}
+          disabled={activeButton === "Learning"}
+        >
+          Learning
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
@@ -176,22 +357,22 @@ export function renderToDOM(container, data) {
       },
     });
 
-        // // 
-        // map.addSource("buildings", {
-        //   type: "geojson",
-        //   data: parks,
-        // });
-    
-        // // Add a GeoJSON layer with lines
-        // map.addLayer({
-        //   id: "lines",
-        //   type: "fill",
-        //   source: "buildings",
-        //   paint: {
-        //     "fill-color": "#A7DD88",
-        //     "fill-opacity": 0.4,
-        //   },
-        // });
+    // //
+    // map.addSource("buildings", {
+    //   type: "geojson",
+    //   data: parks,
+    // });
+
+    // // Add a GeoJSON layer with lines
+    // map.addLayer({
+    //   id: "lines",
+    //   type: "fill",
+    //   source: "buildings",
+    //   paint: {
+    //     "fill-color": "#A7DD88",
+    //     "fill-opacity": 0.4,
+    //   },
+    // });
 
     map.addSource("my_test", {
       type: "geojson",
@@ -266,17 +447,17 @@ export function renderToDOM(container, data) {
 
     map.moveLayer("add-3d-buildings");
 
-    map.flyTo({
-      center: [-0.123385, 51.514332],  
-      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.1,
-      zoom: 17,
-      pitch: 60,
-      curve: 1,
-      easing(t) {
-        return t;
-      },
-    });
+    // map.flyTo({
+    //   center: [-0.123385, 51.514332],
+    //   essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+    //   speed: 0.1,
+    //   zoom: 17,
+    //   pitch: 60,
+    //   curve: 1,
+    //   easing(t) {
+    //     return t;
+    //   },
+    // });
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
@@ -291,17 +472,17 @@ export function renderToDOM(container, data) {
 
     map.on("click", "extrusion", (e) => {
       // const description = e.features[0].properties.program;
-    
+
       // Replace the popup content with an image
-      const imageUrl = './data/image2.png'; // Replace with the actual image URL
-    
-      const imgElement = document.createElement('img');
+      const imageUrl = "./data/image2.png"; // Replace with the actual image URL
+
+      const imgElement = document.createElement("img");
       imgElement.src = imageUrl;
-      imgElement.style.width = '220px'; // Set the width of the image
-    
-      const imgContainer = document.createElement('div');
+      imgElement.style.width = "220px"; // Set the width of the image
+
+      const imgContainer = document.createElement("div");
       imgContainer.appendChild(imgElement);
-    
+
       new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setDOMContent(imgContainer) // Set the image container as the content
@@ -310,17 +491,17 @@ export function renderToDOM(container, data) {
 
     map.on("click", "extrusion1", (e) => {
       // const description = e.features[0].properties.program;
-    
+
       // Replace the popup content with an image
-      const imageUrl = './data/image1.png'; // Replace with the actual image URL
-    
-      const imgElement = document.createElement('img');
+      const imageUrl = "./data/image1.png"; // Replace with the actual image URL
+
+      const imgElement = document.createElement("img");
       imgElement.src = imageUrl;
-      imgElement.style.width = '220px'; // Set the width of the image
-    
-      const imgContainer = document.createElement('div');
+      imgElement.style.width = "220px"; // Set the width of the image
+
+      const imgContainer = document.createElement("div");
       imgContainer.appendChild(imgElement);
-    
+
       new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setDOMContent(imgContainer) // Set the image container as the content
@@ -329,24 +510,25 @@ export function renderToDOM(container, data) {
 
     map.on("click", "extrusion2", (e) => {
       // const description = e.features[0].properties.program;
-    
+
       // Replace the popup content with an image
-      const imageUrl = './data/image.png'; // Replace with the actual image URL
-    
-      const imgElement = document.createElement('img');
+      const imageUrl = "./data/image.png"; // Replace with the actual image URL
+
+      const imgElement = document.createElement("img");
       imgElement.src = imageUrl;
-      imgElement.style.width = '220px'; // Set the width of the image
-    
-      const imgContainer = document.createElement('div');
+      imgElement.style.width = "220px"; // Set the width of the image
+
+      const imgContainer = document.createElement("div");
       imgContainer.appendChild(imgElement);
-    
+
       new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setDOMContent(imgContainer) // Set the image container as the content
         .addTo(map);
     });
-
   });
+
+  return map;
 }
 
 export const App = () => {
@@ -364,6 +546,7 @@ export const App = () => {
             height: "100%",
           }}
         ></div>
+        <StreetPanel />
       </div>
     </>
   );
