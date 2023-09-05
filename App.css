@@ -8,7 +8,7 @@
 
   .buttons-container {
     position: absolute;
-    bottom: 20px;
+    bottom: 190px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -17,8 +17,9 @@
   }
   
   .map-button {
-    width: 200px;
+    width: 150px;
     height: 40px;
+    bottom: 190px;
     padding: 0;
     border: none;
     border-radius: 0px;
@@ -29,6 +30,15 @@
     justify-content: center;
     align-items: center;
   }
+
+  .map-button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow when button is active (clicked) */
+}
+
+
+  .map-button:active {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow when button is active (clicked) */
+}
 
   .png-icon {
     width: 200px;
@@ -48,3 +58,38 @@
   .app-container.hide {
     display: none;
   }
+
+  .typewriter h1 {
+    overflow: hidden; 
+    z-index: 99999;
+    gap: 10px;
+    border-right: .15em solid rgb(0, 0, 0);
+    white-space: nowrap;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  margin-bottom: 5px;
+  padding-bottom: 24px;
+    padding-top: 10px;
+    padding-left: 4px;
+  font: 44px/.1 "IBM Plex Mono", monospace;
+  /* text-wrap: normal; */
+  line-height: 1;
+    letter-spacing: 4px;}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(0, 0, 0); }
+}
+  

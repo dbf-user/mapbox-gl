@@ -44,11 +44,14 @@ const TogglePanel = () => {
 
   const toggleState = () => {
     setIsOn(!isOn);
-
-    if(isOn===false){
+    if (isOn === false) {
       //Walk button event
-    }else if (isOn===true){
+      map.setLayoutProperty("tp-line-line", "visibility", "visible");
+      map.setLayoutProperty("walk-line-line", "visibility", "none");
+    } else if (isOn === true) {
       //Car button event
+      map.setLayoutProperty("tp-line-line", "visibility", "none");
+      map.setLayoutProperty("walk-line-line", "visibility", "visible");
     }
   };
 
@@ -57,7 +60,7 @@ const TogglePanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: 30,
+        bottom: 190,
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -77,7 +80,7 @@ const TogglePanel = () => {
           lineHeight: "1.2",
           textAlign: "center",
           fontSize: 16,
-          fontFamily:'IBM Plex Mono, monospace',
+          fontFamily: "IBM Plex Mono, monospace",
         }}
       >
         Trips to key facilities
@@ -88,8 +91,8 @@ const TogglePanel = () => {
         style={{
           textAlign: "center",
           fontSize: 12,
-          marginTop:"8px",
-          fontFamily:'IBM Plex Mono, monospace',
+          marginTop: "8px",
+          fontFamily: "IBM Plex Mono, monospace",
         }}
       >
         Transport Mode
@@ -108,8 +111,7 @@ const TogglePanel = () => {
             marginRight: "10px",
             fontSize: "24px",
           }}
-        >
-        </div>
+        ></div>
         <CustomSwitch
           checked={isOn}
           color="default"
@@ -118,7 +120,7 @@ const TogglePanel = () => {
       </Box>
     </Box>
   );
-}
+};
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
@@ -293,6 +295,7 @@ export function renderToDOM(container, data) {
         "line-emissive-strength": 2,
         "line-width": 6,
       },
+      visibility: "none",
     });
 
     map.addSource("walkPaths", {
@@ -311,6 +314,7 @@ export function renderToDOM(container, data) {
         "line-emissive-strength": 2,
         "line-width": 6,
       },
+      visibility: "visible",
     });
 
     map.addSource("buildings", {
@@ -399,8 +403,9 @@ export const App = () => {
           }}
         ></div>
         <SliderPanel />
-        <TogglePanel/>
+        <TogglePanel />
       </div>
+      <h1>Reduce Carbon Emissions for your neighborhood</h1>
     </>
   );
 };

@@ -29,7 +29,7 @@ import startIcon from "./icons/start.png";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
+  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2xtNXQwdHhvMWd3cjNmcDY2aGc4NDZrNSJ9.1OTywkIt0KA1sMPAxUrCzg";
 
 let maxValue = 500;
 let minValue = 0;
@@ -360,7 +360,7 @@ export const App = () => {
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
 
       </div>
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
           style={{
@@ -382,6 +382,9 @@ export const App = () => {
         </div>
       </div>
       {renderSelectedComponent()}
+      {/* <div class="typewriter"> */}
+  <h1>All the data available to start design in context and make the best decisions</h1>
+{/* </div> */}
     </>
   );
 };

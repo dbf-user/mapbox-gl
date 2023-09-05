@@ -172,7 +172,7 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 150, bottom: 60, height: 100 }}
+          style={{ position: "absolute", left: 150, bottom: 220, height: 100 }}
         >
           <CustomSlider
             orientation="vertical"
@@ -366,6 +366,9 @@ export const App = () => {
 
   return (
     <>
+    {/* <div class="typewriter"> */}
+  <h1>Understanding <b>access to green spaces</b> is critical to build better cities</h1>
+{/* </div> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
       </div>
 
@@ -419,6 +422,7 @@ export const App = () => {
         </div>
       </div>
       {renderSelectedComponent()}
+      
     </>
   );
 };
