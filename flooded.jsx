@@ -29,7 +29,7 @@ import CustomSwitch from "./customSwitch.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
+  "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2xtNXQwdHhvMWd3cjNmcDY2aGc4NDZrNSJ9.1OTywkIt0KA1sMPAxUrCzg";
 
 let maxValue = 500;
 let minValue = 0;
