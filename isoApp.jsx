@@ -196,7 +196,7 @@ const SliderPanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
+    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -267,7 +267,7 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 13,
       paint: {
-        "fill-extrusion-color": "white",
+        "fill-extrusion-color": "#e8e8e8",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
