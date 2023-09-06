@@ -44,7 +44,7 @@ const StreetPanel = () => {
         map.flyTo({
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-          speed: 0.1,
+          speed: 0.3,
           zoom: 17,
           pitch: 60,
           curve: 1,
@@ -77,7 +77,32 @@ const StreetPanel = () => {
         Bdistance = "90 m";
         Metro = "Temple (Stop N)";
         Mdistance = "141 m";
+        map.flyTo({
+          center: [-0.119385, 51.514826],
+          essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          speed: 0.3,
+          zoom: 17,
+          pitch: 60,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+        
         break;
+      // case "Learning":
+      //   map.flyTo({
+      //     center: [-0.114492, 51.511485],
+      //     essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      //     speed: 0.3,
+      //     zoom: 17,
+      //     pitch: 60,
+      //     curve: 1,
+      //     easing(t) {
+      //       return t;
+      //     },
+      //   });
+      //   break;
       default:
         break;
     }
@@ -415,21 +440,21 @@ export function renderToDOM(container, data) {
     });
 
     // //
-    // map.addSource("buildings", {
-    //   type: "geojson",
-    //   data: parks,
-    // });
+    map.addSource("par", {
+      type: "geojson",
+      data: parks,
+    });
 
-    // // Add a GeoJSON layer with lines
-    // map.addLayer({
-    //   id: "lines",
-    //   type: "fill",
-    //   source: "buildings",
-    //   paint: {
-    //     "fill-color": "#A7DD88",
-    //     "fill-opacity": 0.4,
-    //   },
-    // });
+    // Add a GeoJSON layer with lines
+    map.addLayer({
+      id: "park",
+      type: "fill",
+      source: "par",
+      paint: {
+        "fill-color": "#A7DD88",
+        "fill-opacity": 0.4,
+      },
+    });
 
     map.addSource("my_test", {
       type: "geojson",
@@ -482,7 +507,7 @@ export function renderToDOM(container, data) {
       },
     });
 
-    map.addSource("buildings", {
+    map.addSource("street", {
       type: "geojson",
       data: build,
     });
@@ -490,13 +515,14 @@ export function renderToDOM(container, data) {
     map.addLayer({
       id: "lines",
       type: "line",
-      source: "buildings",
+      source: "street",
       paint: {
         "line-color": ["get", "color"],
         "line-emissive-strength": 2,
-        "line-width": 4,
+        "line-width": 6,
       },
     });
+    map.moveLayer("park");
     map.moveLayer("lines");
     map.moveLayer("extrusion");
     map.moveLayer("extrusion1");
@@ -504,17 +530,17 @@ export function renderToDOM(container, data) {
 
     map.moveLayer("add-3d-buildings");
 
-    // map.flyTo({
-    //   center: [-0.123385, 51.514332],
-    //   essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-    //   speed: 0.1,
-    //   zoom: 17,
-    //   pitch: 60,
-    //   curve: 1,
-    //   easing(t) {
-    //     return t;
-    //   },
-    // });
+    map.flyTo({
+      center: [-0.123385, 51.514332],
+      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      speed: 0.2,
+      zoom: 17,
+      pitch: 60,
+      curve: 1,
+      easing(t) {
+        return t;
+      },
+    });
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
