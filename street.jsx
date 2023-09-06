@@ -18,7 +18,8 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import BuildingIcon from "./icons/building.jsx";
-import CarIcon from "./icons/car.png";
+import MetroIcon from "./icons/metro.png";
+import BusIcon from "./icons/bus.png";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -39,8 +40,14 @@ const StreetPanel = () => {
     setActiveButton(buttonName);
     show=true;
     switch (buttonName) {
-      case "Caring":
+      case "Community":
         //Caring button click event
+        propertyName = "Endell Complex";
+        address = "2 Endell St, London, UK";
+        Bus = "Covent Garden";
+        Bdistance = "140 m";
+        Metro = "St. Giles High Street";
+        Mdistance = "321 m";
         map.flyTo({
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
@@ -52,21 +59,28 @@ const StreetPanel = () => {
             return t;
           },
         });
+        
+        break;
+      case "Caring":
+        map.flyTo({
+          center: [-0.119385, 51.514826],
+          essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          speed: 0.3,
+          zoom: 17,
+          pitch: 60,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+        //Community button click event
         propertyName = "Kemble Caring Center";
         address = "1 Kemble St, London, UK";
         Bus = "Holborn Underground";
         Bdistance = "320 m";
         Metro = "Kingsway";
         Mdistance = "120 m";
-        break;
-      case "Community":
-        //Community button click event
-        propertyName = "Endell Complex";
-        address = "2 Endell St, London, UK";
-        Bus = "Covent Garden";
-        Bdistance = "140 m";
-        Metro = "St. Giles High Street";
-        Mdistance = "321 m";
+        
 
         break;
       case "Learning":
@@ -78,7 +92,7 @@ const StreetPanel = () => {
         Metro = "Temple (Stop N)";
         Mdistance = "141 m";
         map.flyTo({
-          center: [-0.119385, 51.514826],
+          center: [-0.114492, 51.511520],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
           zoom: 17,
@@ -263,7 +277,7 @@ const RightPanel = () => {
         </div>
         <div className="st-vertical-rows">
           <div className="st-row">
-            <img src={CarIcon} alt="Icon 1" className="st-icon" />
+            <img src={MetroIcon} alt="Icon 1" className="st-icon" />
             <div className="st-text-align-prop">
               <div className="st-text-prop">{Bus}</div>
             </div>
@@ -272,7 +286,7 @@ const RightPanel = () => {
             </div>
           </div>
           <div className="st-row">
-            <img src={CarIcon} alt="Icon 1" className="st-icon" />
+            <img src={BusIcon} alt="Icon 1" className="st-icon" />
             <div className="st-text-align-prop">
               <div className="st-text-prop">{Metro}</div>
             </div>
