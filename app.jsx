@@ -117,8 +117,6 @@ export function renderToDOM(container, data) {
       },
     });
 
-    map.moveLayer("add-3d-buildings");
-
     map.flyTo({
       center: [-0.128343, 51.511364],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
