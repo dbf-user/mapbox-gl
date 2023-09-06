@@ -197,6 +197,7 @@ export const App = () => {
     const heatMarkersLayer = new MapboxLayer({
       type: TripsLayer,
       id: "trips",
+      capRounded: true,
       data: trips,
       getPath: (d) => d.geometry.coordinates,
       getTimestamps: (d) => d.properties.timestamps,
