@@ -5,6 +5,7 @@ import build from "./data/street_betweenness_trafalgar.json";
 import pathways from "./data/co2.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
+import "./Street.css";
 import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import t from "./data/test.json";
@@ -17,6 +18,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import BuildingIcon from "./icons/building.jsx";
+import CarIcon from "./icons/car.png";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -27,14 +29,15 @@ let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
 let map;
-
+let propertyName, address, Bus, Bdistance, Metro, Mdistance;
+let show = false;
 
 const StreetPanel = () => {
-
   const [activeButton, setActiveButton] = useState(null);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
+    show=true;
     switch (buttonName) {
       case "Caring":
         //Caring button click event
@@ -49,13 +52,31 @@ const StreetPanel = () => {
             return t;
           },
         });
+        propertyName = "Kemble Caring Center";
+        address = "1 Kemble St, London, UK";
+        Bus = "Holborn Underground";
+        Bdistance = "320 m";
+        Metro = "Kingsway";
+        Mdistance = "120 m";
         break;
       case "Community":
         //Community button click event
-        
+        propertyName = "Endell Complex";
+        address = "2 Endell St, London, UK";
+        Bus = "Covent Garden";
+        Bdistance = "140 m";
+        Metro = "St. Giles High Street";
+        Mdistance = "321 m";
+
         break;
       case "Learning":
         //Learning button click event
+        propertyName = "Surrey Edu-Hub";
+        address = "12 Temple Pl, London, UK";
+        Bus = "Temple Station";
+        Bdistance = "90 m";
+        Metro = "Temple (Stop N)";
+        Mdistance = "141 m";
         break;
       default:
         break;
@@ -201,6 +222,42 @@ const StreetPanel = () => {
         </Button>
       </Box>
     </Box>
+  );
+};
+
+const RightPanel = () => {
+  return (
+    <div className="st-container">
+      <div className="st-title">Urban Insight</div>
+      <div className="st-separator"></div>
+      <div className="st-content">
+        <div className="st-horizontal-lines">
+          <div className="st-upper-text">{propertyName}</div>
+          <div className="st-text">{address}</div>
+          <div className="st-mid-text">Transit Proximity</div>
+        </div>
+        <div className="st-vertical-rows">
+          <div className="st-row">
+            <img src={CarIcon} alt="Icon 1" className="st-icon" />
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">{Bus}</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{Bdistance}</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <img src={CarIcon} alt="Icon 1" className="st-icon" />
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">{Metro}</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{Mdistance}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -538,7 +595,6 @@ export const App = () => {
 
   return (
     <>
-
       <div style={{ width: "100vw", height: "100vh" }}>
         <div
           id="map"
@@ -548,8 +604,8 @@ export const App = () => {
           }}
         ></div>
         <StreetPanel />
+        {show ? <RightPanel /> : null}
       </div>
-      
     </>
   );
 };
