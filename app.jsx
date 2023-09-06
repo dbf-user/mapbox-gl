@@ -14,6 +14,8 @@ import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 
+import parkIcon from "./data/park.png";
+
 //import pathways from "./data/co2.json";
 import "./App.css";
 import treeIcon from "./icons/tree-silhouette.png";
@@ -213,7 +215,7 @@ export const App = () => {
     map.on("load", () => {
       map.addLayer(heatMarkersLayer);
 
-      map.loadImage("./data/park.png", (error, image) => {
+      map.loadImage(parkIcon, (error, image) => {
         if (error) throw error;
 
         // Add the image to the map style.

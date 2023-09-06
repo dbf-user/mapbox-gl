@@ -14,6 +14,9 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CustomSwitch from "./customSwitch.jsx";
 
+import hIcon from "./data/hsptl.png";
+import sIcon from "./data/school.png";
+
 // Set your Mapbox token here
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2xtNXQwdHhvMWd3cjNmcDY2aGc4NDZrNSJ9.1OTywkIt0KA1sMPAxUrCzg";
@@ -138,7 +141,7 @@ export function renderToDOM(container, data) {
   });
 
   map.on("load", () => {
-    map.loadImage("./data/school.png", (error, image) => {
+    map.loadImage(sIcon, (error, image) => {
       if (error) throw error;
 
       // Add the image to the map style.
@@ -162,7 +165,7 @@ export function renderToDOM(container, data) {
       });
     });
 
-    map.loadImage("./data/hsptl.png", (error, image) => {
+    map.loadImage(hIcon, (error, image) => {
       if (error) throw error;
 
       // Add the image to the map style.

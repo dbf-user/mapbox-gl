@@ -19,6 +19,7 @@ import Co2App from "./co2.jsx";
 import IsoApp from "./isoApp.jsx";
 import Floods from "./floods.jsx";
 import Street from "./street.jsx";
+import parkIcon from "./data/park.png";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -209,7 +210,7 @@ export function renderToDOM(container, data) {
   });
 
   map.on("load", () => {
-    map.loadImage("./data/park.png", (error, image) => {
+    map.loadImage(parkIcon, (error, image) => {
       if (error) throw error;
 
       // Add the image to the map style.
