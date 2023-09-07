@@ -20,7 +20,7 @@
       "properties": {
         "program": "commercial",
         "level": 1,
-        "color": "#fa7ea5",
+        "color": "#34C6F5",
         "height": 9,
         "base_height": 0
       }
@@ -44,7 +44,7 @@
       "properties": {
         "program": "commercial",
         "level": 1,
-        "color": "#fa7ea5",
+        "color": "#34C6F5",
         "height": 15,
         "base_height": 9
       }
@@ -68,7 +68,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#34C6F5",
         "height": 51,
         "base_height": 18
       }
@@ -92,7 +92,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#34C6F5",
         "height": 18,
         "base_height": 15
       }
@@ -116,7 +116,7 @@
       "properties": {
         "program": "commercial",
         "level": 1,
-        "color": "#fa7ea5",
+        "color": "#34C6F5",
         "height": 15,
         "base_height": 0
       }
@@ -140,7 +140,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#34C6F5",
         "height": 30,
         "base_height": 15
       }

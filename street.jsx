@@ -10,7 +10,7 @@ import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import t from "./data/test.json";
 import sol from "./data/geo.json";
-import sol1 from "./data/Solution-Blocks.json";
+import sol1 from "./data/dbf-big.json";
 import sol4 from "./data/Sol4.json";
 import { overlapBuildingIds } from "./data/overlapingBuildingsId";
 import Box from "@mui/material/Box";
@@ -481,6 +481,7 @@ export function renderToDOM(container, data) {
       source: "my_test",
       paint: {
         "fill-extrusion-color": ["get", "color"],
+        "fill-extrusion-ambient-occlusion-intensity": 1,
         "fill-extrusion-height": ["get", "height"],
         "fill-extrusion-base": ["get", "base_height"],
         "fill-extrusion-opacity": 1,
@@ -498,6 +499,7 @@ export function renderToDOM(container, data) {
       source: "my_test1",
       paint: {
         "fill-extrusion-color": ["get", "color"],
+        "fill-extrusion-ambient-occlusion-intensity": 1,
         "fill-extrusion-height": ["get", "height"],
         "fill-extrusion-base": ["get", "base_height"],
         "fill-extrusion-opacity": 1,
@@ -515,6 +517,7 @@ export function renderToDOM(container, data) {
       source: "my_test2",
       paint: {
         "fill-extrusion-color": ["get", "color"],
+        "fill-extrusion-ambient-occlusion-intensity": 1,
         "fill-extrusion-height": ["get", "height"],
         "fill-extrusion-base": ["get", "base_height"],
         "fill-extrusion-opacity": 1,

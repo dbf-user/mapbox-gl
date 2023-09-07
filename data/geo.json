@@ -20,7 +20,7 @@
       "properties": {
         "program": "commercial",
         "level": 1,
-        "color": "#fa7ea5",
+        "color": "#0014F8",
         "height": 9,
         "base_height": 0
       }
@@ -44,7 +44,7 @@
       "properties": {
         "program": "commercial",
         "level": 1,
-        "color": "#fa7ea5",
+        "color": "#0014F8",
         "height": 18,
         "base_height": 9
       }
@@ -68,7 +68,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#0014F8",
         "height": 45,
         "base_height": 18
       }
@@ -92,7 +92,7 @@
       "properties": {
         "program": "offices",
         "level": 1,
-        "color": "#fa9c3f",
+        "color": "#0014F8",
         "height": 15,
         "base_height": 0
       }
@@ -116,7 +116,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#0014F8",
         "height": 27,
         "base_height": 15
       }
@@ -140,7 +140,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#0014F8",
         "height": 33,
         "base_height": 24
       }
@@ -164,7 +164,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#0014F8",
         "height": 24,
         "base_height": 18
       }
@@ -188,7 +188,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#0014F8",
         "height": 18,
         "base_height": 9
       }
@@ -213,7 +213,7 @@
       "properties": {
         "program": "institutional",
         "level": 1,
-        "color": "#34c6f4",
+        "color": "#0014F8",
         "height": 9,
         "base_height": 0
       }
