@@ -8,12 +8,12 @@
 
   .buttons-container {
     position: absolute;
-    bottom: 190px;
+    bottom: 23vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    padding-bottom: 100px;
+    padding-bottom: 9.25vh;
   }
   
   .map-button {

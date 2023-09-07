@@ -2,11 +2,11 @@
     position: fixed;
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
-    padding: 10px;
+    padding: 1vh;
     border-radius: 8px; 
     width: 240px;
     height: 200px;
-    bottom: 220px;
+    bottom: 23vh;
     right: 20px;
     display: flex;
     flex-direction: column;

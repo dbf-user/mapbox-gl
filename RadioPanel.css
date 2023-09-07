@@ -1,12 +1,12 @@
 .panel {
     background-color: black;
-    padding: 20px;
+    padding: 1.85vh;
     border-radius: 5px;
     color: white;
     width: 100px;
     margin: 0 auto;
     position: fixed;
-    bottom: 190px;
+    bottom: 23vh;
     left: 10px;
     font-family: 'IBM Plex Mono', monospace;
   }

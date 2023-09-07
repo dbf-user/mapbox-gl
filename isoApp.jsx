@@ -172,7 +172,12 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 150, bottom: 220, height: 100 }}
+          style={{
+            position: "absolute",
+            left: 150,
+            bottom: "26vh",
+            height: 100,
+          }}
         >
           <CustomSlider
             orientation="vertical"
@@ -351,22 +356,35 @@ export const App = () => {
     switch (selectedButton) {
       case "park":
         pageText = (
-          <h1>
+          <h1 style={{ fontSize: "3.8vh" }}>
             Understanding <b>access to green spaces</b> is critical to build
             better cities
           </h1>
         );
         return <IsoApp />;
       case "co2":
-        pageText = <h1>Reduce <b>carbon emissions</b> for your neighborhood</h1>;
+        pageText = (
+          <h1 style={{ fontSize: "3.8vh" }}>
+            Reduce <b>carbon emissions</b> for your neighborhood
+          </h1>
+        );
         return <Co2App />;
 
       case "flood":
-        pageText = <h1>Identify <b>threats</b> and <b>risk zones</b> in your city</h1>;
+        pageText = (
+          <h1 style={{ fontSize: "3.8vh" }}>
+            Identify <b>threats</b> and <b>risk zones</b> in your city
+          </h1>
+        );
         return <Floods />;
 
       case "other":
-        pageText = <h1>Evaluate and compare <b>development opportunities</b> for critical buildings and facilities in your city</h1>;
+        pageText = (
+          <h1 style={{ fontSize: "3.8vh" }}>
+            Evaluate and compare <b>development opportunities</b> for critical
+            buildings and facilities in your city
+          </h1>
+        );
         return <Street />;
       default:
         return null;
@@ -377,7 +395,7 @@ export const App = () => {
     <>
       {/* <div class="typewriter"> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-        <h1>
+        <h1 style={{ fontSize: "3.8vh" }}>
           Understanding <b>access to green spaces</b> is critical to build
           better cities
         </h1>

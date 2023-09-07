@@ -161,7 +161,7 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 150, bottom: 220, height: 100 }}
+          style={{ position: "absolute", left: 150, bottom: '26vh', height: 100 }}
         >
           <CustomSlider
             orientation="vertical"

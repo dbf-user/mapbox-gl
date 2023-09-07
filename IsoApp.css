@@ -8,16 +8,16 @@
 
   .iso-buttons-container {
     position: absolute;
-    bottom: 190px;
+    bottom: 23vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 1vh;
   }
   
   .iso-map-button {
-    width: 60px;
-    height: 60px;
+    width: 7vh;
+    height: 7vh;
     padding: 0;
     border: none;
     border-radius: 5px;
@@ -30,13 +30,13 @@
   }
 
   .iso-png-icon {
-    width: 25px;
-    height: 25px;
+    width: 3vh;
+    height: 3vh;
   }
 
   .iso-co2-icon {
-    width: 35px;
-    height: 17px;
+    width: 4vh;
+    height: 2vh;
   }
 
   .iso-selected {
