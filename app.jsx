@@ -361,7 +361,8 @@ export const App = () => {
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
 
       </div>
-      <div style={{ width: "100vw", height: "80vh" }}>
+      <div style={{ width: "100vw", height: "100vh" }}>
+        
         <div
           id="map"
           style={{
@@ -371,6 +372,9 @@ export const App = () => {
         ></div>
       </div>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+      <div class="overlay"> 
+  <h1 style={{ fontSize: '3.8vh' }}>All the data available to start design in context and make the best decisions</h1>
+</div>
         <div className="buttons-container">
           <button
             className={`map-button ${
@@ -383,9 +387,7 @@ export const App = () => {
         </div>
       </div>
       {renderSelectedComponent()}
-      {/* <div class="typewriter"> */}
-  <h1 style={{ fontSize: '3.8vh' }}>All the data available to start design in context and make the best decisions</h1>
-{/* </div> */}
+       
     </>
   );
 };

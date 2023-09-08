@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Taylor Walker",
+        "distance": 151,
+        "DBF_category": "Restaurant",
+        "urban_function": "supplying",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": 51.50665, 
+        "lon": -0.12709, 
+        "travel_time": 601
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.12709, 51.50665]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "One Twenty One Two",
+        "distance": 151,
+        "DBF_category": "Restaurant",
+        "urban_function": "enjoying",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": -0.1242504,  
+        "lon": 51.50584, 
+        "travel_time": 601  
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1242504, 51.50584]
+      }
+    }
+    
+  ]
+}
+

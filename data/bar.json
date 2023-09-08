@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Three Clowns",
+        "distance": 151,
+        "DBF_category": "Bar-Pub",
+        "urban_function": "enjoying",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": 51.508736,  
+        "lon": -0.135075, 
+        "travel_time": 601  
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.135075, 51.508736]
+      }
+    }
+    
+  ]
+}

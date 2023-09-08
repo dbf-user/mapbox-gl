@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Charing Cross",
+        "distance": 151,
+        "DBF_category": "Metro Station",
+        "urban_function": "living",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": 51.5085086,  
+        "lon": -0.1259313,
+        "travel_time": 601  
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1259313, 51.5085086]
+      }
+    }
+    
+  ]
+}

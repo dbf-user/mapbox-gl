@@ -175,7 +175,7 @@ const SliderPanel = () => {
           style={{
             position: "absolute",
             left: 150,
-            bottom: "26vh",
+            bottom: "9vh",
             height: 100,
           }}
         >
@@ -363,27 +363,27 @@ export const App = () => {
         );
         return <IsoApp />;
       case "co2":
-        pageText = (
+        pageText = (<div class="overlay">
           <h1 style={{ fontSize: "3.8vh" }}>
             Reduce <b>carbon emissions</b> for your neighborhood
-          </h1>
+          </h1></div>
         );
         return <Co2App />;
 
       case "flood":
-        pageText = (
+        pageText = (<div class="overlay">
           <h1 style={{ fontSize: "3.8vh" }}>
             Identify <b>threats</b> and <b>risk zones</b> in your city
-          </h1>
+          </h1></div>
         );
         return <Floods />;
 
       case "other":
-        pageText = (
+        pageText = (<div class="overlay">
           <h1 style={{ fontSize: "3.8vh" }}>
             Evaluate and compare <b>development opportunities</b> for critical
             buildings and facilities in your city
-          </h1>
+          </h1></div>
         );
         return <Street />;
       default:
@@ -395,11 +395,12 @@ export const App = () => {
     <>
       {/* <div class="typewriter"> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+      <div class="overlay">
         <h1 style={{ fontSize: "3.8vh" }}>
           Understanding <b>access to green spaces</b> is critical to build
           better cities
         </h1>
-      </div>
+      </div></div>
       {pageText}
       <div style={{ width: "100vw", height: "80vh" }}>
         <div

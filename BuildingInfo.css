@@ -6,8 +6,8 @@
     border-radius: 5px; 
     width: 170px;
     height: 40px;
-    bottom: 190px;
     right: 20px;
+    bottom: 5vh;
     display: flex;
     flex-direction: column;
     font-family: 'IBM Plex Mono', monospace;
@@ -22,7 +22,7 @@
     border-radius: 8px; 
     width: 200px;
     height: 150px;
-    bottom: 23vh;
+    bottom: 5vh;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -80,6 +80,7 @@
   color: #FFF;
   text-align: center;
   font-size: 30.398px;
+  bottom: 5vh;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -110,9 +111,24 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
   width: 100%;
-  height: 100%;
+  height: 10%;
   z-index: 9999; /* Ensure the overlay is on top of other content */
   pointer-events: none;
 }
+
+.overlay1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+  width: 100%;
+  height: 15%;
+  z-index: 9999; /* Ensure the overlay is on top of other content */
+  pointer-events: none;
+}
+
+

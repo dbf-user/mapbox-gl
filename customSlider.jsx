@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 
 const CustomSlider = styled(Slider)({
-    color: '#fff',
+    color: '#E7E7E7',
     
     //height: 100,
     '& .MuiSlider-track': {
@@ -12,7 +12,7 @@ const CustomSlider = styled(Slider)({
     '& .MuiSlider-thumb': {
       height: 15,
       width: 15,
-      backgroundColor: '#fff',
+      backgroundColor: '#D6D6D6',
       border: '2px solid currentColor',
       '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
         boxShadow: 'inherit',

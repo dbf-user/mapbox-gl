@@ -9,6 +9,16 @@ import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
 import school_names from "./data/school_names.json";
 import hsptl_names from "./data/hsptl_names.json";
+import parkIcon from "./data/park.png";
+import gro from "./data/grocery.json";
+import met from "./data/metro.json";
+import resto from "./data/rest.json";
+import pharmacy from "./data/pharm.json";
+import banking from "./data/bank.json";
+import bar_pub from "./data/bar.json";
+import l_square from "./data/l_square.json";
+
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -16,6 +26,13 @@ import CustomSwitch from "./customSwitch.jsx";
 
 import hIcon from "./data/hsptl.png";
 import sIcon from "./data/school.png";
+import bank from "./icons/bank.png";
+import bar from "./icons/bar.png";
+import grocery from "./icons/grocery.png";
+import metroIcon from "./icons/metroIcon.png";
+import rest from "./icons/rest.png";
+import pharm from "./icons/pharm.png";
+
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -63,7 +80,7 @@ const TogglePanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: '23vh',
+        bottom: '5vh',
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -132,7 +149,7 @@ export function renderToDOM(container, data) {
     center: [-0.127997, 51.507969],
     zoom: 16,
     pitch: 45,
-    minZoom: 14, // Set the minimum zoom level
+    minZoom: 13, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
       [-0.140922, 51.500648],
@@ -189,6 +206,174 @@ export function renderToDOM(container, data) {
       });
     });
 
+    map.loadImage(bank, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat2", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point2", {
+        type: "geojson",
+        data: banking,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points2",
+        type: "symbol",
+        source: "point2", // reference the data source
+        layout: {
+          "icon-image": "cat2", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.loadImage(bar, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat3", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point3", {
+        type: "geojson",
+        data: bar_pub,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points3",
+        type: "symbol",
+        source: "point3", // reference the data source
+        layout: {
+          "icon-image": "cat3", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.loadImage(grocery, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat4", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point4", {
+        type: "geojson",
+        data: gro,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points4",
+        type: "symbol",
+        source: "point4", // reference the data source
+        layout: {
+          "icon-image": "cat4", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.loadImage(metroIcon, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat5", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point5", {
+        type: "geojson",
+        data: met,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points5",
+        type: "symbol",
+        source: "point5", // reference the data source
+        layout: {
+          "icon-image": "cat5", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.loadImage(rest, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat6", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point6", {
+        type: "geojson",
+        data: resto,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points6",
+        type: "symbol",
+        source: "point6", // reference the data source
+        layout: {
+          "icon-image": "cat6", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
+    map.loadImage(parkIcon, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("cat7", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point7", {
+        type: "geojson",
+        data: l_square,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points7",
+        type: "symbol",
+        source: "point7", // reference the data source
+        layout: {
+          "icon-image": "cat7", // reference the image
+          "icon-size": 1,
+        },
+      });
+    });
+
+    map.loadImage(pharm, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("pharm", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point_pharm", {
+        type: "geojson",
+        data: pharmacy,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points_pharm",
+        type: "symbol",
+        source: "point_pharm", // reference the data source
+        layout: {
+          "icon-image": "pharm", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
     map.on("click", "points", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
@@ -239,13 +424,191 @@ export function renderToDOM(container, data) {
       map.getCanvas().style.cursor = "";
     });
 
+    /////////////////////////
+    map.on("click", "points2", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points2", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points2", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+     /////////////////////////
+     map.on("click", "points3", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points3", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points3", () => {
+      map.getCanvas().style.cursor = "";
+    });
+     /////////////////////////
+     map.on("click", "points4", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points4", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points4", () => {
+      map.getCanvas().style.cursor = "";
+    });
+     /////////////////////////
+     map.on("click", "points5", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points5", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points5", () => {
+      map.getCanvas().style.cursor = "";
+    });
+     /////////////////////////
+     map.on("click", "points6", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points6", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points6", () => {
+      map.getCanvas().style.cursor = "";
+    });
+////////////////////////////////////////////////////
+    map.on("click", "points7", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points7", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points7", () => {
+      map.getCanvas().style.cursor = "";
+    });
+     /////////////////////////
+     map.on("click", "points_pharm", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points_pharm", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points_pharm", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",
       "source-layer": "building",
       filter: ["==", "extrude", "true"],
       type: "fill-extrusion",
-      minzoom: 13,
+      minzoom: 12,
       paint: {
         "fill-extrusion-color": "#e8e8e8",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
@@ -346,7 +709,7 @@ export function renderToDOM(container, data) {
       center: [-0.127997, 51.507969],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
       speed: 0.05,
-      zoom: 14,
+      zoom: 13,
       curve: 1,
       easing(t) {
         return t;

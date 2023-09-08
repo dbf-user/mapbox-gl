@@ -127,7 +127,7 @@ const StreetPanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: '24vh',
+        bottom: '5vh',
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -569,63 +569,6 @@ export function renderToDOM(container, data) {
     //   filter_map = ["all", ...filter_map, filter];
     // }
     map.setFilter("add-3d-buildings", filter_map);
-
-    map.on("click", "extrusion", (e) => {
-      // const description = e.features[0].properties.program;
-
-      // Replace the popup content with an image
-      const imageUrl = "./data/image2.png"; // Replace with the actual image URL
-
-      const imgElement = document.createElement("img");
-      imgElement.src = imageUrl;
-      imgElement.style.width = "220px"; // Set the width of the image
-
-      const imgContainer = document.createElement("div");
-      imgContainer.appendChild(imgElement);
-
-      new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setDOMContent(imgContainer) // Set the image container as the content
-        .addTo(map);
-    });
-
-    map.on("click", "extrusion1", (e) => {
-      // const description = e.features[0].properties.program;
-
-      // Replace the popup content with an image
-      const imageUrl = "./data/image1.png"; // Replace with the actual image URL
-
-      const imgElement = document.createElement("img");
-      imgElement.src = imageUrl;
-      imgElement.style.width = "220px"; // Set the width of the image
-
-      const imgContainer = document.createElement("div");
-      imgContainer.appendChild(imgElement);
-
-      new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setDOMContent(imgContainer) // Set the image container as the content
-        .addTo(map);
-    });
-
-    map.on("click", "extrusion2", (e) => {
-      // const description = e.features[0].properties.program;
-
-      // Replace the popup content with an image
-      const imageUrl = "./data/image.png"; // Replace with the actual image URL
-
-      const imgElement = document.createElement("img");
-      imgElement.src = imageUrl;
-      imgElement.style.width = "220px"; // Set the width of the image
-
-      const imgContainer = document.createElement("div");
-      imgContainer.appendChild(imgElement);
-
-      new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setDOMContent(imgContainer) // Set the image container as the content
-        .addTo(map);
-    });
   });
 
   return map;

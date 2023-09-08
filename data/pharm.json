@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bipwa",
+        "distance": 202,
+        "DBF_category": "Pharmacy",
+        "urban_function": "caring",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": 51.50750, 
+        "lon": -0.13116,
+        "travel_time": 601
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13116, 51.50750]
+      }
+    }
+    
+  ]
+}

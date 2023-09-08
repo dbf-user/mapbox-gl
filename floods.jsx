@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import { id1200 } from "./data/1200Id.js";
 import { id1500 } from "./data/1500Id.js";
-import { id600 } from "./data/600Id.js";
+import { id600 } from "./data/build_flood.js";
 import { idx } from "./data/bIds.js";
 import parks from "./data/parks.json";
 import park_names from "./data/park_names.json";
@@ -18,7 +18,7 @@ mapboxgl.accessToken =
 let maxValue = 1600;
 let minValue = 1400;
 let title = "15 Parks";
-let buildingCount = 5915;
+let buildingCount = 1741;
 let map;
 
 const SliderPanel = () => {
@@ -37,28 +37,28 @@ const SliderPanel = () => {
         setSelectedOption("1500");
         minValue = 1400;
         maxValue = 1600;
-        buildingCount = 5915;
+        buildingCount = 1741;
         updateBuildingColor();
         break;
       case 2:
         setSelectedOption("1200");
         minValue = 901;
         maxValue = 1400;
-        buildingCount = 3015;
+        buildingCount = 1052;
         updateBuildingColor();
         break;
       case 3:
         setSelectedOption("900");
         minValue = 601;
         maxValue = 1100;
-        buildingCount = 2307;
+        buildingCount = 653;
         updateBuildingColor();
         break;
       case 4:
         setSelectedOption("600");
         minValue = 0;
         maxValue = 600;
-        buildingCount = 190;
+        buildingCount = 274;
         updateBuildingColor();
         break;
       default:
@@ -161,7 +161,7 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 150, bottom: '26vh', height: 100 }}
+          style={{ position: "absolute", left: 150, bottom: '9vh', height: 100 }}
         >
           <CustomSlider
             orientation="vertical"
@@ -273,6 +273,7 @@ export const App = () => {
   
   return (
     <>
+          
     <h1>Identify <b>threats</b> and <b>risk zones</b> in your city</h1>
       <div style={{ width: "100vw", height: "100vh" }}>
         <div

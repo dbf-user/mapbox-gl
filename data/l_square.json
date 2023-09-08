@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    
+    {
+      "id": "0",
+      "type": "Feature",
+      "properties": {
+        "element_type": "way",
+        "color": "#A7DD88",
+        "name": "Leicester Square"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.13008724055453977, 51.51042442539327]
+      }
+    }
+    
+  ]
+}

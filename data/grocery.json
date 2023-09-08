@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sainsbury's Local",
+        "distance": 151,
+        "DBF_category": "Grocery Store",
+        "urban_function": "living",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": 51.508948,
+        "lon": -0.124392, 
+        "travel_time": 601  
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.124392, 51.508948]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tesco Express",
+        "distance": 151,
+        "DBF_category": "Grocery Store",
+        "urban_function": "living",
+        "coeff": 1,
+        "trip_count": 12,
+        "lat": 51.511257,
+        "lon": -0.125319, 
+        "travel_time": 601  
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.125319, 51.511257]
+      }
+    }
+    
+  ]
+}

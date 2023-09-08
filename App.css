@@ -13,13 +13,13 @@
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    padding-bottom: 9.25vh;
+    padding-bottom: 1.25vh;
   }
   
   .map-button {
     width: 150px;
     height: 40px;
-    bottom: 190px;
+    bottom: 5vh;
     padding: 0;
     border: none;
     border-radius: 0px;
@@ -71,16 +71,17 @@
 }
 
 h1 {
-  color: rgb(0, 0, 0);
-  margin-bottom: 5px;
-  padding-bottom: 24px;
-    padding-top: 10px;
-    padding-left: 4px;
+  color: rgb(255, 255, 255);
+  margin-top: 0px;
+  padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
   font: 2rem/.1 "IBM Plex Mono", monospace;
   /* text-wrap: normal; */
   line-height: 150%;
   
-    letter-spacing: 4px;}
+    letter-spacing: 4px;
+    background-color:rgba(0, 0, 0, .55)}
 
 /* The typing effect */
 @keyframes typing {
