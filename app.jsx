@@ -373,7 +373,7 @@ export const App = () => {
       </div>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
       <div class="overlay"> 
-  <h1 style={{ fontSize: '3.8vh' }}>All the data available to start design in context and make the best decisions</h1>
+  <h1 style={{ fontSize: '2.2vh' }}>All the data available to start design in context and make the best decisions</h1>
 </div>
         <div className="buttons-container">
           <button

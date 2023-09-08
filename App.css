@@ -73,14 +73,14 @@
 h1 {
   color: rgb(255, 255, 255);
   margin-top: 0px;
-  padding-bottom: 5px;
-    padding-top: 5px;
-    padding-left: 10px;
-  font: 2rem/.1 "IBM Plex Mono", monospace;
+  padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+  font: 1.5rem/.1 "IBM Plex Mono", monospace;
   /* text-wrap: normal; */
   line-height: 150%;
   
-    letter-spacing: 4px;
+    letter-spacing: .1vh;
     background-color:rgba(0, 0, 0, .55)}
 
 /* The typing effect */

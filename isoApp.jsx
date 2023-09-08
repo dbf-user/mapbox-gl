@@ -356,7 +356,7 @@ export const App = () => {
     switch (selectedButton) {
       case "park":
         pageText = (
-          <h1 style={{ fontSize: "3.8vh" }}>
+          <h1 style={{ fontSize: "2.2vh" }}>
             Understanding <b>access to green spaces</b> is critical to build
             better cities
           </h1>
@@ -364,7 +364,7 @@ export const App = () => {
         return <IsoApp />;
       case "co2":
         pageText = (<div class="overlay">
-          <h1 style={{ fontSize: "3.8vh" }}>
+          <h1 style={{ fontSize: "2.2vh" }}>
             Reduce <b>carbon emissions</b> for your neighborhood
           </h1></div>
         );
@@ -372,7 +372,7 @@ export const App = () => {
 
       case "flood":
         pageText = (<div class="overlay">
-          <h1 style={{ fontSize: "3.8vh" }}>
+          <h1 style={{ fontSize: "2.2vh" }}>
             Identify <b>threats</b> and <b>risk zones</b> in your city
           </h1></div>
         );
@@ -380,7 +380,7 @@ export const App = () => {
 
       case "other":
         pageText = (<div class="overlay">
-          <h1 style={{ fontSize: "3.8vh" }}>
+          <h1 style={{ fontSize: "2.2vh" }}>
             Evaluate and compare <b>development opportunities</b> for critical
             buildings and facilities in your city
           </h1></div>
@@ -396,7 +396,7 @@ export const App = () => {
       {/* <div class="typewriter"> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
       <div class="overlay">
-        <h1 style={{ fontSize: "3.8vh" }}>
+        <h1 style={{ fontSize: "2.2vh" }}>
           Understanding <b>access to green spaces</b> is critical to build
           better cities
         </h1>
