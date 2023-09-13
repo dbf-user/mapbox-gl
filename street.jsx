@@ -20,6 +20,10 @@ import Button from "@mui/material/Button";
 import BuildingIcon from "./icons/building.jsx";
 import MetroIcon from "./icons/metro.png";
 import BusIcon from "./icons/bus.png";
+import B1 from "./data/1-Solution-Blocks.json";
+import B2 from "./data/2-Solution-Blocks.json";
+import B3 from "./data/3-Solution-Blocks.json";
+import B4 from "./data/4-Solution-Blocks.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -32,13 +36,19 @@ let buildingCount = 353;
 let map;
 let propertyName, address, Bus, Bdistance, Metro, Mdistance;
 let show = false;
+const communityBuild = [B1, B2, B3, B4];
+let currentIndex = 0;
+let animationInterval;
+let animationRequestId;
+let currentBearing = 0;
+let initBearing = 0;
 
 const StreetPanel = () => {
   const [activeButton, setActiveButton] = useState(null);
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
-    show=true;
+    show = true;
     switch (buttonName) {
       case "Community":
         //Caring button click event
@@ -59,7 +69,16 @@ const StreetPanel = () => {
             return t;
           },
         });
-        
+        // clearInterval(animationInterval);
+        // map.getSource("my_test").setData(sol);
+        // map.getSource("my_test2").setData(sol4);
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test1", communityBuild);
+        }, 2000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
+
         break;
       case "Caring":
         map.flyTo({
@@ -73,6 +92,13 @@ const StreetPanel = () => {
             return t;
           },
         });
+        clearInterval(animationInterval);
+        stopCameraRotation();
+        // map.getSource("my_test1").setData(sol1);
+        // map.getSource("my_test2").setData(sol4);
+        // animationInterval = setInterval(() => {
+        //   AnimateBuilding("my_test", communityBuild);
+        // }, 2000);
         //Community button click event
         propertyName = "Kemble Caring Center";
         address = "1 Kemble St, London, UK";
@@ -80,7 +106,6 @@ const StreetPanel = () => {
         Bdistance = "320 m";
         Metro = "Kingsway";
         Mdistance = "120 m";
-        
 
         break;
       case "Learning":
@@ -92,7 +117,7 @@ const StreetPanel = () => {
         Metro = "Temple (Stop N)";
         Mdistance = "141 m";
         map.flyTo({
-          center: [-0.114492, 51.511520],
+          center: [-0.114492, 51.51152],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
           zoom: 17,
@@ -102,7 +127,14 @@ const StreetPanel = () => {
             return t;
           },
         });
-        
+        clearInterval(animationInterval);
+        stopCameraRotation();
+        // map.getSource("my_test1").setData(sol1);
+        // map.getSource("my_test").setData(sol);
+        // animationInterval = setInterval(() => {
+        //   AnimateBuilding("my_test2", communityBuild);
+        // }, 2000);
+
         break;
       // case "Learning":
       //   map.flyTo({
@@ -127,12 +159,12 @@ const StreetPanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: '5vh',
+        bottom: "5vh",
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
         color: "white",
-        padding: '1.85vh',
+        padding: "1.85vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -300,6 +332,38 @@ const RightPanel = () => {
   );
 };
 
+const AnimateBuilding = (source, buildings) => {
+  map.getSource(source).setData(buildings[currentIndex]);
+  currentIndex = (currentIndex + 1) % buildings.length;
+};
+
+const rotateCameraAround = () => {
+  const duration = 120000;
+  const speed = 5.0;
+  const startTime = Date.now();
+
+  const animate = () => {
+    const currentTime = Date.now();
+    const elapsedTime = currentTime - startTime;
+
+    if (elapsedTime < duration) {
+      const rotation = initBearing + (elapsedTime / duration) * 360 * speed;
+      currentBearing = rotation;
+      map.rotateTo(currentBearing, { duration: 0 });
+      animationRequestId = requestAnimationFrame(animate);
+    }
+  };
+
+  animate();
+};
+
+const stopCameraRotation = () => {
+  if (animationRequestId) {
+    cancelAnimationFrame(animationRequestId);
+    initBearing = map.getBearing();
+  }
+};
+
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
@@ -421,6 +485,8 @@ export function renderToDOM(container, data) {
   </p>`;
 
   map.on("load", () => {
+    clearInterval(animationInterval);
+    stopCameraRotation();
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",
@@ -528,6 +594,11 @@ export function renderToDOM(container, data) {
       type: "geojson",
       data: build,
     });
+
+    // map.addSource("add-buildings", {
+    //   type: "json",
+    //   // data: build,
+    // });
 
     map.addLayer({
       id: "lines",
