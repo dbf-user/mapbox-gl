@@ -8,6 +8,7 @@ import "./BuildingInfo.css";
 import "./Street.css";
 import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
+import baseMap from "./data/dbf-GREEN-BASE.json";
 import t from "./data/test.json";
 import sol from "./data/geo.json";
 import sol1 from "./data/dbf-big.json";
@@ -24,6 +25,18 @@ import B1 from "./data/1-Solution-Blocks.json";
 import B2 from "./data/2-Solution-Blocks.json";
 import B3 from "./data/3-Solution-Blocks.json";
 import B4 from "./data/4-Solution-Blocks.json";
+import B7 from "./data/dbf-community-site-gradient.json";
+
+// import B8 from "./data/p-1.json";
+import B9 from "./data/p-2.json";
+import B10 from "./data/p-3.json";
+import B11 from "./data/p-4.json";
+import B12 from "./data/p-5.json";
+
+
+
+
+
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -36,7 +49,7 @@ let buildingCount = 353;
 let map;
 let propertyName, address, Bus, Bdistance, Metro, Mdistance;
 let show = false;
-const communityBuild = [B1, B2, B3, B4];
+const communityBuild = [B1, B2, B3, B4, B7, B9, B10, B11, B12];
 let currentIndex = 0;
 let animationInterval;
 let animationRequestId;
@@ -62,7 +75,7 @@ const StreetPanel = () => {
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 17,
+          zoom: 16,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -74,7 +87,7 @@ const StreetPanel = () => {
         // map.getSource("my_test2").setData(sol4);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 2000);
+        }, 4000);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -85,7 +98,7 @@ const StreetPanel = () => {
           center: [-0.119385, 51.514826],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 17,
+          zoom: 16,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -94,6 +107,7 @@ const StreetPanel = () => {
         });
         clearInterval(animationInterval);
         stopCameraRotation();
+
         // map.getSource("my_test1").setData(sol1);
         // map.getSource("my_test2").setData(sol4);
         // animationInterval = setInterval(() => {
@@ -120,7 +134,7 @@ const StreetPanel = () => {
           center: [-0.114492, 51.51152],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 17,
+          zoom: 16,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -129,11 +143,7 @@ const StreetPanel = () => {
         });
         clearInterval(animationInterval);
         stopCameraRotation();
-        // map.getSource("my_test1").setData(sol1);
-        // map.getSource("my_test").setData(sol);
-        // animationInterval = setInterval(() => {
-        //   AnimateBuilding("my_test2", communityBuild);
-        // }, 2000);
+
 
         break;
       // case "Learning":
@@ -159,7 +169,7 @@ const StreetPanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: "5vh",
+        bottom: "23vh",
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -366,9 +376,9 @@ const stopCameraRotation = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
+    style: "mapbox://styles/digital-blue-foam/clmhvh77h006301pd60sjb4vx",
     container,
-    center: [-0.127997, 51.507969],
+    center: [-0.126967, 51.5102496], 
     zoom: 16,
     pitch: 45,
     minZoom: 15, // Set the minimum zoom level
@@ -495,7 +505,7 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 13,
       paint: {
-        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-color": "#34353D",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
@@ -515,7 +525,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     });
 
@@ -533,6 +543,22 @@ export function renderToDOM(container, data) {
       paint: {
         "fill-color": "#A7DD88",
         "fill-opacity": 0.4,
+      },
+    });
+
+    map.addSource("base", {
+      type: "geojson",
+      data: baseMap,
+    });
+
+    // Add a GeoJSON layer with lines
+    map.addLayer({
+      id: "baseM",
+      type: "fill",
+      source: "base",
+      paint: {
+        "fill-color": "#A7DD88",
+        "fill-opacity": .6,
       },
     });
 
@@ -600,17 +626,19 @@ export function renderToDOM(container, data) {
     //   // data: build,
     // });
 
-    map.addLayer({
-      id: "lines",
-      type: "line",
-      source: "street",
-      paint: {
-        "line-color": ["get", "color"],
-        "line-emissive-strength": 2,
-        "line-width": 6,
-      },
-    });
+    // map.addLayer({
+    //   id: "lines",
+    //   type: "line",
+    //   source: "street",
+    //   paint: {
+    //     "line-color": ["get", "color"],
+    //     "line-emissive-strength": 2,
+    //     "line-width": 6,
+    //   },
+    // });
     map.moveLayer("park");
+    map.moveLayer("baseM");
+    
     map.moveLayer("lines");
     map.moveLayer("extrusion");
     map.moveLayer("extrusion1");
@@ -622,13 +650,19 @@ export function renderToDOM(container, data) {
       center: [-0.123385, 51.514332],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
       speed: 0.2,
-      zoom: 17,
+      zoom: 16.5,
       pitch: 60,
       curve: 1,
       easing(t) {
         return t;
       },
     });
+    animationInterval = setInterval(() => {
+      AnimateBuilding("my_test1", communityBuild);
+    }, 800);
+    setTimeout(() => {
+      rotateCameraAround();
+    }, 3000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];

@@ -144,7 +144,7 @@ const TogglePanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clmh786j601ln01pfas8x8dgn",
+    style: "mapbox://styles/digital-blue-foam/clmhvh77h006301pd60sjb4vx",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -696,7 +696,7 @@ export function renderToDOM(container, data) {
       paint: {
         "fill-color": ["get", "color"],
         "fill-outline-color": "#00008B",
-        "fill-emissive-strength": 0.4,
+        "fill-emissive-strength": 1,
         "fill-opacity": 0.6,
       },
     });
@@ -729,7 +729,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#C96A6A",
+        "#FFAEAE",
         animationPhase,
         "rgba(0, 0, 0, 0)",
       ]);
@@ -737,7 +737,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("walk-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "white", // Blue color
+        "#83D4FF", // Blue color
         animationPhase,
         "rgba(0, 0, 255, 0)",
       ]);
