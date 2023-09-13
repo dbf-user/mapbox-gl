@@ -80,7 +80,7 @@ const TogglePanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: '5vh',
+        bottom: '23vh',
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -144,7 +144,7 @@ const TogglePanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
+    style: "mapbox://styles/digital-blue-foam/clmh786j601ln01pfas8x8dgn",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -608,9 +608,9 @@ export function renderToDOM(container, data) {
       "source-layer": "building",
       filter: ["==", "extrude", "true"],
       type: "fill-extrusion",
-      minzoom: 12,
+      minzoom: 15,
       paint: {
-        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-color": "#34353D",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
@@ -630,7 +630,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     });
 
@@ -708,8 +708,9 @@ export function renderToDOM(container, data) {
     map.flyTo({
       center: [-0.127997, 51.507969],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      pitch: 0,
       speed: 0.05,
-      zoom: 13,
+      zoom: 13.5,
       curve: 1,
       easing(t) {
         return t;
@@ -736,7 +737,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("walk-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#225ea8", // Blue color
+        "white", // Blue color
         animationPhase,
         "rgba(0, 0, 255, 0)",
       ]);

@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 
 const CustomSlider = styled(Slider)({
-    color: '#E7E7E7',
+    color: 'white',
     
     //height: 100,
     '& .MuiSlider-track': {

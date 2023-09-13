@@ -42,7 +42,7 @@ let map;
 
 export function renderToDOM(container, data) {
   const map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
+    style: "mapbox://styles/digital-blue-foam/clmh786j601ln01pfas8x8dgn",
     container,
     center: [-0.126162, 51.500971], // [-0.127997, 51.507969], , 
     zoom: 16,
@@ -65,7 +65,7 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 13,
       paint: {
-        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-color": "#34353D",
         "fill-extrusion-ambient-occlusion-intensity": 0.4,
         "fill-extrusion-height": [
           "interpolate",
@@ -85,7 +85,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     });
 
@@ -96,7 +96,7 @@ export function renderToDOM(container, data) {
       source: "buildings",
       paint: {
         "fill-color": "#A7DD88",
-        "fill-emissive-strength": 0.5,
+        "fill-emissive-strength": 10,
         "fill-opacity": 0.8,
       },
     });
@@ -361,7 +361,7 @@ export const App = () => {
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
 
       </div>
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "80vh" }}>
         
         <div
           id="map"
@@ -372,9 +372,8 @@ export const App = () => {
         ></div>
       </div>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-      <div class="overlay"> 
   <h1 style={{ fontSize: '2.2vh' }}>All the data available to start design in context and make the best decisions</h1>
-</div>
+
         <div className="buttons-container">
           <button
             className={`map-button ${

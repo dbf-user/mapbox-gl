@@ -8,7 +8,7 @@
 
   .iso-buttons-container {
     position: absolute;
-    bottom: 5vh;
+    bottom: 23vh;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

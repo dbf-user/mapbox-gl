@@ -175,7 +175,7 @@ const SliderPanel = () => {
           style={{
             position: "absolute",
             left: 150,
-            bottom: "9vh",
+            bottom: "26vh",
             height: 100,
           }}
         >
@@ -201,7 +201,7 @@ const SliderPanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
+    style: "mapbox://styles/digital-blue-foam/clmh786j601ln01pfas8x8dgn",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -272,7 +272,7 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 13,
       paint: {
-        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-color": "#34353D",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
@@ -292,7 +292,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     });
     updateBuildingColor();
@@ -329,7 +329,7 @@ export const updateBuildingColor = () => {
     ]);
 
   const combinedExpressions = selectedColor.flat();
-  combinedExpressions.push("white");
+  combinedExpressions.push("#34353D");
   map.setPaintProperty("add-3d-buildings", "fill-extrusion-color", [
     "case",
     ...combinedExpressions,
@@ -357,33 +357,31 @@ export const App = () => {
       case "park":
         pageText = (
           <h1 style={{ fontSize: "2.2vh" }}>
-            Understanding <b>access to green spaces</b> is critical to build
-            better cities
+            Compute Urban Green Space Index to assess recreational opportunities and urban resilience
           </h1>
         );
         return <IsoApp />;
       case "co2":
-        pageText = (<div class="overlay">
+        pageText = (
           <h1 style={{ fontSize: "2.2vh" }}>
             Reduce <b>carbon emissions</b> for your neighborhood
-          </h1></div>
+          </h1>
         );
         return <Co2App />;
 
       case "flood":
-        pageText = (<div class="overlay">
+        pageText = (
           <h1 style={{ fontSize: "2.2vh" }}>
-            Identify <b>threats</b> and <b>risk zones</b> in your city
-          </h1></div>
+            Perform urban risk assessment to pinpoint strategic development opportunities
+          </h1>
         );
         return <Floods />;
 
       case "other":
-        pageText = (<div class="overlay">
+        pageText = (
           <h1 style={{ fontSize: "2.2vh" }}>
-            Evaluate and compare <b>development opportunities</b> for critical
-            buildings and facilities in your city
-          </h1></div>
+            Generate development scenarios for future-proof urban transformation
+          </h1>
         );
         return <Street />;
       default:
@@ -395,12 +393,12 @@ export const App = () => {
     <>
       {/* <div class="typewriter"> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-      <div class="overlay">
+
         <h1 style={{ fontSize: "2.2vh" }}>
           Understanding <b>access to green spaces</b> is critical to build
           better cities
         </h1>
-      </div></div>
+      </div>
       {pageText}
       <div style={{ width: "100vw", height: "80vh" }}>
         <div
