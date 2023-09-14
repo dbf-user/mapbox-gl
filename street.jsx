@@ -32,11 +32,41 @@ import B9 from "./data/p-2.json";
 import B10 from "./data/p-3.json";
 import B11 from "./data/p-4.json";
 import B12 from "./data/p-5.json";
-
-
-
-
-
+import SB1 from "./data/community/site01-b1.json";
+import SB2 from "./data/community/site01-b2.json";
+import SB3 from "./data/community/site01-b3.json";
+import SB4 from "./data/community/site01-b4.json";
+import SB5 from "./data/community/site01-b5.json";
+import SB6 from "./data/community/site01-b6.json";
+import SB7 from "./data/community/site01-b7.json";
+import SB8 from "./data/community/site01-b8.json";
+import SB9 from "./data/community/site01-b9.json";
+import SB10 from "./data/community/site01-b10.json";
+import SB11 from "./data/community/site01-b11.json";
+import SB12 from "./data/community/site01-b12.json";
+import SB13 from "./data/community/site01-b13.json";
+import SB14 from "./data/community/site01-b14.json";
+import CB1 from "./data/caring/site02-b1.json";
+import CB2 from "./data/caring/site02-b2.json";
+import CB3 from "./data/caring/site02-b3.json";
+import CB4 from "./data/caring/site02-b4.json";
+import CB5 from "./data/caring/site02-b5.json";
+import CB6 from "./data/caring/site02-b6.json";
+import CB7 from "./data/caring/site02-b7.json";
+import CB8 from "./data/caring/site02-b8.json";
+import CB9 from "./data/caring/site02-b9.json";
+import CB10 from "./data/caring/site02-b10.json";
+import CB11 from "./data/caring/site02-b11.json";
+import LB1 from "./data/learning/site03-b1.json";
+import LB2 from "./data/learning/site03-b2.json";
+import LB3 from "./data/learning/site03-b3.json";
+import LB4 from "./data/learning/site03-b4.json";
+import LB5 from "./data/learning/site03-b5.json";
+import LB6 from "./data/learning/site03-b6.json";
+import LB7 from "./data/learning/site03-b7.json";
+import LB8 from "./data/learning/site03-b8.json";
+import LB9 from "./data/learning/site03-b9.json";
+import LB10 from "./data/learning/site03-b10.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -49,7 +79,24 @@ let buildingCount = 353;
 let map;
 let propertyName, address, Bus, Bdistance, Metro, Mdistance;
 let show = false;
-const communityBuild = [B1, B2, B3, B4, B7, B9, B10, B11, B12];
+const communityBuild = [
+  SB1,
+  SB2,
+  SB3,
+  SB4,
+  SB5,
+  SB6,
+  SB7,
+  SB8,
+  SB9,
+  SB10,
+  SB11,
+  SB12,
+  SB13,
+  SB14,
+];
+const caringBuild = [CB1, CB2, CB3, CB4, CB5, CB6, CB7, CB8, CB9, CB10, CB11];
+const learningBuild = [LB1, LB2, LB3, LB4, LB5, LB6, LB7, LB8, LB9, LB10];
 let currentIndex = 0;
 let animationInterval;
 let animationRequestId;
@@ -82,12 +129,13 @@ const StreetPanel = () => {
             return t;
           },
         });
-        // clearInterval(animationInterval);
         // map.getSource("my_test").setData(sol);
         // map.getSource("my_test2").setData(sol4);
+        clearInterval(animationInterval);
+        stopCameraRotation();
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 4000);
+        }, 1000);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -110,9 +158,12 @@ const StreetPanel = () => {
 
         // map.getSource("my_test1").setData(sol1);
         // map.getSource("my_test2").setData(sol4);
-        // animationInterval = setInterval(() => {
-        //   AnimateBuilding("my_test", communityBuild);
-        // }, 2000);
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test", caringBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
         //Community button click event
         propertyName = "Kemble Caring Center";
         address = "1 Kemble St, London, UK";
@@ -143,8 +194,14 @@ const StreetPanel = () => {
         });
         clearInterval(animationInterval);
         stopCameraRotation();
-
-
+        // map.getSource("my_test1").setData(sol1);
+        // map.getSource("my_test").setData(sol);
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test2", learningBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
         break;
       // case "Learning":
       //   map.flyTo({
@@ -378,7 +435,7 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmhvh77h006301pd60sjb4vx",
     container,
-    center: [-0.126967, 51.5102496], 
+    center: [-0.126967, 51.5102496],
     zoom: 16,
     pitch: 45,
     minZoom: 15, // Set the minimum zoom level
@@ -558,7 +615,7 @@ export function renderToDOM(container, data) {
       source: "base",
       paint: {
         "fill-color": "#A7DD88",
-        "fill-opacity": .6,
+        "fill-opacity": 0.6,
       },
     });
 
@@ -638,7 +695,7 @@ export function renderToDOM(container, data) {
     // });
     map.moveLayer("park");
     map.moveLayer("baseM");
-    
+
     map.moveLayer("lines");
     map.moveLayer("extrusion");
     map.moveLayer("extrusion1");
