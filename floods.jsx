@@ -231,6 +231,22 @@ export function renderToDOM(container, data) {
         "fill-extrusion-opacity": 1,
       },
     });
+    map.addSource("par", {
+      type: "geojson",
+      data: parks,
+    });
+
+    // Add a GeoJSON layer with lines
+    map.addLayer({
+      id: "park",
+      type: "fill",
+      source: "par",
+      paint: {
+        "fill-color": "#B9E3A9",
+        "fill-opacity": 0.8,
+      },
+    });
+
     updateBuildingColor();
     map.moveLayer("add-3d-buildings");
     map.flyTo({

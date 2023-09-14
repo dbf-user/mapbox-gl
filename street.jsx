@@ -11,9 +11,9 @@ import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import baseMap from "./data/dbf-GREEN-BASE.json";
 import t from "./data/test.json";
-import sol from "./data/geo.json";
-import sol1 from "./data/dbf-big.json";
-import sol4 from "./data/Sol4.json";
+import sol from "./data/learning/site03-b2.json";
+import sol1 from "./data/community/site01-b1.json";
+import sol4 from "./data/caring/site02-b1.json";
 import { overlapBuildingIds } from "./data/overlapingBuildingsId";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -694,16 +694,16 @@ export function renderToDOM(container, data) {
     //   // data: build,
     // });
 
-    // map.addLayer({
-    //   id: "lines",
-    //   type: "line",
-    //   source: "street",
-    //   paint: {
-    //     "line-color": ["get", "color"],
-    //     "line-emissive-strength": 2,
-    //     "line-width": 6,
-    //   },
-    // });
+    map.addLayer({
+      id: "lines",
+      type: "line",
+      source: "street",
+      paint: {
+        "line-color": ["get", "color"],
+        "line-emissive-strength": 2,
+        "line-width": 6,
+      },
+    });
     map.moveLayer("park");
     map.moveLayer("baseM");
 
@@ -864,5 +864,6 @@ export const App = () => {
     </>
   );
 };
+
 
 export default App;
