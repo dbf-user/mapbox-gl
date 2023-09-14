@@ -52,32 +52,6 @@
         "type": "Point",
         "coordinates": [-0.1280671, 51.4985932]
       }
-    },
-    {
-      "id": "4",
-      "type": "Feature",
-      "properties": {
-        "element_type": "way",
-        "color": "#A7DD88",
-        "name": "Soho Parish Primary School"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-0.1345, 51.51166]
-      }
-    },
-    {
-      "id": "4",
-      "type": "Feature",
-      "properties": {
-        "element_type": "way",
-        "color": "#A7DD88",
-        "name": "London Film School"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-0.12562, 51.51347]
-      }
     }
   ]
 }

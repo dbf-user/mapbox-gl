@@ -137,7 +137,7 @@ const TogglePanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clll4a01u01dc01plajw4bkhm",
+    style: "mapbox://styles/digital-blue-foam/clmhv4bqf01kn01qudh4w49el",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,

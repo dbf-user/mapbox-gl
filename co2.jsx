@@ -16,8 +16,9 @@ import resto from "./data/rest.json";
 import pharmacy from "./data/pharm.json";
 import banking from "./data/bank.json";
 import bar_pub from "./data/bar.json";
-import l_square from "./data/l_square.json";
+import walkSchool from "./data/walkSchools.json";
 
+import l_square from "./data/l_square.json";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -68,10 +69,31 @@ const TogglePanel = () => {
       //Walk button event
       map.setLayoutProperty("tp-line-line", "visibility", "visible");
       map.setLayoutProperty("walk-line-line", "visibility", "none");
+      map.setLayoutProperty("points", "visibility", "visible");
+      map.setLayoutProperty("points1", "visibility", "visible");
+      map.setLayoutProperty("points2", "visibility", "none");
+      map.setLayoutProperty("points3", "visibility", "none");
+      map.setLayoutProperty("points4", "visibility", "none");
+      map.setLayoutProperty("points5", "visibility", "none");
+      map.setLayoutProperty("points6", "visibility", "none");
+      map.setLayoutProperty("points7", "visibility", "none");
+      map.setLayoutProperty("points_pharm", "visibility", "none");
+      map.setLayoutProperty("points_school", "visibility", "none");
+
     } else if (isOn === true) {
       //Car button event
       map.setLayoutProperty("tp-line-line", "visibility", "none");
       map.setLayoutProperty("walk-line-line", "visibility", "visible");
+      map.setLayoutProperty("points", "visibility", "none");
+      map.setLayoutProperty("points1", "visibility", "none");
+      map.setLayoutProperty("points2", "visibility", "visible");
+      map.setLayoutProperty("points3", "visibility", "visible");
+      map.setLayoutProperty("points4", "visibility", "visible");
+      map.setLayoutProperty("points5", "visibility", "visible");
+      map.setLayoutProperty("points6", "visibility", "visible");
+      map.setLayoutProperty("points7", "visibility", "visible");
+      map.setLayoutProperty("points_school", "visibility", "visible");
+      map.setLayoutProperty("points_pharm", "visibility", "visible");
     }
   };
 
@@ -80,7 +102,7 @@ const TogglePanel = () => {
       sx={{
         position: "fixed",
         left: 20,
-        bottom: '5vh',
+        bottom: '23vh',
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -144,7 +166,7 @@ const TogglePanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
+    style: "mapbox://styles/digital-blue-foam/clmhvh77h006301pd60sjb4vx",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -374,6 +396,30 @@ export function renderToDOM(container, data) {
       });
     });
 
+    map.loadImage(sIcon, (error, image) => {
+      if (error) throw error;
+
+      // Add the image to the map style.
+      map.addImage("sIcon", image);
+
+      // Add a data source containing one point feature.
+      map.addSource("point_school", {
+        type: "geojson",
+        data: walkSchool,
+      });
+
+      // Add a layer to use the image to represent the data.
+      map.addLayer({
+        id: "points_school",
+        type: "symbol",
+        source: "point_school", // reference the data source
+        layout: {
+          "icon-image": "sIcon", // reference the image
+          "icon-size": 0.6,
+        },
+      });
+    });
+
     map.on("click", "points", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
@@ -473,6 +519,32 @@ export function renderToDOM(container, data) {
 
     // Change it back to a pointer when it leaves.
     map.on("mouseleave", "points3", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+
+    map.on("click", "points_school", (e) => {
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.name;
+
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on("mouseenter", "points_school", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "points_school", () => {
       map.getCanvas().style.cursor = "";
     });
      /////////////////////////
@@ -608,9 +680,9 @@ export function renderToDOM(container, data) {
       "source-layer": "building",
       filter: ["==", "extrude", "true"],
       type: "fill-extrusion",
-      minzoom: 12,
+      minzoom: 15,
       paint: {
-        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-color": "#34353D",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
@@ -630,7 +702,7 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     });
 
@@ -696,7 +768,7 @@ export function renderToDOM(container, data) {
       paint: {
         "fill-color": ["get", "color"],
         "fill-outline-color": "#00008B",
-        "fill-emissive-strength": 0.4,
+        "fill-emissive-strength": 1,
         "fill-opacity": 0.6,
       },
     });
@@ -708,8 +780,9 @@ export function renderToDOM(container, data) {
     map.flyTo({
       center: [-0.127997, 51.507969],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      pitch: 0,
       speed: 0.05,
-      zoom: 13,
+      zoom: 13.5,
       curve: 1,
       easing(t) {
         return t;
@@ -728,7 +801,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#C96A6A",
+        "#FFAEAE",
         animationPhase,
         "rgba(0, 0, 0, 0)",
       ]);
@@ -736,7 +809,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("walk-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#225ea8", // Blue color
+        "#83D4FF", // Blue color
         animationPhase,
         "rgba(0, 0, 255, 0)",
       ]);

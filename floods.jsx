@@ -161,7 +161,7 @@ const SliderPanel = () => {
           </label>
         </div>
         <div
-          style={{ position: "absolute", left: 150, bottom: '9vh', height: 100 }}
+          style={{ position: "absolute", left: 150, bottom: '26vh', height: 100 }}
         >
           <CustomSlider
             orientation="vertical"
@@ -185,7 +185,7 @@ const SliderPanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clm80mphm012x01r7621o9isy",
+    style: "mapbox://styles/digital-blue-foam/clmhvh77h006301pd60sjb4vx",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -208,7 +208,7 @@ export function renderToDOM(container, data) {
       type: "fill-extrusion",
       minzoom: 13,
       paint: {
-        "fill-extrusion-color": "#e8e8e8",
+        "fill-extrusion-color": "#34353D",
         "fill-extrusion-ambient-occlusion-intensity": 0.8,
         "fill-extrusion-height": [
           "interpolate",
@@ -228,16 +228,16 @@ export function renderToDOM(container, data) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 0.8,
+        "fill-extrusion-opacity": 1,
       },
     });
     updateBuildingColor();
     map.moveLayer("add-3d-buildings");
     map.flyTo({
-      center: [-0.119997, 51.500570],  
+      center: [-0.123730, 51.503625],  
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
       speed: 0.03,
-      zoom: 15,
+      zoom: 15.5,
       curve: 1,
       easing(t) {
         return t;
