@@ -159,7 +159,7 @@ const StreetPanel = () => {
         // map.getSource("my_test1").setData(sol1);
         // map.getSource("my_test2").setData(sol4);
         animationInterval = setInterval(() => {
-          AnimateBuilding("my_test", caringBuild);
+          AnimateBuilding("my_test2", caringBuild);
         }, 1000);
         setTimeout(() => {
           rotateCameraAround();
@@ -197,7 +197,7 @@ const StreetPanel = () => {
         // map.getSource("my_test1").setData(sol1);
         // map.getSource("my_test").setData(sol);
         animationInterval = setInterval(() => {
-          AnimateBuilding("my_test2", learningBuild);
+          AnimateBuilding("my_test", learningBuild);
         }, 1000);
         setTimeout(() => {
           rotateCameraAround();
