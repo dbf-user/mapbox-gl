@@ -6,6 +6,7 @@ import pathways from "./data/co2.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import "./Street.css";
+import "./IsoApp.css";
 import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import t from "./data/test.json";
@@ -20,10 +21,54 @@ import Button from "@mui/material/Button";
 import BuildingIcon from "./icons/building.jsx";
 import MetroIcon from "./icons/metro.png";
 import BusIcon from "./icons/bus.png";
+import treeIcon from "./icons/tree-icon.png";
+import co2Icon from "./icons/Co2.png";
+import houseIcon from "./icons/flooded-house.png";
+import otherIcon from "./icons/constr.png";
+import Co2App from "./co2.jsx";
+import IsoApp from "./isoApp.jsx";
+import Floods from "./floods.jsx";
+import Street from "./street.jsx";
+import parkIcon from "./data/park.png";
 import B1 from "./data/1-Solution-Blocks.json";
 import B2 from "./data/2-Solution-Blocks.json";
 import B3 from "./data/3-Solution-Blocks.json";
 import B4 from "./data/4-Solution-Blocks.json";
+import SB1 from "./data/community/site01-b1.json";
+import SB2 from "./data/community/site01-b2.json";
+import SB3 from "./data/community/site01-b3.json";
+import SB4 from "./data/community/site01-b4.json";
+import SB5 from "./data/community/site01-b5.json";
+import SB6 from "./data/community/site01-b6.json";
+import SB7 from "./data/community/site01-b7.json";
+import SB8 from "./data/community/site01-b8.json";
+import SB9 from "./data/community/site01-b9.json";
+import SB10 from "./data/community/site01-b10.json";
+import SB11 from "./data/community/site01-b11.json";
+import SB12 from "./data/community/site01-b12.json";
+import SB13 from "./data/community/site01-b13.json";
+import SB14 from "./data/community/site01-b14.json";
+import CB1 from "./data/caring/site02-b1.json";
+import CB2 from "./data/caring/site02-b2.json";
+import CB3 from "./data/caring/site02-b3.json";
+import CB4 from "./data/caring/site02-b4.json";
+import CB5 from "./data/caring/site02-b5.json";
+import CB6 from "./data/caring/site02-b6.json";
+import CB7 from "./data/caring/site02-b7.json";
+import CB8 from "./data/caring/site02-b8.json";
+import CB9 from "./data/caring/site02-b9.json";
+import CB10 from "./data/caring/site02-b10.json";
+import CB11 from "./data/caring/site02-b11.json";
+import LB1 from "./data/learning/site03-b1.json";
+import LB2 from "./data/learning/site03-b2.json";
+import LB3 from "./data/learning/site03-b3.json";
+import LB4 from "./data/learning/site03-b4.json";
+import LB5 from "./data/learning/site03-b5.json";
+import LB6 from "./data/learning/site03-b6.json";
+import LB7 from "./data/learning/site03-b7.json";
+import LB8 from "./data/learning/site03-b8.json";
+import LB9 from "./data/learning/site03-b9.json";
+import LB10 from "./data/learning/site03-b10.json";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -36,7 +81,25 @@ let buildingCount = 353;
 let map;
 let propertyName, address, Bus, Bdistance, Metro, Mdistance;
 let show = false;
-const communityBuild = [B1, B2, B3, B4];
+let pageText;
+const communityBuild = [
+  SB1,
+  SB2,
+  SB3,
+  SB4,
+  SB5,
+  SB6,
+  SB7,
+  SB8,
+  SB9,
+  SB10,
+  SB11,
+  SB12,
+  SB13,
+  SB14,
+];
+const caringBuild = [CB1, CB2, CB3, CB4, CB5, CB6, CB7, CB8, CB9, CB10, CB11];
+const learningBuild = [LB1, LB2, LB3, LB4, LB5, LB6, LB7, LB8, LB9, LB10];
 let currentIndex = 0;
 let animationInterval;
 let animationRequestId;
@@ -69,12 +132,13 @@ const StreetPanel = () => {
             return t;
           },
         });
-        // clearInterval(animationInterval);
         // map.getSource("my_test").setData(sol);
         // map.getSource("my_test2").setData(sol4);
+        clearInterval(animationInterval);
+        stopCameraRotation();
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 2000);
+        }, 1000);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -96,9 +160,12 @@ const StreetPanel = () => {
         stopCameraRotation();
         // map.getSource("my_test1").setData(sol1);
         // map.getSource("my_test2").setData(sol4);
-        // animationInterval = setInterval(() => {
-        //   AnimateBuilding("my_test", communityBuild);
-        // }, 2000);
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test", caringBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
         //Community button click event
         propertyName = "Kemble Caring Center";
         address = "1 Kemble St, London, UK";
@@ -131,10 +198,12 @@ const StreetPanel = () => {
         stopCameraRotation();
         // map.getSource("my_test1").setData(sol1);
         // map.getSource("my_test").setData(sol);
-        // animationInterval = setInterval(() => {
-        //   AnimateBuilding("my_test2", communityBuild);
-        // }, 2000);
-
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test2", learningBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
         break;
       // case "Learning":
       //   map.flyTo({
@@ -646,13 +715,78 @@ export function renderToDOM(container, data) {
 }
 
 export const App = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [showAnotherComponent, setShowAnotherComponent] = useState(false);
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
 
+  const handleButtonClick = (buttonId) => {
+    if (selectedButton === buttonId) {
+      setSelectedButton(null);
+    } else {
+      setSelectedButton(buttonId);
+      setShowAnotherComponent(true);
+    }
+  };
+
+  const renderSelectedComponent = () => {
+    switch (selectedButton) {
+      case "park":
+        pageText = (
+          <h1 style={{ fontSize: "2.2vh" }}>
+            Understanding <b>access to green spaces</b> is critical to build
+            better cities
+          </h1>
+        );
+        return <IsoApp />;
+      case "co2":
+        pageText = (
+          <div class="overlay">
+            <h1 style={{ fontSize: "2.2vh" }}>
+              Reduce <b>carbon emissions</b> for your neighborhood
+            </h1>
+          </div>
+        );
+        return <Co2App />;
+
+      case "flood":
+        pageText = (
+          <div class="overlay">
+            <h1 style={{ fontSize: "2.2vh" }}>
+              Identify <b>threats</b> and <b>risk zones</b> in your city
+            </h1>
+          </div>
+        );
+        return <Floods />;
+
+      case "other":
+        pageText = (
+          <div class="overlay">
+            <h1 style={{ fontSize: "2.2vh" }}>
+              Evaluate and compare <b>development opportunities</b> for critical
+              buildings and facilities in your city
+            </h1>
+          </div>
+        );
+        return <Street />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        <div class="overlay">
+          <h1 style={{ fontSize: "2.2vh" }}>
+            Evaluate and compare <b>development opportunities</b> for critical
+            buildings and facilities in your city
+          </h1>
+        </div>
+      </div>
+      {pageText}
+      <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
           style={{
@@ -663,8 +797,46 @@ export const App = () => {
         <StreetPanel />
         {show ? <RightPanel /> : null}
       </div>
+      <div className="iso-buttons-container">
+        <button
+          className={`iso-map-button ${
+            selectedButton === "other" || selectedButton === null
+              ? "iso-selected"
+              : ""
+          }`}
+          onClick={() => handleButtonClick("other")}
+        >
+          <img src={otherIcon} alt="Icon" className="iso-png-icon" />
+        </button>
+        <button
+          className={`iso-map-button ${
+            selectedButton === "park" ? "iso-selected" : ""
+          }`}
+          onClick={() => handleButtonClick("park")}
+        >
+          <img src={treeIcon} alt="Icon" className="iso-png-icon" />
+        </button>
+        <button
+          className={`iso-map-button ${
+            selectedButton === "co2" ? "iso-selected" : ""
+          }`}
+          onClick={() => handleButtonClick("co2")}
+        >
+          <img src={co2Icon} alt="Icon" className="iso-co2-icon" />
+        </button>
+        <button
+          className={`iso-map-button ${
+            selectedButton === "flood" ? "iso-selected" : ""
+          }`}
+          onClick={() => handleButtonClick("flood")}
+        >
+          <img src={houseIcon} alt="Icon" className="iso-png-icon" />
+        </button>
+      </div>
+      {renderSelectedComponent()}
     </>
   );
 };
 
 export default App;
+ReactDOM.render(<App />, document.getElementById("app"));

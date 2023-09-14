@@ -410,7 +410,7 @@ export const App = () => {
             height: "100%",
           }}
         ></div>
-        <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        {/* <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
           <SliderPanel />
         </div>
 
@@ -449,11 +449,12 @@ export const App = () => {
           >
             <img src={otherIcon} alt="Icon" className="iso-png-icon" />
           </button>
-        </div>
+        </div> */}
       </div>
-      {renderSelectedComponent()}
+      {/* {renderSelectedComponent()} */}
     </>
   );
 };
-
 export default App;
+//ReactDOM.render(<App />, document.getElementById("app"));
+//export default App;
