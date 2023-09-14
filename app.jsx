@@ -343,13 +343,13 @@ export const App = () => {
   const renderSelectedComponent = () => {
     switch (selectedButton) {
       case "start":
-        return <IsoApp />;
+        return <StreetApp />;
       case "flood":
         return <Floods />;
       case "co2":
         return <Co2App />;
-      case "other":
-          return <StreetApp />;
+      case "park":
+          return <IsoApp />;
         
       default:
         return null;

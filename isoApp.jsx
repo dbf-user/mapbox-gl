@@ -337,69 +337,69 @@ export const updateBuildingColor = () => {
 };
 
 export const App = () => {
-  const [selectedButton, setSelectedButton] = useState(null);
+  // const [selectedButton, setSelectedButton] = useState(null);
   const [showAnotherComponent, setShowAnotherComponent] = useState(false);
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
 
-  const handleButtonClick = (buttonId) => {
-    if (selectedButton === buttonId) {
-      setSelectedButton(null);
-    } else {
-      setSelectedButton(buttonId);
-      setShowAnotherComponent(true);
-    }
-  };
+  // const handleButtonClick = (buttonId) => {
+  //   if (selectedButton === buttonId) {
+  //     setSelectedButton(null);
+  //   } else {
+  //     setSelectedButton(buttonId);
+  //     setShowAnotherComponent(true);
+  //   }
+  // };
 
-  const renderSelectedComponent = () => {
-    switch (selectedButton) {
-      case "park":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Compute Urban Green Space Index to assess recreational opportunities and urban resilience
-          </h1>
-        );
-        return <IsoApp />;
-      case "co2":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Reduce <b>carbon emissions</b> for your neighborhood
-          </h1>
-        );
-        return <Co2App />;
+  // const renderSelectedComponent = () => {
+  //   switch (selectedButton) {
+  //     case "park":
+  //       pageText = (
+  //         <h1 style={{ fontSize: "2.2vh" }}>
+  //           Compute Urban Green Space Index to assess recreational opportunities and urban resilience
+  //         </h1>
+  //       );
+  //       return <IsoApp />;
+  //     case "co2":
+  //       pageText = (
+  //         <h1 style={{ fontSize: "2.2vh" }}>
+  //           Reduce <b>carbon emissions</b> for your neighborhood
+  //         </h1>
+  //       );
+  //       return <Co2App />;
 
-      case "flood":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Perform urban risk assessment to pinpoint strategic development opportunities
-          </h1>
-        );
-        return <Floods />;
+  //     case "flood":
+  //       pageText = (
+  //         <h1 style={{ fontSize: "2.2vh" }}>
+  //           Perform urban risk assessment to pinpoint strategic development opportunities
+  //         </h1>
+  //       );
+  //       return <Floods />;
 
-      case "other":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Generate development scenarios for future-proof urban transformation
-          </h1>
-        );
-        return <Street />;
-      default:
-        return null;
-    }
-  };
+  //     case "other":
+  //       pageText = (
+  //         <h1 style={{ fontSize: "2.2vh" }}>
+  //           Generate development scenarios for future-proof urban transformation
+  //         </h1>
+  //       );
+  //       return <Street />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <>
       {/* <div class="typewriter"> */}
-      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+      {/* <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
 
         <h1 style={{ fontSize: "2.2vh" }}>
           Understanding <b>access to green spaces</b> is critical to build
           better cities
         </h1>
       </div>
-      {pageText}
+      {pageText} */}
       <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
@@ -412,7 +412,7 @@ export const App = () => {
           <SliderPanel />
         </div>
 
-        <div className="iso-buttons-container">
+        {/* <div className="iso-buttons-container">
           <button
             className={`iso-map-button ${
               selectedButton === "park" || selectedButton === null
@@ -447,9 +447,9 @@ export const App = () => {
           >
             <img src={otherIcon} alt="Icon" className="iso-png-icon" />
           </button>
-        </div>
+        </div> */}
       </div>
-      {renderSelectedComponent()}
+      {/* {renderSelectedComponent()} */}
     </>
   );
 };
