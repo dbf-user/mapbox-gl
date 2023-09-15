@@ -713,16 +713,16 @@ export function renderToDOM(container, data) {
     //   // data: build,
     // });
 
-    // map.addLayer({
-    //   id: "lines",
-    //   type: "line",
-    //   source: "street",
-    //   paint: {
-    //     "line-color": ["get", "color"],
-    //     "line-emissive-strength": 2,
-    //     "line-width": 6,
-    //   },
-    // });
+    map.addLayer({
+      id: "lines",
+      type: "line",
+      source: "street",
+      paint: {
+        "line-color": ["get", "color"],
+        "line-emissive-strength": 2,
+        "line-width": 6,
+      },
+    });
     map.moveLayer("park");
     map.moveLayer("baseM");
 
