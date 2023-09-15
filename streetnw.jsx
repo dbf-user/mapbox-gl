@@ -6,6 +6,7 @@ import pathways from "./data/co2.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import "./Street.css";
+// import "./IsoApp.css";
 import "./App.css";
 import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
@@ -68,6 +69,16 @@ import LB7 from "./data/learning/site03-b7.json";
 import LB8 from "./data/learning/site03-b8.json";
 import LB9 from "./data/learning/site03-b9.json";
 import LB10 from "./data/learning/site03-b10.json";
+import treeIcon from "./icons/tree-icon.png";
+import co2Icon from "./icons/Co2.png";
+import houseIcon from "./icons/flooded-house.png";
+import otherIcon from "./icons/constr.png";
+import Co2App from "./co2.jsx";
+import IsoApp from "./isoApp.jsx";
+import Floods from "./floods.jsx";
+//import StreetNew from "./streetnw.jsx";
+//import Street from "./street.jsx";
+import parkIcon from "./data/park.png";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -79,6 +90,7 @@ let title = "15 Parks";
 let buildingCount = 353;
 let map;
 let show = false;
+let mapStat;
 const communityBuild = [
   SB1,
   SB2,
@@ -105,309 +117,312 @@ let initBearing = 0;
 let pageTextO;
 
 const StreetPanel = ({ setShowRightPanel, setData }) => {
-    const [activeButton, setActiveButton] = useState(null);
-    const handleButtonClick = (buttonName) => {
-      setActiveButton(buttonName);
-      setShowRightPanel(false);
-      show = true;
-      switch (buttonName) {
-        case "Community":
-          setShowRightPanel(true);
-          setData({
-            propertyName: "Endell Complex",
-            address: "2 Endell St, London, UK",
-            Bus: "Covent Garden",
-            Bdistance: "140 m",
-            Metro: "St. Giles High Street",
-            Mdistance: "321 m",
-          });
-          map.flyTo({
-            center: [-0.123385, 51.514332],
-            essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-            speed: 0.3,
-            zoom: 16,
-            pitch: 60,
-            curve: 1,
-            easing(t) {
-              return t;
-            },
-          });
-          // map.getSource("my_test").setData(sol);
-          // map.getSource("my_test2").setData(sol4);
-          clearInterval(animationInterval);
-          stopCameraRotation();
-          animationInterval = setInterval(() => {
-            AnimateBuilding("my_test1", communityBuild);
-          }, 1000);
-          setTimeout(() => {
-            rotateCameraAround();
-          }, 3000);
-  
-          break;
-        case "Caring":
-          setShowRightPanel(true);
-          setData({
-            propertyName: "Kemble Caring Center",
-            address: "1 Kemble St, London, UK",
-            Bus: "Holborn Underground",
-            Bdistance: "320 m",
-            Metro: "Kingsway",
-            Mdistance: "120 m",
-          });
-          map.flyTo({
-            center: [-0.119385, 51.514826],
-            essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-            speed: 0.3,
-            zoom: 16,
-            pitch: 60,
-            curve: 1,
-            easing(t) {
-              return t;
-            },
-          });
-          clearInterval(animationInterval);
-          stopCameraRotation();
-  
-          // map.getSource("my_test1").setData(sol1);
-          // map.getSource("my_test2").setData(sol4);
-          animationInterval = setInterval(() => {
-            AnimateBuilding("my_test2", caringBuild);
-          }, 1000);
-          setTimeout(() => {
-            rotateCameraAround();
-          }, 3000);
-  
-          break;
-        case "Learning":
-          //Learning button click event
-          setShowRightPanel(true);
-          setData({
-            propertyName: "Surrey Edu-Hub",
-            address: "12 Temple Pl, London, UK",
-            Bus: "Temple Station",
-            Bdistance: "90 m",
-            Metro: "Temple (Stop N)",
-            Mdistance: "141 m",
-          });
-          map.flyTo({
-            center: [-0.114492, 51.51152],
-            essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-            speed: 0.3,
-            zoom: 16,
-            pitch: 60,
-            curve: 1,
-            easing(t) {
-              return t;
-            },
-          });
-          clearInterval(animationInterval);
-          stopCameraRotation();
-          // map.getSource("my_test1").setData(sol1);
-          // map.getSource("my_test").setData(sol);
-          animationInterval = setInterval(() => {
-            AnimateBuilding("my_test", learningBuild);
-          }, 1000);
-          setTimeout(() => {
-            rotateCameraAround();
-          }, 3000);
-          break;
-        // case "Learning":
-        //   map.flyTo({
-        //     center: [-0.114492, 51.511485],
-        //     essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-        //     speed: 0.3,
-        //     zoom: 17,
-        //     pitch: 60,
-        //     curve: 1,
-        //     easing(t) {
-        //       return t;
-        //     },
-        //   });
-        //   break;
-        default:
-          break;
-      }
-    };
-  
-    return (
+  const [activeButton, setActiveButton] = useState(null);
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+    setShowRightPanel(false);
+    show = true;
+    switch (buttonName) {
+      case "Community":
+        setShowRightPanel(true);
+        mapStat=false;
+        setData({
+          propertyName: "Endell Complex",
+          address: "2 Endell St, London, UK",
+          Bus: "Covent Garden",
+          Bdistance: "140 m",
+          Metro: "St. Giles High Street",
+          Mdistance: "321 m",
+        });
+        map.flyTo({
+          center: [-0.123385, 51.514332],
+          essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          speed: 0.3,
+          zoom: 16,
+          pitch: 60,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+        // map.getSource("my_test").setData(sol);
+        // map.getSource("my_test2").setData(sol4);
+        clearInterval(animationInterval);
+        stopCameraRotation();
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test1", communityBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
+
+        break;
+      case "Caring":
+        setShowRightPanel(true);
+        mapStat=false;
+        setData({
+          propertyName: "Kemble Caring Center",
+          address: "1 Kemble St, London, UK",
+          Bus: "Holborn Underground",
+          Bdistance: "320 m",
+          Metro: "Kingsway",
+          Mdistance: "120 m",
+        });
+        map.flyTo({
+          center: [-0.119385, 51.514826],
+          essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          speed: 0.3,
+          zoom: 16,
+          pitch: 60,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+        clearInterval(animationInterval);
+        stopCameraRotation();
+
+        // map.getSource("my_test1").setData(sol1);
+        // map.getSource("my_test2").setData(sol4);
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test2", caringBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
+
+        break;
+      case "Learning":
+        //Learning button click event
+        setShowRightPanel(true);
+        mapStat=false;
+        setData({
+          propertyName: "Surrey Edu-Hub",
+          address: "12 Temple Pl, London, UK",
+          Bus: "Temple Station",
+          Bdistance: "90 m",
+          Metro: "Temple (Stop N)",
+          Mdistance: "141 m",
+        });
+        map.flyTo({
+          center: [-0.114492, 51.51152],
+          essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+          speed: 0.3,
+          zoom: 16,
+          pitch: 60,
+          curve: 1,
+          easing(t) {
+            return t;
+          },
+        });
+        clearInterval(animationInterval);
+        stopCameraRotation();
+        // map.getSource("my_test1").setData(sol1);
+        // map.getSource("my_test").setData(sol);
+        animationInterval = setInterval(() => {
+          AnimateBuilding("my_test", learningBuild);
+        }, 1000);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
+        break;
+      // case "Learning":
+      //   map.flyTo({
+      //     center: [-0.114492, 51.511485],
+      //     essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      //     speed: 0.3,
+      //     zoom: 17,
+      //     pitch: 60,
+      //     curve: 1,
+      //     easing(t) {
+      //       return t;
+      //     },
+      //   });
+      //   break;
+      default:
+        break;
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        left: 20,
+        bottom: "23vh",
+        width: 120,
+        borderRadius: 5,
+        backgroundColor: "black",
+        color: "white",
+        padding: "1.85vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+        transition: "background-color 0.3s ease-in-out",
+      }}
+    >
+      <Typography
+        variant="h6"
+        style={{
+          marginBottom: "5px",
+          lineHeight: "1.2",
+          textAlign: "center",
+          fontSize: 16,
+          fontFamily: "IBM Plex Mono, monospace",
+        }}
+      >
+        Development opportunities
+      </Typography>
+      <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+      <Typography
+        variant="body1"
+        style={{
+          textAlign: "center",
+          fontSize: 12,
+          marginTop: "8px",
+          fontFamily: "IBM Plex Mono, monospace",
+        }}
+      >
+        Show potential development sites:
+      </Typography>
       <Box
         sx={{
-          position: "fixed",
-          left: 20,
-          bottom: "23vh",
-          width: 120,
-          borderRadius: 5,
-          backgroundColor: "black",
-          color: "white",
-          padding: "1.85vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
-          transition: "background-color 0.3s ease-in-out",
+          gap: "8px",
+          marginTop: "8px",
         }}
       >
-        <Typography
-          variant="h6"
-          style={{
-            marginBottom: "5px",
-            lineHeight: "1.2",
-            textAlign: "center",
-            fontSize: 16,
-            fontFamily: "IBM Plex Mono, monospace",
-          }}
-        >
-          Development opportunities
-        </Typography>
-        <Divider sx={{ width: "100%", backgroundColor: "white" }} />
-        <Typography
-          variant="body1"
-          style={{
-            textAlign: "center",
-            fontSize: 12,
-            marginTop: "8px",
-            fontFamily: "IBM Plex Mono, monospace",
-          }}
-        >
-          Show potential development sites:
-        </Typography>
-        <Box
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "8px",
-            marginTop: "8px",
+            width: "120px",
+            backgroundColor: "#34C6F5",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#34C6F5 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
           }}
+          onClick={() => handleButtonClick("Caring")}
+          disabled={activeButton === "Caring"}
         >
-          <Button
-            variant="contained"
-            startIcon={<BuildingIcon />}
-            sx={{
-              width: "120px",
-              backgroundColor: "#34C6F5",
-              color: "white",
-              textTransform: "capitalize",
-              border: "2px solid white",
-              justifyContent: "flex-start",
-              transition: "border-color 0.3s",
-              "&:hover": {
-                backgroundColor: "#34C6F5 !important",
-                borderColor: "#FFD700",
-              },
-              "&:active": {
-                borderColor: "red",
-              },
-              "&:disabled": {
-                backgroundColor: "#a0a0a0",
-                borderColor: "#FFD700",
-              },
-            }}
-            onClick={() => handleButtonClick("Caring")}
-            disabled={activeButton === "Caring"}
-          >
-            Caring
-          </Button>
-  
-          <Button
-            variant="contained"
-            startIcon={<BuildingIcon />}
-            sx={{
-              width: "120px",
-              backgroundColor: "#A900F8",
-              color: "white",
-              textTransform: "capitalize",
-              border: "2px solid white",
-              justifyContent: "flex-start",
-              transition: "border-color 0.3s",
-              "&:hover": {
-                backgroundColor: "#A900F8 !important",
-                borderColor: "#FFD700",
-              },
-              "&:active": {
-                borderColor: "red",
-              },
-              "&:disabled": {
-                backgroundColor: "#a0a0a0",
-                borderColor: "#FFD700",
-              },
-            }}
-            onClick={() => handleButtonClick("Community")}
-            disabled={activeButton === "Community"}
-          >
-            Community
-          </Button>
-  
-          <Button
-            variant="contained"
-            startIcon={<BuildingIcon />}
-            sx={{
-              width: "120px",
-              backgroundColor: "#0014F8",
-              color: "white",
-              textTransform: "capitalize",
-              border: "2px solid white",
-              justifyContent: "flex-start",
-              transition: "border-color 0.3s",
-              "&:hover": {
-                backgroundColor: "#0014F8 !important",
-                borderColor: "#FFD700",
-              },
-              "&:active": {
-                borderColor: "red",
-              },
-              "&:disabled": {
-                backgroundColor: "#a0a0a0",
-                borderColor: "#FFD700",
-              },
-            }}
-            onClick={() => handleButtonClick("Learning")}
-            disabled={activeButton === "Learning"}
-          >
-            Learning
-          </Button>
-        </Box>
+          Caring
+        </Button>
+
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#A900F8",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#A900F8 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Community")}
+          disabled={activeButton === "Community"}
+        >
+          Community
+        </Button>
+
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#0014F8",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#0014F8 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Learning")}
+          disabled={activeButton === "Learning"}
+        >
+          Learning
+        </Button>
       </Box>
-    );
-  };
-  
-  const RightPanel = ({
-    data: { propertyName, address, Bus, Bdistance, Metro, Mdistance },
-  }) => {
-    return (
-      <div className="st-container">
-        <div className="st-title">Urban Insight</div>
-        <div className="st-separator"></div>
-        <div className="st-content">
-          <div className="st-horizontal-lines">
-            <div className="st-upper-text">{propertyName}</div>
-            <div className="st-text">{address}</div>
-            <div className="st-mid-text">Transit Proximity</div>
-          </div>
-          <div className="st-vertical-rows">
-            <div className="st-row">
-              <img src={MetroIcon} alt="Icon 1" className="st-icon" />
-              <div className="st-text-align-prop">
-                <div className="st-text-prop">{Bus}</div>
-              </div>
-              <div className="st-text-align-dist">
-                <div className="st-text-dist">{Bdistance}</div>
-              </div>
+    </Box>
+  );
+};
+
+const RightPanel = ({
+  data: { propertyName, address, Bus, Bdistance, Metro, Mdistance },
+}) => {
+  return (
+    <div className="st-container">
+      <div className="st-title">Urban Insight</div>
+      <div className="st-separator"></div>
+      <div className="st-content">
+        <div className="st-horizontal-lines">
+          <div className="st-upper-text">{propertyName}</div>
+          <div className="st-text">{address}</div>
+          <div className="st-mid-text">Transit Proximity</div>
+        </div>
+        <div className="st-vertical-rows">
+          <div className="st-row">
+            <img src={MetroIcon} alt="Icon 1" className="st-icon" />
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">{Bus}</div>
             </div>
-            <div className="st-row">
-              <img src={BusIcon} alt="Icon 1" className="st-icon" />
-              <div className="st-text-align-prop">
-                <div className="st-text-prop">{Metro}</div>
-              </div>
-              <div className="st-text-align-dist">
-                <div className="st-text-dist">{Mdistance}</div>
-              </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{Bdistance}</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <img src={BusIcon} alt="Icon 1" className="st-icon" />
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">{Metro}</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{Mdistance}</div>
             </div>
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 const AnimateBuilding = (source, buildings) => {
   map.getSource(source).setData(buildings[currentIndex]);
@@ -459,7 +474,6 @@ export function renderToDOM(container, data) {
   const modelOrigin = [-0.119360145693761, 51.5148376818842];
   const modelAltitude = 0;
   const modelRotate = [Math.PI / 2, 1.5, 0];
-  
 
   const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
     modelOrigin,
@@ -783,3 +797,4 @@ export const StreetNew = () => {
   );
 };
 export default StreetNew;
+
