@@ -78,6 +78,7 @@ let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
 let map;
+let show = false;
 const communityBuild = [
   SB1,
   SB2,
@@ -106,7 +107,6 @@ let pageTextO;
 const StreetPanel = ({ setShowRightPanel, setData }) => {
     const [activeButton, setActiveButton] = useState(null);
     const handleButtonClick = (buttonName) => {
-      console.log("A Button", buttonName);
       setActiveButton(buttonName);
       setShowRightPanel(false);
       show = true;
@@ -730,12 +730,12 @@ export function renderToDOM(container, data) {
         return t;
       },
     });
-    animationInterval = setInterval(() => {
-      AnimateBuilding("my_test1", communityBuild);
-    }, 800);
-    setTimeout(() => {
-      rotateCameraAround();
-    }, 3000);
+    // animationInterval = setInterval(() => {
+    //   AnimateBuilding("my_test1", communityBuild);
+    // }, 800);
+    // setTimeout(() => {
+    //   rotateCameraAround();
+    // }, 3000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
