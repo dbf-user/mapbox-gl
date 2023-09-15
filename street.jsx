@@ -814,7 +814,7 @@ export const App = () => {
         case "co2":
           setShowText(
             <h1 style={{ fontSize: "3vh" }}>
-              Reduce <b>carbon emissions</b> for your neighborhood
+              Reduce carbon emissions for your neighborhood
             </h1>
           );
           break;
