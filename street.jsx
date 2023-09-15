@@ -744,6 +744,12 @@ export function renderToDOM(container, data) {
         return t;
       },
     });
+    animationInterval = setInterval(() => {
+      AnimateBuilding("my_test1", communityBuild);
+    }, 1000);
+    setTimeout(() => {
+      rotateCameraAround();
+    }, 3000);
     // animationInterval = setInterval(() => {
     //   AnimateBuilding("my_test1", communityBuild);
     // }, 800);
