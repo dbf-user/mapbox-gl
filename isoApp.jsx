@@ -18,7 +18,7 @@ import otherIcon from "./icons/constr.png";
 import Co2App from "./co2.jsx";
 import IsoApp from "./isoApp.jsx";
 import Floods from "./floods.jsx";
-import Street from "./street.jsx";
+//import Street from "./street.jsx";
 import parkIcon from "./data/park.png";
 
 // Set your Mapbox token here
@@ -338,7 +338,7 @@ export const updateBuildingColor = () => {
 
 export const App = () => {
   // const [selectedButton, setSelectedButton] = useState(null);
-  const [showAnotherComponent, setShowAnotherComponent] = useState(false);
+  //const [showAnotherComponent, setShowAnotherComponent] = useState(false);
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
@@ -400,6 +400,8 @@ export const App = () => {
         </h1>
       </div>
       {pageText} */}
+      
+      
       <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
@@ -408,9 +410,10 @@ export const App = () => {
             height: "100%",
           }}
         ></div>
-        <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        <SliderPanel />
+        {/* <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
           <SliderPanel />
-        </div>
+        </div> */}
 
         {/* <div className="iso-buttons-container">
           <button
@@ -448,7 +451,9 @@ export const App = () => {
             <img src={otherIcon} alt="Icon" className="iso-png-icon" />
           </button>
         </div> */}
+        
       </div>
+      
       {/* {renderSelectedComponent()} */}
     </>
   );

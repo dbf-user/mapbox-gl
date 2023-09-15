@@ -6,7 +6,8 @@ import pathways from "./data/co2.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import "./Street.css";
-import "./IsoApp.css";
+// import "./IsoApp.css";
+import "./App.css";
 import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import baseMap from "./data/dbf-GREEN-BASE.json";
@@ -75,7 +76,8 @@ import otherIcon from "./icons/constr.png";
 import Co2App from "./co2.jsx";
 import IsoApp from "./isoApp.jsx";
 import Floods from "./floods.jsx";
-import Street from "./street.jsx";
+import StreetNew from "./streetnw.jsx";
+//import Street from "./street.jsx";
 import parkIcon from "./data/park.png";
 
 // Set your Mapbox token here
@@ -87,9 +89,8 @@ let minValue = 0;
 let title = "15 Parks";
 let buildingCount = 353;
 let map;
-let propertyName, address, Bus, Bdistance, Metro, Mdistance;
 let show = false;
-let pageText;
+let mapStat;
 const communityBuild = [
   SB1,
   SB2,
@@ -113,22 +114,26 @@ let animationInterval;
 let animationRequestId;
 let currentBearing = 0;
 let initBearing = 0;
+let pageTextO;
 
-const StreetPanel = () => {
+const StreetPanel = ({ setShowRightPanel, setData }) => {
   const [activeButton, setActiveButton] = useState(null);
-
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
+    setShowRightPanel(false);
     show = true;
     switch (buttonName) {
       case "Community":
-        //Caring button click event
-        propertyName = "Endell Complex";
-        address = "2 Endell St, London, UK";
-        Bus = "Covent Garden";
-        Bdistance = "140 m";
-        Metro = "St. Giles High Street";
-        Mdistance = "321 m";
+        setShowRightPanel(true);
+        mapStat=false;
+        setData({
+          propertyName: "Endell Complex",
+          address: "2 Endell St, London, UK",
+          Bus: "Covent Garden",
+          Bdistance: "140 m",
+          Metro: "St. Giles High Street",
+          Mdistance: "321 m",
+        });
         map.flyTo({
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
@@ -153,6 +158,16 @@ const StreetPanel = () => {
 
         break;
       case "Caring":
+        setShowRightPanel(true);
+        mapStat=false;
+        setData({
+          propertyName: "Kemble Caring Center",
+          address: "1 Kemble St, London, UK",
+          Bus: "Holborn Underground",
+          Bdistance: "320 m",
+          Metro: "Kingsway",
+          Mdistance: "120 m",
+        });
         map.flyTo({
           center: [-0.119385, 51.514826],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
@@ -175,23 +190,20 @@ const StreetPanel = () => {
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
-        //Community button click event
-        propertyName = "Kemble Caring Center";
-        address = "1 Kemble St, London, UK";
-        Bus = "Holborn Underground";
-        Bdistance = "320 m";
-        Metro = "Kingsway";
-        Mdistance = "120 m";
 
         break;
       case "Learning":
         //Learning button click event
-        propertyName = "Surrey Edu-Hub";
-        address = "12 Temple Pl, London, UK";
-        Bus = "Temple Station";
-        Bdistance = "90 m";
-        Metro = "Temple (Stop N)";
-        Mdistance = "141 m";
+        setShowRightPanel(true);
+        mapStat=false;
+        setData({
+          propertyName: "Surrey Edu-Hub",
+          address: "12 Temple Pl, London, UK",
+          Bus: "Temple Station",
+          Bdistance: "90 m",
+          Metro: "Temple (Stop N)",
+          Mdistance: "141 m",
+        });
         map.flyTo({
           center: [-0.114492, 51.51152],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
@@ -374,7 +386,9 @@ const StreetPanel = () => {
   );
 };
 
-const RightPanel = () => {
+const RightPanel = ({
+  data: { propertyName, address, Bus, Bdistance, Metro, Mdistance },
+}) => {
   return (
     <div className="st-container">
       <div className="st-title">Urban Insight</div>
@@ -558,6 +572,11 @@ export function renderToDOM(container, data) {
   //   map.addLayer(customLayer);
   //   });
 
+  map.on("click", (e) => {
+    clearInterval(animationInterval);
+    stopCameraRotation();
+  });
+
   const getPopUp = (data) => `<strong>${data}</strong><p>
   <div style="font-weight:600; padding:4px;margin:0px 2px 0px 0px;display:inline;background-color:red;border-radius:6px;">test</div>
   </p>`;
@@ -725,12 +744,12 @@ export function renderToDOM(container, data) {
         return t;
       },
     });
-    animationInterval = setInterval(() => {
-      AnimateBuilding("my_test1", communityBuild);
-    }, 800);
-    setTimeout(() => {
-      rotateCameraAround();
-    }, 3000);
+    // animationInterval = setInterval(() => {
+    //   AnimateBuilding("my_test1", communityBuild);
+    // }, 800);
+    // setTimeout(() => {
+    //   rotateCameraAround();
+    // }, 3000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
@@ -749,7 +768,23 @@ export function renderToDOM(container, data) {
 
 export const App = () => {
   const [selectedButton, setSelectedButton] = useState(null);
+  const [showRightPanel, setShowRightPanel] = useState(false);
+  const [data, setData] = useState({
+    propertyName: "",
+    address: "",
+    Bus: "",
+    Bdistance: "",
+    Metro: "",
+    Mdistance: "",
+  });
+
+  const [showText, setShowText] = useState(
+    <h1 style={{ fontSize: "3vh" }}>
+      Generate development scenarios for future-proof urban transformation
+    </h1>
+  );
   const [showAnotherComponent, setShowAnotherComponent] = useState(false);
+
   useEffect(() => {
     renderToDOM(document.getElementById("map"));
   }, []);
@@ -757,8 +792,46 @@ export const App = () => {
   const handleButtonClick = (buttonId) => {
     if (selectedButton === buttonId) {
       setSelectedButton(null);
+      setShowText(null);
+      setShowAnotherComponent(false);
     } else {
       setSelectedButton(buttonId);
+      switch (buttonId) {
+        case "park":
+          setShowText(
+            <h1 style={{ fontSize: "3vh" }}>
+              Compute Urban Green Space Index to assess recreational
+              opportunities and urban resilience
+            </h1>
+          );
+          break;
+        case "co2":
+          setShowText(
+            <h1 style={{ fontSize: "3vh" }}>
+              Reduce <b>carbon emissions</b> for your neighborhood
+            </h1>
+          );
+          break;
+        case "flood":
+          setShowText(
+            <h1 style={{ fontSize: "3vh" }}>
+              Perform urban risk assessment to pinpoint strategic development
+              opportunities
+            </h1>
+          );
+          break;
+        case "other":
+          setShowText(
+            <h1 style={{ fontSize: "3vh" }}>
+              Generate development scenarios for future-proof urban
+              transformation
+            </h1>
+          );
+          break;
+        default:
+          setShowText(null);
+      }
+
       setShowAnotherComponent(true);
     }
   };
@@ -766,37 +839,13 @@ export const App = () => {
   const renderSelectedComponent = () => {
     switch (selectedButton) {
       case "park":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Compute Urban Green Space Index to assess recreational opportunities
-            and urban resilience
-          </h1>
-        );
         return <IsoApp />;
       case "co2":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Reduce <b>carbon emissions</b> for your neighborhood
-          </h1>
-        );
         return <Co2App />;
-
       case "flood":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Perform urban risk assessment to pinpoint strategic development
-            opportunities
-          </h1>
-        );
         return <Floods />;
-
       case "other":
-        pageText = (
-          <h1 style={{ fontSize: "2.2vh" }}>
-            Generate development scenarios for future-proof urban transformation
-          </h1>
-        );
-        return <Street />;
+        return <StreetNew />;
       default:
         return null;
     }
@@ -804,12 +853,6 @@ export const App = () => {
 
   return (
     <>
-      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-        <h1 style={{ fontSize: "2.2vh" }}>
-            Generate development scenarios for future-proof urban transformation
-          </h1>
-      </div>
-      {pageText}
       <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
@@ -818,9 +861,8 @@ export const App = () => {
             height: "100%",
           }}
         ></div>
-        <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-          <StreetPanel />
-          {show ? <RightPanel /> : null}
+        <div>
+          <h1 style={{ fontSize: "2rem" }}>{showText}</h1>
         </div>
 
         <div className="iso-buttons-container">
@@ -860,10 +902,14 @@ export const App = () => {
           </button>
         </div>
       </div>
+      <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
+        <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} />
+        {showRightPanel ? <RightPanel data={data} /> : ""}
+      </div>
+
       {renderSelectedComponent()}
     </>
   );
 };
-
-
 export default App;
+ReactDOM.render(<App />, document.getElementById("app"));

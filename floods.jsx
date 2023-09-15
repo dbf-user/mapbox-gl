@@ -290,8 +290,8 @@ export const App = () => {
   return (
     <>
           
-    <h1>Identify <b>threats</b> and <b>risk zones</b> in your city</h1>
-      <div style={{ width: "100vw", height: "100vh" }}>
+    {/* <h1>Identify <b>threats</b> and <b>risk zones</b> in your city</h1> */}
+      <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
           style={{

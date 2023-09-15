@@ -844,7 +844,7 @@ export const App = () => {
         <SliderPanel />
         <TogglePanel />
       </div>
-      <h1>Reduce <b>Carbon Emissions</b> for your neighborhood</h1>
+      {/* <h1>Reduce <b>Carbon Emissions</b> for your neighborhood</h1> */}
     </>
   );
 };
