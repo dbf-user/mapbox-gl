@@ -744,12 +744,12 @@ export function renderToDOM(container, data) {
         return t;
       },
     });
-    // animationInterval = setInterval(() => {
-    //   AnimateBuilding("my_test1", communityBuild);
-    // }, 800);
-    // setTimeout(() => {
-    //   rotateCameraAround();
-    // }, 3000);
+    animationInterval = setInterval(() => {
+      AnimateBuilding("my_test1", communityBuild);
+    }, 800);
+    setTimeout(() => {
+      rotateCameraAround();
+    }, 3000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];

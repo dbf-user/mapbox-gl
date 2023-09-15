@@ -12,9 +12,12 @@ import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import baseMap from "./data/dbf-GREEN-BASE.json";
 import t from "./data/test.json";
-import sol from "./data/geo.json";
-import sol1 from "./data/dbf-big.json";
-import sol4 from "./data/Sol4.json";
+// import sol from "./data/geo.json";
+// import sol1 from "./data/dbf-big.json";
+// import sol4 from "./data/Sol4.json";
+import sol from "./data/learning/site03-b2.json";
+import sol1 from "./data/community/site01-b1.json";
+import sol4 from "./data/caring/site02-b1.json";
 import { overlapBuildingIds } from "./data/overlapingBuildingsId";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -744,12 +747,12 @@ export function renderToDOM(container, data) {
         return t;
       },
     });
-    // animationInterval = setInterval(() => {
-    //   AnimateBuilding("my_test1", communityBuild);
-    // }, 800);
-    // setTimeout(() => {
-    //   rotateCameraAround();
-    // }, 3000);
+    animationInterval = setInterval(() => {
+      AnimateBuilding("my_test1", communityBuild);
+    }, 800);
+    setTimeout(() => {
+      rotateCameraAround();
+    }, 3000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
