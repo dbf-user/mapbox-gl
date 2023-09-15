@@ -151,7 +151,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         stopCameraRotation();
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 1000);
+        }, 800);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -186,7 +186,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         // map.getSource("my_test2").setData(sol4);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test2", caringBuild);
-        }, 1000);
+        }, 800);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -221,7 +221,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         // map.getSource("my_test").setData(sol);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test", learningBuild);
-        }, 1000);
+        }, 800);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -746,7 +746,7 @@ export function renderToDOM(container, data) {
     });
     animationInterval = setInterval(() => {
       AnimateBuilding("my_test1", communityBuild);
-    }, 1000);
+    }, 800);
     setTimeout(() => {
       rotateCameraAround();
     }, 3000);
