@@ -790,7 +790,7 @@ export function renderToDOM(container, data) {
     });
 
     let startTime;
-    const duration = 10000;
+    const duration = 8000;
 
     const frame = (time) => {
       if (!startTime) startTime = time;
@@ -801,7 +801,7 @@ export function renderToDOM(container, data) {
       map.setPaintProperty("tp-line-line", "line-gradient", [
         "step",
         ["line-progress"],
-        "#FFAEAE",
+        "#FD6C44",
         animationPhase,
         "rgba(0, 0, 0, 0)",
       ]);

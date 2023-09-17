@@ -185,7 +185,7 @@ const SliderPanel = () => {
 
 export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
-    style: "mapbox://styles/digital-blue-foam/clmhvh77h006301pd60sjb4vx",
+    style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
     center: [-0.127997, 51.507969],
     zoom: 16,
@@ -243,7 +243,7 @@ export function renderToDOM(container, data) {
       source: "par",
       paint: {
         "fill-color": "#B9E3A9",
-        "fill-opacity": 0.8,
+        "fill-opacity": 0.4,
       },
     });
 
@@ -275,7 +275,7 @@ export const updateBuildingColor = () => {
     ]);
 
   const combinedExpressions = selectedColor.flat();
-  combinedExpressions.push("white");
+  combinedExpressions.push("#34353D");
   map.setPaintProperty("add-3d-buildings", "fill-extrusion-color", [
     "case",
     ...combinedExpressions,
