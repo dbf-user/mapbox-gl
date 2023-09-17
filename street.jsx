@@ -295,34 +295,6 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           marginTop: "8px",
         }}
       >
-        <Button
-          variant="contained"
-          startIcon={<BuildingIcon />}
-          sx={{
-            width: "120px",
-            backgroundColor: "#34C6F5",
-            color: "white",
-            textTransform: "capitalize",
-            border: "2px solid white",
-            justifyContent: "flex-start",
-            transition: "border-color 0.3s",
-            "&:hover": {
-              backgroundColor: "#34C6F5 !important",
-              borderColor: "#FFD700",
-            },
-            "&:active": {
-              borderColor: "red",
-            },
-            "&:disabled": {
-              backgroundColor: "#a0a0a0",
-              borderColor: "#FFD700",
-            },
-          }}
-          onClick={() => handleButtonClick("Caring")}
-          disabled={activeButton === "Caring"}
-        >
-          Caring
-        </Button>
 
         <Button
           variant="contained"
@@ -351,6 +323,35 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           disabled={activeButton === "Community"}
         >
           Community
+        </Button>
+
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#34C6F5",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#34C6F5 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Caring")}
+          disabled={activeButton === "Caring"}
+        >
+          Caring
         </Button>
 
         <Button
