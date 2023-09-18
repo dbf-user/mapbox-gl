@@ -397,17 +397,17 @@ const RightPanel = ({ data }) => {
       <div className="st-separator"></div>
       <div className="st-content">
         <div className="st-horizontal-lines">
-          <div className="st-row">
-            <div className="st-text-align-prop">
-              <div className="st-upper-text">Design Score:</div>
-            </div>
-            <div className="st-text-align-dist">
-              <div className="st-upper-text-dist">{data.DesignScore}</div>
-            </div>
-          </div>
-          <div className="st-mid-text">Statistics</div>
+
         </div>
         <div className="st-vertical-rows">
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Design Score:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.DesignScore}</div>
+            </div>
+          </div>
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Gross Floor Area:</div>
