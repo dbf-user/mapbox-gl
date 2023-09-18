@@ -79,6 +79,8 @@ import Floods from "./floods.jsx";
 import StreetNew from "./streetnw.jsx";
 //import Street from "./street.jsx";
 import parkIcon from "./data/park.png";
+import { Stack } from "@mui/system";
+import CustomSwitch from "./customSwitch.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -125,7 +127,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
     switch (buttonName) {
       case "Community":
         setShowRightPanel(true);
-        mapStat=false;
+        mapStat = false;
         setData({
           propertyName: "Endell Complex",
           address: "2 Endell St, London, UK",
@@ -159,7 +161,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         break;
       case "Caring":
         setShowRightPanel(true);
-        mapStat=false;
+        mapStat = false;
         setData({
           propertyName: "Kemble Caring Center",
           address: "1 Kemble St, London, UK",
@@ -195,7 +197,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
       case "Learning":
         //Learning button click event
         setShowRightPanel(true);
-        mapStat=false;
+        mapStat = false;
         setData({
           propertyName: "Surrey Edu-Hub",
           address: "12 Temple Pl, London, UK",
@@ -247,9 +249,11 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
   return (
     <Box
       sx={{
+        visibility: "hidden",
         position: "fixed",
         left: 20,
         bottom: "23vh",
+        // top: "60px",
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -295,7 +299,6 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           marginTop: "8px",
         }}
       >
-
         <Button
           variant="contained"
           startIcon={<BuildingIcon />}
@@ -387,36 +390,54 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
   );
 };
 
-const RightPanel = ({
-  data: { propertyName, address, Bus, Bdistance, Metro, Mdistance },
-}) => {
+const RightPanel = ({ data }) => {
   return (
     <div className="st-container">
-      <div className="st-title">Urban Insight</div>
+      <div className="st-title">Design Statistics</div>
       <div className="st-separator"></div>
       <div className="st-content">
         <div className="st-horizontal-lines">
-          <div className="st-upper-text">{propertyName}</div>
-          <div className="st-text">{address}</div>
-          <div className="st-mid-text">Transit Proximity</div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-upper-text">Design Score:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-upper-text-dist">{data.DesignScore}</div>
+            </div>
+          </div>
+          <div className="st-mid-text">Statistics</div>
         </div>
         <div className="st-vertical-rows">
           <div className="st-row">
-            <img src={MetroIcon} alt="Icon 1" className="st-icon" />
             <div className="st-text-align-prop">
-              <div className="st-text-prop">{Bus}</div>
+              <div className="st-text-prop">Gross Floor Area:</div>
             </div>
             <div className="st-text-align-dist">
-              <div className="st-text-dist">{Bdistance}</div>
+              <div className="st-text-dist">{data.GrossFloorArea}</div>
             </div>
           </div>
           <div className="st-row">
-            <img src={BusIcon} alt="Icon 1" className="st-icon" />
             <div className="st-text-align-prop">
-              <div className="st-text-prop">{Metro}</div>
+              <div className="st-text-prop">Site Coverage:</div>
             </div>
             <div className="st-text-align-dist">
-              <div className="st-text-dist">{Mdistance}</div>
+              <div className="st-text-dist">{data.SiteCoverage}</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Height:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Height}</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Units:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Units}</div>
             </div>
           </div>
         </div>
@@ -425,8 +446,15 @@ const RightPanel = ({
   );
 };
 
-const AnimateBuilding = (source, buildings) => {
+const AnimateBuilding = (source, buildings, setStatData) => {
   map.getSource(source).setData(buildings[currentIndex]);
+  setStatData({
+    DesignScore: buildings[currentIndex].data.DesignScore,
+    GrossFloorArea: buildings[currentIndex].data.GrossFloorArea,
+    SiteCoverage: buildings[currentIndex].data.SiteCoverage,
+    Height: buildings[currentIndex].data.Height,
+    Units: buildings[currentIndex].data.Units,
+  });
   currentIndex = (currentIndex + 1) % buildings.length;
 };
 
@@ -457,7 +485,7 @@ const stopCameraRotation = () => {
   }
 };
 
-export function renderToDOM(container, data) {
+export function renderToDOM(container, setStatData) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
@@ -655,18 +683,18 @@ export function renderToDOM(container, data) {
       data: sol,
     });
 
-    map.addLayer({
-      id: "extrusion",
-      type: "fill-extrusion",
-      source: "my_test",
-      paint: {
-        "fill-extrusion-color": ["get", "color"],
-        "fill-extrusion-ambient-occlusion-intensity": 1,
-        "fill-extrusion-height": ["get", "height"],
-        "fill-extrusion-base": ["get", "base_height"],
-        "fill-extrusion-opacity": 1,
-      },
-    });
+    // map.addLayer({
+    //   id: "extrusion",
+    //   type: "fill-extrusion",
+    //   source: "my_test",
+    //   paint: {
+    //     "fill-extrusion-color": ["get", "color"],
+    //     "fill-extrusion-ambient-occlusion-intensity": 1,
+    //     "fill-extrusion-height": ["get", "height"],
+    //     "fill-extrusion-base": ["get", "base_height"],
+    //     "fill-extrusion-opacity": 1,
+    //   },
+    // });
 
     map.addSource("my_test1", {
       type: "geojson",
@@ -691,18 +719,18 @@ export function renderToDOM(container, data) {
       data: sol4,
     });
 
-    map.addLayer({
-      id: "extrusion2",
-      type: "fill-extrusion",
-      source: "my_test2",
-      paint: {
-        "fill-extrusion-color": ["get", "color"],
-        "fill-extrusion-ambient-occlusion-intensity": 1,
-        "fill-extrusion-height": ["get", "height"],
-        "fill-extrusion-base": ["get", "base_height"],
-        "fill-extrusion-opacity": 1,
-      },
-    });
+    // map.addLayer({
+    //   id: "extrusion2",
+    //   type: "fill-extrusion",
+    //   source: "my_test2",
+    //   paint: {
+    //     "fill-extrusion-color": ["get", "color"],
+    //     "fill-extrusion-ambient-occlusion-intensity": 1,
+    //     "fill-extrusion-height": ["get", "height"],
+    //     "fill-extrusion-base": ["get", "base_height"],
+    //     "fill-extrusion-opacity": 1,
+    //   },
+    // });
 
     map.addSource("street", {
       type: "geojson",
@@ -746,7 +774,7 @@ export function renderToDOM(container, data) {
       },
     });
     animationInterval = setInterval(() => {
-      AnimateBuilding("my_test1", communityBuild);
+      AnimateBuilding("my_test1", communityBuild, setStatData);
     }, 800);
     setTimeout(() => {
       rotateCameraAround();
@@ -785,6 +813,14 @@ export const App = () => {
     Mdistance: "",
   });
 
+  const [statdata, setStatData] = useState({
+    DesignScore: "",
+    GrossFloorArea: "",
+    SiteCoverage: "",
+    Height: "",
+    Units: "",
+  });
+
   const [showText, setShowText] = useState(
     <h1 style={{ fontSize: "3vh" }}>
       Generate development scenarios for future-proof urban transformation
@@ -793,7 +829,7 @@ export const App = () => {
   const [showAnotherComponent, setShowAnotherComponent] = useState(false);
 
   useEffect(() => {
-    renderToDOM(document.getElementById("map"));
+    renderToDOM(document.getElementById("map"), setStatData);
   }, []);
 
   const handleButtonClick = (buttonId) => {
@@ -911,7 +947,8 @@ export const App = () => {
       </div>
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
         <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} />
-        {showRightPanel ? <RightPanel data={data} /> : ""}
+        <RightPanel data={statdata} />
+        {/* {showRightPanel ? <RightPanel data={data} /> : ""} */}
       </div>
 
       {renderSelectedComponent()}

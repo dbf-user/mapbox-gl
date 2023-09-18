@@ -4,7 +4,7 @@
     color: white;
     padding: 1vh;
     border-radius: 8px; 
-    width: 240px;
+    width: 260px;
     height: 200px;
     bottom: 23vh;
     right: 20px;
@@ -75,7 +75,7 @@
   
   .st-mid-text {
     color: white;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 10px;
   }
 
@@ -87,13 +87,13 @@
 
   .st-text-prop {
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 2px;
     margin-left: 15px;
   }
   .st-text-dist {
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 2px;
     margin-left: 15px;
   }
@@ -104,3 +104,9 @@
     margin-top: 2px;
   }
   
+  .st-upper-text-dist {
+    color: white;
+    font-size: 18px;
+    margin-top: 2px;
+    margin-left: 50px;
+  }

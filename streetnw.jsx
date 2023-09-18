@@ -390,35 +390,55 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
 };
 
 const RightPanel = ({
-  data: { propertyName, address, Bus, Bdistance, Metro, Mdistance },
+  data,
 }) => {
   return (
     <div className="st-container">
-      <div className="st-title">Urban Insight</div>
+      <div className="st-title">Design Statistics</div>
       <div className="st-separator"></div>
       <div className="st-content">
         <div className="st-horizontal-lines">
-          <div className="st-upper-text">{propertyName}</div>
-          <div className="st-text">{address}</div>
-          <div className="st-mid-text">Transit Proximity</div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-upper-text">Design Score:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-upper-text-dist">{data.DesignScore}</div>
+            </div>
+          </div>
+          <div className="st-mid-text">Statistics</div>
         </div>
         <div className="st-vertical-rows">
           <div className="st-row">
-            <img src={MetroIcon} alt="Icon 1" className="st-icon" />
             <div className="st-text-align-prop">
-              <div className="st-text-prop">{Bus}</div>
+              <div className="st-text-prop">Gross Floor Area:</div>
             </div>
             <div className="st-text-align-dist">
-              <div className="st-text-dist">{Bdistance}</div>
+              <div className="st-text-dist">{data.GrossFloorArea}</div>
             </div>
           </div>
           <div className="st-row">
-            <img src={BusIcon} alt="Icon 1" className="st-icon" />
             <div className="st-text-align-prop">
-              <div className="st-text-prop">{Metro}</div>
+              <div className="st-text-prop">Site Coverage:</div>
             </div>
             <div className="st-text-align-dist">
-              <div className="st-text-dist">{Mdistance}</div>
+              <div className="st-text-dist">{data.SiteCoverage}</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Height:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Height}</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Units:</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Units}</div>
             </div>
           </div>
         </div>
@@ -427,8 +447,16 @@ const RightPanel = ({
   );
 };
 
-const AnimateBuilding = (source, buildings) => {
+const AnimateBuilding = (source, buildings, setStatData) => {
+  
   map.getSource(source).setData(buildings[currentIndex]);
+  setStatData({
+    DesignScore: buildings[currentIndex].data.DesignScore,
+    GrossFloorArea: buildings[currentIndex].data.GrossFloorArea,
+    SiteCoverage: buildings[currentIndex].data.SiteCoverage,
+    Height: buildings[currentIndex].data.Height,
+    Units: buildings[currentIndex].data.Units,
+  });
   currentIndex = (currentIndex + 1) % buildings.length;
 };
 
@@ -459,7 +487,7 @@ const stopCameraRotation = () => {
   }
 };
 
-export function renderToDOM(container, data) {
+export function renderToDOM(container, setStatData) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
@@ -657,18 +685,18 @@ export function renderToDOM(container, data) {
       data: sol,
     });
 
-    map.addLayer({
-      id: "extrusion",
-      type: "fill-extrusion",
-      source: "my_test",
-      paint: {
-        "fill-extrusion-color": ["get", "color"],
-        "fill-extrusion-ambient-occlusion-intensity": 1,
-        "fill-extrusion-height": ["get", "height"],
-        "fill-extrusion-base": ["get", "base_height"],
-        "fill-extrusion-opacity": 1,
-      },
-    });
+    // map.addLayer({
+    //   id: "extrusion",
+    //   type: "fill-extrusion",
+    //   source: "my_test",
+    //   paint: {
+    //     "fill-extrusion-color": ["get", "color"],
+    //     "fill-extrusion-ambient-occlusion-intensity": 1,
+    //     "fill-extrusion-height": ["get", "height"],
+    //     "fill-extrusion-base": ["get", "base_height"],
+    //     "fill-extrusion-opacity": 1,
+    //   },
+    // });
 
     map.addSource("my_test1", {
       type: "geojson",
@@ -693,18 +721,18 @@ export function renderToDOM(container, data) {
       data: sol4,
     });
 
-    map.addLayer({
-      id: "extrusion2",
-      type: "fill-extrusion",
-      source: "my_test2",
-      paint: {
-        "fill-extrusion-color": ["get", "color"],
-        "fill-extrusion-ambient-occlusion-intensity": 1,
-        "fill-extrusion-height": ["get", "height"],
-        "fill-extrusion-base": ["get", "base_height"],
-        "fill-extrusion-opacity": 1,
-      },
-    });
+    // map.addLayer({
+    //   id: "extrusion2",
+    //   type: "fill-extrusion",
+    //   source: "my_test2",
+    //   paint: {
+    //     "fill-extrusion-color": ["get", "color"],
+    //     "fill-extrusion-ambient-occlusion-intensity": 1,
+    //     "fill-extrusion-height": ["get", "height"],
+    //     "fill-extrusion-base": ["get", "base_height"],
+    //     "fill-extrusion-opacity": 1,
+    //   },
+    // });
 
     map.addSource("street", {
       type: "geojson",
@@ -748,7 +776,7 @@ export function renderToDOM(container, data) {
       },
     });
     animationInterval = setInterval(() => {
-      AnimateBuilding("my_test1", communityBuild);
+      AnimateBuilding("my_test1", communityBuild, setStatData);
     }, 800);
     setTimeout(() => {
       rotateCameraAround();
@@ -779,8 +807,17 @@ export const StreetNew = () => {
         Metro: "",
         Mdistance: "",
       });
+
+      const [statdata, setStatData] = useState({
+        DesignScore: "",
+        GrossFloorArea: "",
+        SiteCoverage: "",
+        Height: "",
+        Units: "",
+      });
+
   useEffect(() => {
-    renderToDOM(document.getElementById("map"));
+    renderToDOM(document.getElementById("map"),setStatData);
   }, []);
 
   return (
@@ -794,8 +831,9 @@ export const StreetNew = () => {
           }}
         ></div>
       </div>
-      <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} />
-        {showRightPanel ? <RightPanel data={data} /> : ""}
+      {/* <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} /> */}
+        {/* {showRightPanel ? <RightPanel data={data} /> : ""} */}
+        <RightPanel data={statdata} />
     </>
   );
 };

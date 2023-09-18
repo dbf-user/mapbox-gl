@@ -6,6 +6,7 @@ import pathways from "./data/co2.json";
 import ways from "./data/walk.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
+import "./Street.css";
 import CustomSlider from "./customSlider.jsx";
 import school_names from "./data/school_names.json";
 import hsptl_names from "./data/hsptl_names.json";
@@ -33,7 +34,8 @@ import grocery from "./icons/grocery.png";
 import metroIcon from "./icons/metroIcon.png";
 import rest from "./icons/rest.png";
 import pharm from "./icons/pharm.png";
-
+import legend2 from "./icons/co2legend2.png";
+import { Stack } from "@mui/system";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -60,6 +62,47 @@ const SliderPanel = () => {
   );
 };
 
+const LegendPanel = () => {
+  return (
+    <>
+      <Box
+        sx={{
+          width: "120px",
+          borderRadius: 5,
+          mb: 2,
+          backgroundColor: "black",
+          color: "white",
+          padding: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+          transition: "background-color 0.3s ease-in-out",
+        }}
+      >
+        <Typography
+          variant="body1"
+          style={{
+            marginBottom: "5px",
+            lineHeight: "1.2",
+            textAlign: "center",
+            fontSize: 13,
+            fontFamily: "IBM Plex Mono, monospace",
+          }}
+        >
+          Accessible Area
+        </Typography>
+        <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+        <img
+          src={legend2}
+          alt="Co2 legend"
+          style={{ width: "auto", height: "60px", marginTop: "15px" }}
+        />
+      </Box>
+    </>
+  );
+};
+
 const TogglePanel = () => {
   const [isOn, setIsOn] = useState(false);
 
@@ -79,7 +122,6 @@ const TogglePanel = () => {
       map.setLayoutProperty("points7", "visibility", "none");
       map.setLayoutProperty("points_pharm", "visibility", "none");
       map.setLayoutProperty("points_school", "visibility", "none");
-
     } else if (isOn === true) {
       //Car button event
       map.setLayoutProperty("tp-line-line", "visibility", "none");
@@ -98,69 +140,65 @@ const TogglePanel = () => {
   };
 
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        left: 20,
-        bottom: '23vh',
-        width: 120,
-        borderRadius: 5,
-        backgroundColor: "black",
-        color: "white",
-        padding: 2,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
-        transition: "background-color 0.3s ease-in-out",
-      }}
-    >
-      <Typography
-        variant="h6"
-        style={{
-          marginBottom: "5px",
-          lineHeight: "1.2",
-          textAlign: "center",
-          fontSize: 16,
-          fontFamily: "IBM Plex Mono, monospace",
-        }}
-      >
-        Trips to key facilities
-      </Typography>
-      <Divider sx={{ width: "100%", backgroundColor: "white" }} />
-      <Typography
-        variant="body1"
-        style={{
-          textAlign: "center",
-          fontSize: 12,
-          marginTop: "8px",
-          fontFamily: "IBM Plex Mono, monospace",
-        }}
-      >
-        Transport Mode
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          cursor: "pointer",
-          marginTop: "10px",
-        }}
-        onClick={toggleState}
-      >
-        <div
-          style={{
-            marginRight: "10px",
-            fontSize: "24px",
+    <>
+      <Stack sx={{ position: "fixed", left: 20, bottom: "23vh" }}>
+        <LegendPanel />
+        <Box
+          sx={{
+            width: "120px",
+            borderRadius: 5,
+            backgroundColor: "black",
+            color: "white",
+            padding: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+            transition: "background-color 0.3s ease-in-out",
           }}
-        ></div>
-        <CustomSwitch
-          checked={isOn}
-          color="default"
-          inputProps={{ "aria-label": "toggle" }}
-        />
-      </Box>
-    </Box>
+        >
+          <Typography
+            variant="h6"
+            style={{
+              marginBottom: "5px",
+              lineHeight: "1.2",
+              textAlign: "center",
+              fontSize: 16,
+              fontFamily: "IBM Plex Mono, monospace",
+            }}
+          >
+            Trips to key facilities
+          </Typography>
+          <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+          <Typography
+            variant="body1"
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              fontFamily: "IBM Plex Mono, monospace",
+            }}
+          >
+            Transport Mode
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+            onClick={toggleState}
+          >
+            <CustomSwitch
+              checked={isOn}
+              color="default"
+              inputProps={{ "aria-label": "toggle" }}
+            />
+          </Box>
+        </Box>
+      </Stack>
+    </>
   );
 };
 
@@ -496,8 +534,8 @@ export function renderToDOM(container, data) {
       map.getCanvas().style.cursor = "";
     });
 
-     /////////////////////////
-     map.on("click", "points3", (e) => {
+    /////////////////////////
+    map.on("click", "points3", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.name;
@@ -521,7 +559,6 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points3", () => {
       map.getCanvas().style.cursor = "";
     });
-
 
     map.on("click", "points_school", (e) => {
       // Copy coordinates array.
@@ -547,8 +584,8 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points_school", () => {
       map.getCanvas().style.cursor = "";
     });
-     /////////////////////////
-     map.on("click", "points4", (e) => {
+    /////////////////////////
+    map.on("click", "points4", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.name;
@@ -572,8 +609,8 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points4", () => {
       map.getCanvas().style.cursor = "";
     });
-     /////////////////////////
-     map.on("click", "points5", (e) => {
+    /////////////////////////
+    map.on("click", "points5", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.name;
@@ -597,8 +634,8 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points5", () => {
       map.getCanvas().style.cursor = "";
     });
-     /////////////////////////
-     map.on("click", "points6", (e) => {
+    /////////////////////////
+    map.on("click", "points6", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.name;
@@ -622,7 +659,7 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points6", () => {
       map.getCanvas().style.cursor = "";
     });
-////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
     map.on("click", "points7", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
@@ -647,8 +684,8 @@ export function renderToDOM(container, data) {
     map.on("mouseleave", "points7", () => {
       map.getCanvas().style.cursor = "";
     });
-     /////////////////////////
-     map.on("click", "points_pharm", (e) => {
+    /////////////////////////
+    map.on("click", "points_pharm", (e) => {
       // Copy coordinates array.
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.name;
@@ -663,7 +700,6 @@ export function renderToDOM(container, data) {
         .addTo(map);
     });
 
-    
     // Change the cursor to a pointer when the mouse is over the places layer.
     map.on("mouseenter", "points_pharm", () => {
       map.getCanvas().style.cursor = "pointer";
@@ -833,7 +869,7 @@ export const App = () => {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "80vh" }}>
         <div
           id="map"
           style={{

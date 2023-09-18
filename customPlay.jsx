@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CarIcon from "./icons/car.png";
 import WalkIcon from "./icons/walk.png";
 
-const CustomSwitch = styled(Switch)(({ theme, checked }) => ({
+const CustomPlay = styled(Switch)(({ theme, checked }) => ({
   width: 62,
   height: 28,
   padding: 0,
@@ -42,9 +42,7 @@ const CustomSwitch = styled(Switch)(({ theme, checked }) => ({
     borderRadius: 26 / 2,
     backgroundColor: checked ? "#FEBEBE" : "#C8E2F3",
     opacity: 1,
-    // padding: `${5}px ${25}px`,
-
   },
 }));
 
-export default CustomSwitch;
+export default CustomPlay;
