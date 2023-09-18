@@ -140,8 +140,8 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 16.75,
-          pitch: 60,
+          zoom: 17,
+          pitch: 50,
           curve: 1,
           easing(t) {
             return t;
@@ -153,7 +153,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         stopCameraRotation();
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 800);
+        }, 650);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
