@@ -460,7 +460,7 @@ const AnimateBuilding = (source, buildings, setStatData) => {
 
 const rotateCameraAround = () => {
   const duration = 120000;
-  const speed = 5.0;
+  const speed = 2.0;
   const startTime = Date.now();
 
   const animate = () => {
@@ -765,9 +765,9 @@ export function renderToDOM(container, setStatData) {
     map.flyTo({
       center: [-0.123385, 51.514332],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.3,
-      zoom: 16.75,
-      pitch: 60,
+      speed: 0.6,
+      zoom: 17,
+      pitch: 50,
       curve: 1,
       easing(t) {
         return t;
@@ -775,10 +775,10 @@ export function renderToDOM(container, setStatData) {
     });
     animationInterval = setInterval(() => {
       AnimateBuilding("my_test1", communityBuild, setStatData);
-    }, 800);
+    }, 150);
     setTimeout(() => {
       rotateCameraAround();
-    }, 3000);
+    }, 2000);
     // animationInterval = setInterval(() => {
     //   AnimateBuilding("my_test1", communityBuild);
     // }, 800);

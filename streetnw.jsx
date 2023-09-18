@@ -141,7 +141,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 16,
+          zoom: 26,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -767,8 +767,8 @@ export function renderToDOM(container, setStatData) {
     map.flyTo({
       center: [-0.123385, 51.514332],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.2,
-      zoom: 16.5,
+      speed: 0.4,
+      zoom: 19,
       pitch: 60,
       curve: 1,
       easing(t) {
