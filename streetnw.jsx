@@ -404,10 +404,10 @@ const TogglePanel = ({sdata}) => {
       //stop button event
       animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild, sdata);
-        }, 800);
+        }, 150);
         setTimeout(() => {
           rotateCameraAround();
-        }, 3000);
+        }, 200);
     }
   };
 
