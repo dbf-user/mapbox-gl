@@ -480,19 +480,18 @@ const RightPanel = ({
     <div className="st-container">
       <div className="st-title">Design Statistics</div>
       <div className="st-separator"></div>
-      <div className="st-content">
+
         <div className="st-horizontal-lines">
-          <div className="st-row">
+
+        <div className="st-vertical-rows">
+        <div className="st-row">
             <div className="st-text-align-prop">
-              <div className="st-upper-text">Design Score:</div>
+              <div className="st-text-prop">Design Score:</div>
             </div>
             <div className="st-text-align-dist">
-              <div className="st-upper-text-dist">{data.DesignScore}</div>
+              <div className="st-text-dist">{data.DesignScore}</div>
             </div>
           </div>
-          <div className="st-mid-text">Statistics</div>
-        </div>
-        <div className="st-vertical-rows">
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Gross Floor Area:</div>
@@ -849,10 +848,10 @@ export function renderToDOM(container, setStatData) {
     map.moveLayer("add-3d-buildings");
 
     map.flyTo({
-      center: [-0.123385, 51.514332],
+      center: [-0.1233747, 51.5142924], 
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.6,
-      zoom: 17,
+      speed: 0.4,
+      zoom: 16.8,
       pitch: 50,
       curve: 1,
       easing(t) {

@@ -143,7 +143,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         map.flyTo({
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-          speed: 0.3,
+          speed: 0.4,
           zoom: 16,
           pitch: 60,
           curve: 1,
@@ -157,7 +157,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         stopCameraRotation();
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 1000);
+        }, 150);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -177,8 +177,8 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         map.flyTo({
           center: [-0.119385, 51.514826],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-          speed: 0.3,
-          zoom: 16,
+          speed: 0.4,
+          zoom: 17,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -192,7 +192,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         // map.getSource("my_test2").setData(sol4);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test2", caringBuild);
-        }, 1000);
+        }, 150);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -213,8 +213,8 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         map.flyTo({
           center: [-0.114492, 51.51152],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-          speed: 0.3,
-          zoom: 16,
+          speed: 0.4,
+          zoom: 17,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -227,7 +227,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         // map.getSource("my_test").setData(sol);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test", learningBuild);
-        }, 1000);
+        }, 150);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -412,10 +412,10 @@ const TogglePanel = ({sdata}) => {
         //play button event
         animationInterval = setInterval(() => {
             AnimateBuilding("my_test1", communityBuild, sdata);
-          }, 800);
+          }, 150);
           setTimeout(() => {
             rotateCameraAround();
-          }, 3000);
+          }, 200);
       }
     };
   
@@ -488,19 +488,18 @@ const RightPanel = ({
     <div className="st-container">
       <div className="st-title">Design Statistics</div>
       <div className="st-separator"></div>
-      <div className="st-content">
+
         <div className="st-horizontal-lines">
-          <div className="st-row">
+
+        <div className="st-vertical-rows">
+        <div className="st-row">
             <div className="st-text-align-prop">
-              <div className="st-upper-text">Design Score:</div>
+              <div className="st-text-prop">Design Score:</div>
             </div>
             <div className="st-text-align-dist">
-              <div className="st-upper-text-dist">{data.DesignScore}</div>
+              <div className="st-text-dist">{data.DesignScore}</div>
             </div>
           </div>
-          <div className="st-mid-text">Statistics</div>
-        </div>
-        <div className="st-vertical-rows">
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Gross Floor Area:</div>
@@ -554,7 +553,7 @@ const AnimateBuilding = (source, buildings, setStatData) => {
 
 const rotateCameraAround = () => {
   const duration = 120000;
-  const speed = 5.0;
+  const speed = 2.0;
   const startTime = Date.now();
 
   const animate = () => {
@@ -857,11 +856,11 @@ export function renderToDOM(container, setStatData) {
     map.moveLayer("add-3d-buildings");
 
     map.flyTo({
-      center: [-0.123385, 51.514332],
+      center: [-0.1233747, 51.5142924],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.2,
-      zoom: 16.5,
-      pitch: 60,
+      speed: 0.4,
+      zoom: 16.8,
+      pitch: 50,
       curve: 1,
       easing(t) {
         return t;
@@ -869,10 +868,10 @@ export function renderToDOM(container, setStatData) {
     });
     animationInterval = setInterval(() => {
       AnimateBuilding("my_test1", communityBuild, setStatData);
-    }, 800);
+    }, 150);
     setTimeout(() => {
       rotateCameraAround();
-    }, 3000);
+    }, 2000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
