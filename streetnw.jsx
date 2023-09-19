@@ -484,16 +484,6 @@ const TogglePanel = ({sdata}) => {
             Explore Design Scenarios
           </Typography>
           <Divider sx={{ width: "100%", backgroundColor: "white" }} />
-          <Typography
-            variant="body1"
-            style={{
-              textAlign: "center",
-              fontSize: 12,
-              fontFamily: "IBM Plex Mono, monospace",
-            }}
-          >
-            Generate designs options
-          </Typography>
           <Box
             sx={{
               display: "flex",
@@ -521,7 +511,7 @@ const RightPanel = ({
 }) => {
   return (
     <div className="st-container">
-      <div className="st-title">Design Statistics</div>
+      <div className="st-title">Statistics</div>
       <div className="st-separator"></div>
 
         <div className="st-horizontal-lines">
@@ -617,9 +607,9 @@ export function renderToDOM(container, setStatData) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
-    center: [-0.126967, 51.5102496],
-    zoom: 16,
-    pitch: 45,
+    center: [-0.1233747, 51.5142924],
+    zoom: 16.8,
+    pitch: 71,
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
@@ -769,7 +759,7 @@ export function renderToDOM(container, setStatData) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 1,
+        "fill-extrusion-opacity": 0.4,
       },
     });
 
@@ -890,23 +880,12 @@ export function renderToDOM(container, setStatData) {
 
     map.moveLayer("add-3d-buildings");
 
-    map.flyTo({
-      center: [-0.1233747, 51.5142924], 
-      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.4,
-      zoom: 16.8,
-      pitch: 50,
-      curve: 1,
-      easing(t) {
-        return t;
-      },
-    });
     animationInterval = setInterval(() => {
       AnimateBuilding("my_test1", communityBuild, setStatData);
     }, 150);
     setTimeout(() => {
       rotateCameraAround();
-    }, 2000);
+    }, 200);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];

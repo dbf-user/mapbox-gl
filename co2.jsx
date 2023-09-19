@@ -816,7 +816,7 @@ export function renderToDOM(container, data) {
       center: [-0.127997, 51.507969],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
       pitch: 0,
-      speed: 0.05,
+      speed: 0.2,
       zoom: 13.5,
       curve: 1,
       easing(t) {

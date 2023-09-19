@@ -73,7 +73,7 @@ import LB7 from "./data/learning/site03-b7.json";
 import LB8 from "./data/learning/site03-b8.json";
 import LB9 from "./data/learning/site03-b9.json";
 import LB10 from "./data/learning/site03-b10.json";
-import treeIcon from "./icons/tree-icon.png";
+import treeIcon from "./icons/tree-silhouette.png";
 import co2Icon from "./icons/Co2.png";
 import houseIcon from "./icons/flooded-house.png";
 import otherIcon from "./icons/constr.png";
@@ -492,16 +492,6 @@ const TogglePanel = ({sdata}) => {
               Explore Design Scenarios
             </Typography>
             <Divider sx={{ width: "100%", backgroundColor: "white" }} />
-            <Typography
-              variant="body1"
-              style={{
-                textAlign: "center",
-                fontSize: 12,
-                fontFamily: "IBM Plex Mono, monospace",
-              }}
-            >
-              Generate designs options
-            </Typography>
             <Box
               sx={{
                 display: "flex",
@@ -529,7 +519,7 @@ const RightPanel = ({
 }) => {
   return (
     <div className="st-container">
-      <div className="st-title">Design Statistics</div>
+      <div className="st-title">Statistics</div>
       <div className="st-separator"></div>
 
         <div className="st-horizontal-lines">
@@ -625,14 +615,14 @@ export function renderToDOM(container, setStatData) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
-    center: [-0.126967, 51.5102496],
-    zoom: 16,
-    pitch: 45,
+    center: [-0.1233747, 51.5142924],
+    zoom: 16.8,
+    pitch: 71,
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
-      [-0.140922, 51.500648],
-      [-0.10464, 51.52127],
+      [-0.128784, 51.510215],
+      [-0.1184279, 51.5188687],
     ],
   });
 
@@ -777,7 +767,7 @@ export function renderToDOM(container, setStatData) {
           15.05,
           ["get", "min_height"],
         ],
-        "fill-extrusion-opacity": 1,
+        "fill-extrusion-opacity": 0.4,
       },
     });
 
@@ -898,23 +888,12 @@ export function renderToDOM(container, setStatData) {
 
     map.moveLayer("add-3d-buildings");
 
-    map.flyTo({
-      center: [-0.1233747, 51.5142924],
-      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.4,
-      zoom: 16.8,
-      pitch: 50,
-      curve: 1,
-      easing(t) {
-        return t;
-      },
-    });
     animationInterval = setInterval(() => {
       AnimateBuilding("my_test1", communityBuild, setStatData);
     }, 150);
     setTimeout(() => {
       rotateCameraAround();
-    }, 2000);
+    }, 200);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
@@ -952,7 +931,7 @@ export const Mainpg = () => {
   });
 
   const [showText, setShowText] = useState(
-    <h1 style={{ fontSize: "3vh" }}>
+    <h1 style={{ fontSize: "1rem" }}>
       Generate development scenarios for future-proof urban transformation
     </h1>
   );
@@ -972,7 +951,7 @@ export const Mainpg = () => {
       switch (buttonId) {
         case "park":
           setShowText(
-            <h1 style={{ fontSize: "3vh" }}>
+            <h1 style={{ fontSize: "1rem" }}>
               Compute Urban Green Space Index to assess recreational
               opportunities and urban resilience
             </h1>
@@ -980,14 +959,14 @@ export const Mainpg = () => {
           break;
         case "co2":
           setShowText(
-            <h1 style={{ fontSize: "3vh" }}>
+            <h1 style={{ fontSize: "1rem" }}>
               Reduce carbon emissions for your neighborhood
             </h1>
           );
           break;
         case "flood":
           setShowText(
-            <h1 style={{ fontSize: "3vh" }}>
+            <h1 style={{ fontSize: "1rem" }}>
               Perform urban risk assessment to pinpoint strategic development
               opportunities
             </h1>
@@ -995,7 +974,7 @@ export const Mainpg = () => {
           break;
         case "other":
           setShowText(
-            <h1 style={{ fontSize: "3vh" }}>
+            <h1 style={{ fontSize: "1rem" }}>
               Generate development scenarios for future-proof urban
               transformation
             </h1>
