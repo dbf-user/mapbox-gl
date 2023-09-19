@@ -6,6 +6,7 @@ import pathways from "./data/co2.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import "./Street.css";
+import legend2 from "./icons/scr.png";
 // import "./IsoApp.css";
 import "./App.css";
 import CustomSlider from "./customSlider.jsx";
@@ -400,6 +401,47 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
   );
 };
 
+const LegendPanel = () => {
+  return (
+    <>
+      <Box
+        sx={{
+          width: "150px",
+          borderRadius: 2,
+          mb: 2,
+          backgroundColor: "black",
+          color: "white",
+          padding: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+          transition: "background-color 0.3s ease-in-out",
+        }}
+      >
+        <Typography
+              variant="h6"
+              style={{
+                marginBottom: "5px",
+                lineHeight: "1.2",
+                textAlign: "center",
+                fontSize: 14,
+                fontFamily: "IBM Plex Mono, monospace",
+              }}
+            >
+          Street Betweenness
+        </Typography>
+        <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+        <img
+          src={legend2}
+          alt="Co2 legend"
+          style={{ width: "auto", marginTop: "15px" }}
+        />
+      </Box>
+    </>
+  );
+};
+
 const TogglePanel = ({sdata}) => {
     const [isOn, setIsOn] = useState(false);
     const toggleState = () => {
@@ -422,6 +464,7 @@ const TogglePanel = ({sdata}) => {
     return (
       <>
         <Stack sx={{ position: "fixed", left: 20, bottom: "23vh" }}>
+        <LegendPanel />
           <Box
             sx={{
               width: "150px",
