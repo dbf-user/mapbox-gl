@@ -1,28 +1,44 @@
 import Switch from "@mui/material/Switch";
-import styled from "styled-components";
 import CarIcon from "./icons/car.png";
 import WalkIcon from "./icons/walk.png";
+import { styled } from "@mui/material/styles";
 
 const CustomSwitch = styled(Switch)(({ theme, checked }) => ({
-  width: 62,
-  height: 28,
+  width: 56,
+  height: 29,
   padding: 0,
   "& .MuiSwitch-switchBase": {
     padding: 0,
     margin: 2,
+    transitionDuration: "300ms",
     "&.Mui-checked": {
-      transform: "translateX(32px)",
+      transform: "translateX(30px)",
       color: "#fff",
       "& .MuiSwitch-thumb:before": {
         backgroundImage: `url(${CarIcon})`,
       },
       "& + .MuiSwitch-track": {
+        //backgroundColor: "#2ECA45",
         opacity: 1,
         border: 0,
       },
+      "&.Mui-disabled + .MuiSwitch-track": {
+        opacity: 0.5,
+      },
+    },
+    "&.Mui-focusVisible .MuiSwitch-thumb": {
+      color: "#33cf4d",
+      border: "6px solid #fff",
+    },
+    "&.Mui-disabled .MuiSwitch-thumb": {
+      color: theme.palette.grey[100],
+    },
+    "&.Mui-disabled + .MuiSwitch-track": {
+      opacity: 0.3,
     },
   },
   "& .MuiSwitch-thumb": {
+    boxSizing: "border-box",
     backgroundColor: checked ? "#C96A6A" : "#44C7FF",
     width: 25,
     height: 25,
@@ -42,8 +58,9 @@ const CustomSwitch = styled(Switch)(({ theme, checked }) => ({
     borderRadius: 26 / 2,
     backgroundColor: checked ? "#FEBEBE" : "#C8E2F3",
     opacity: 1,
-    // padding: `${5}px ${25}px`,
-
+    transition: theme.transitions.create(["background-color"], {
+      duration: 500,
+    }),
   },
 }));
 

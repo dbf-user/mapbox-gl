@@ -12,6 +12,9 @@ import CustomSlider from "./customSlider.jsx";
 import parks from "./data/parks.json";
 import baseMap from "./data/dbf-GREEN-BASE.json";
 import t from "./data/test.json";
+// import sol from "./data/geo.json";
+// import sol1 from "./data/dbf-big.json";
+// import sol4 from "./data/Sol4.json";
 import sol from "./data/learning/site03-b2.json";
 import sol1 from "./data/community/site01-b1.json";
 import sol4 from "./data/caring/site02-b1.json";
@@ -79,8 +82,9 @@ import Floods from "./floods.jsx";
 import StreetNew from "./streetnw.jsx";
 //import Street from "./street.jsx";
 import parkIcon from "./data/park.png";
-import { Stack } from "@mui/system";
 import CustomPlay from "./customPlay.jsx";
+import CustomSwitch from "./customSwitch";
+import { Stack } from "@mui/system";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -127,7 +131,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
     switch (buttonName) {
       case "Community":
         setShowRightPanel(true);
-        mapStat = false;
+        mapStat=false;
         setData({
           propertyName: "Endell Complex",
           address: "2 Endell St, London, UK",
@@ -140,7 +144,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           center: [-0.123385, 51.514332],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 16.75,
+          zoom: 16,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -153,7 +157,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         stopCameraRotation();
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test1", communityBuild);
-        }, 800);
+        }, 1000);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -161,7 +165,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         break;
       case "Caring":
         setShowRightPanel(true);
-        mapStat = false;
+        mapStat=false;
         setData({
           propertyName: "Kemble Caring Center",
           address: "1 Kemble St, London, UK",
@@ -174,7 +178,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           center: [-0.119385, 51.514826],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 16.75,
+          zoom: 16,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -188,7 +192,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         // map.getSource("my_test2").setData(sol4);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test2", caringBuild);
-        }, 800);
+        }, 1000);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -197,7 +201,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
       case "Learning":
         //Learning button click event
         setShowRightPanel(true);
-        mapStat = false;
+        mapStat=false;
         setData({
           propertyName: "Surrey Edu-Hub",
           address: "12 Temple Pl, London, UK",
@@ -210,7 +214,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           center: [-0.114492, 51.51152],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.3,
-          zoom: 16.75,
+          zoom: 16,
           pitch: 60,
           curve: 1,
           easing(t) {
@@ -223,7 +227,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         // map.getSource("my_test").setData(sol);
         animationInterval = setInterval(() => {
           AnimateBuilding("my_test", learningBuild);
-        }, 800);
+        }, 1000);
         setTimeout(() => {
           rotateCameraAround();
         }, 3000);
@@ -249,11 +253,10 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
   return (
     <Box
       sx={{
-        // visibility: "hidden",
+        // visibility:"hidden",
         position: "fixed",
         left: 20,
-        bottom: "35vh",
-        // top: "60px",
+        bottom: "23vh",
         width: 120,
         borderRadius: 5,
         backgroundColor: "black",
@@ -266,7 +269,14 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         transition: "background-color 0.3s ease-in-out",
       }}
     >
-      {/* <Typography
+         {/* <Box>
+      <CustomPlay
+              //checked={isOn}
+              color="default"
+              inputProps={{ "aria-label": "toggle" }}
+            />
+      </Box> */}
+      <Typography
         variant="h6"
         style={{
           marginBottom: "5px",
@@ -304,35 +314,6 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           startIcon={<BuildingIcon />}
           sx={{
             width: "120px",
-            backgroundColor: "#A900F8",
-            color: "white",
-            textTransform: "capitalize",
-            border: "2px solid white",
-            justifyContent: "flex-start",
-            transition: "border-color 0.3s",
-            "&:hover": {
-              backgroundColor: "#A900F8 !important",
-              borderColor: "#FFD700",
-            },
-            "&:active": {
-              borderColor: "red",
-            },
-            "&:disabled": {
-              backgroundColor: "#a0a0a0",
-              borderColor: "#FFD700",
-            },
-          }}
-          onClick={() => handleButtonClick("Community")}
-          disabled={activeButton === "Community"}
-        >
-          Community
-        </Button>
-
-        <Button
-          variant="contained"
-          startIcon={<BuildingIcon />}
-          sx={{
-            width: "120px",
             backgroundColor: "#34C6F5",
             color: "white",
             textTransform: "capitalize",
@@ -355,6 +336,35 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
           disabled={activeButton === "Caring"}
         >
           Caring
+        </Button>
+
+        <Button
+          variant="contained"
+          startIcon={<BuildingIcon />}
+          sx={{
+            width: "120px",
+            backgroundColor: "#A900F8",
+            color: "white",
+            textTransform: "capitalize",
+            border: "2px solid white",
+            justifyContent: "flex-start",
+            transition: "border-color 0.3s",
+            "&:hover": {
+              backgroundColor: "#A900F8 !important",
+              borderColor: "#FFD700",
+            },
+            "&:active": {
+              borderColor: "red",
+            },
+            "&:disabled": {
+              backgroundColor: "#a0a0a0",
+              borderColor: "#FFD700",
+            },
+          }}
+          onClick={() => handleButtonClick("Community")}
+          disabled={activeButton === "Community"}
+        >
+          Community
         </Button>
 
         <Button
@@ -385,94 +395,95 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         >
           Learning
         </Button>
-      </Box> */}
+      </Box>
     </Box>
   );
 };
 
-const TogglePanel = () => {
-  const [isOn, setIsOn] = useState(false);
-
-  const toggleState = () => {
-    setIsOn(!isOn);
-    if (isOn === false) {
-      //Walk button event
-    } else if (isOn === true) {
-      //Car button event
-    }
-  };
-
-  return (
-    <>
-      <Stack sx={{ position: "fixed", left: 20, bottom: "40vh" }}>
-        <Box
-          sx={{
-            width: "120px",
-            borderRadius: 5,
-            backgroundColor: "black",
-            color: "white",
-            padding: 2,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
-            transition: "background-color 0.3s ease-in-out",
-          }}
-        >
-          {/* <Typography
-            variant="h6"
-            style={{
-              marginBottom: "5px",
-              lineHeight: "1.2",
-              textAlign: "center",
-              fontSize: 16,
-              fontFamily: "IBM Plex Mono, monospace",
-            }}
-          >
-            Trips to key facilities
-          </Typography>
-          <Divider sx={{ width: "100%", backgroundColor: "white" }} />
-          <Typography
-            variant="body1"
-            style={{
-              textAlign: "center",
-              fontSize: 12,
-              fontFamily: "IBM Plex Mono, monospace",
-            }}
-          >
-            Transport Mode
-          </Typography>
+const TogglePanel = ({sdata}) => {
+    const [isOn, setIsOn] = useState(false);
+    const toggleState = () => {
+      setIsOn(!isOn);
+      if (isOn === false) {
+        //stop button event
+        clearInterval(animationInterval);
+        stopCameraRotation();
+      } else if (isOn === true) {
+        //play button event
+        animationInterval = setInterval(() => {
+            AnimateBuilding("my_test1", communityBuild, sdata);
+          }, 800);
+          setTimeout(() => {
+            rotateCameraAround();
+          }, 3000);
+      }
+    };
+  
+    return (
+      <>
+        <Stack sx={{ position: "fixed", left: 20, bottom: "23vh" }}>
           <Box
             sx={{
+              width: "150px",
+              borderRadius: 5,
+              backgroundColor: "black",
+              color: "white",
+              padding: 2,
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
-
-              cursor: "pointer",
-              marginTop: "10px",
+              boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+              transition: "background-color 0.3s ease-in-out",
             }}
-            onClick={toggleState}
           >
-            <CustomPlay
-              checked={isOn}
-              color="default"
-              inputProps={{ "aria-label": "toggle" }}
-            />
-          </Box> */}
+            <Typography
+              variant="h6"
+              style={{
+                marginBottom: "5px",
+                lineHeight: "1.2",
+                textAlign: "center",
+                fontSize: 16,
+                fontFamily: "IBM Plex Mono, monospace",
+              }}
+            >
+              Explore Design Scenarios
+            </Typography>
+            <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+            <Typography
+              variant="body1"
+              style={{
+                textAlign: "center",
+                fontSize: 12,
+                fontFamily: "IBM Plex Mono, monospace",
+              }}
+            >
+              Generate designs options
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+  
+                cursor: "pointer",
+                marginTop: "10px",
+              }}
+              onClick={toggleState}
+            >
+              <CustomPlay
+                checked={isOn}
+                color="default"
+                inputProps={{ "aria-label": "toggle" }}
+              />
+            </Box>
+          </Box>
+        </Stack>
+      </>
+    );
+  };
 
-    
-            {/* <CustomPlay
-              checked={isOn}
-              color="default"
-              inputProps={{ "aria-label": "toggle" }}
-            /> */}
-        </Box>
-      </Stack>
-      
-    </>
-  );
-};
-
-const RightPanel = ({ data }) => {
+const RightPanel = ({
+  data,
+}) => {
   return (
     <div className="st-container">
       <div className="st-title">Design Statistics</div>
@@ -525,11 +536,11 @@ const RightPanel = ({ data }) => {
         </div>
       </div>
     </div>
-    
   );
 };
 
 const AnimateBuilding = (source, buildings, setStatData) => {
+  
   map.getSource(source).setData(buildings[currentIndex]);
   setStatData({
     DesignScore: buildings[currentIndex].data.DesignScore,
@@ -848,8 +859,8 @@ export function renderToDOM(container, setStatData) {
     map.flyTo({
       center: [-0.123385, 51.514332],
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      speed: 0.3,
-      zoom: 16.75,
+      speed: 0.2,
+      zoom: 16.5,
       pitch: 60,
       curve: 1,
       easing(t) {
@@ -862,12 +873,6 @@ export function renderToDOM(container, setStatData) {
     setTimeout(() => {
       rotateCameraAround();
     }, 3000);
-    // animationInterval = setInterval(() => {
-    //   AnimateBuilding("my_test1", communityBuild);
-    // }, 800);
-    // setTimeout(() => {
-    //   rotateCameraAround();
-    // }, 3000);
 
     const FilterIds = overlapBuildingIds.map((d) => d.id);
     let filter = ["match", ["id"], FilterIds, false, true];
@@ -884,8 +889,8 @@ export function renderToDOM(container, setStatData) {
   return map;
 }
 
-export const App = () => {
-  const [selectedButton, setSelectedButton] = useState(null);
+export const Mainpg = () => {
+    const [selectedButton, setSelectedButton] = useState(null);
   const [showRightPanel, setShowRightPanel] = useState(false);
   const [data, setData] = useState({
     propertyName: "",
@@ -1028,16 +1033,15 @@ export const App = () => {
           </button>
         </div>
       </div>
+      {/* <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} /> */}
       <div className={`app-container ${showAnotherComponent ? "hide" : ""}`}>
-        <TogglePanel />
-        <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} />
+        <TogglePanel sdata={setStatData} />
         <RightPanel data={statdata} />
-        {/* {showRightPanel ? <RightPanel data={data} /> : ""} */}
       </div>
-
       {renderSelectedComponent()}
     </>
   );
 };
-export default App;
-ReactDOM.render(<App />, document.getElementById("app"));
+export default Mainpg;
+ReactDOM.render(<Mainpg />, document.getElementById("app"));
+

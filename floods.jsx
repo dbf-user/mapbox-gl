@@ -10,6 +10,7 @@ import park_names from "./data/park_names.json";
 import "./RadioPanel.css";
 import "./BuildingInfo.css";
 import CustomSlider from "./customSlider.jsx";
+import CustomPlay from "./customPlay.jsx";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -300,6 +301,7 @@ export const App = () => {
           }}
         ></div>
         <SliderPanel />
+        
       </div>
     </>
   );

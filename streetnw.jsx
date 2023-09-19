@@ -82,6 +82,9 @@ import Floods from "./floods.jsx";
 //import StreetNew from "./streetnw.jsx";
 //import Street from "./street.jsx";
 import parkIcon from "./data/park.png";
+import CustomPlay from "./customPlay.jsx";
+//import CustomSwitch from "./customSwitch";
+import { Stack } from "@mui/system";
 
 // Set your Mapbox token here
 mapboxgl.accessToken =
@@ -386,6 +389,87 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         </Button>
       </Box>
     </Box>
+  );
+};
+
+const TogglePanel = ({sdata}) => {
+  const [isOn, setIsOn] = useState(false);
+  const toggleState = () => {
+    setIsOn(!isOn);
+    if (isOn === false) {
+      //play button event
+      clearInterval(animationInterval);
+      stopCameraRotation();
+    } else if (isOn === true) {
+      //stop button event
+      animationInterval = setInterval(() => {
+          AnimateBuilding("my_test1", communityBuild, sdata);
+        }, 800);
+        setTimeout(() => {
+          rotateCameraAround();
+        }, 3000);
+    }
+  };
+
+  return (
+    <>
+      <Stack sx={{ position: "fixed", left: 20, bottom: "23vh" }}>
+        <Box
+          sx={{
+            width: "150px",
+            borderRadius: 5,
+            backgroundColor: "black",
+            color: "white",
+            padding: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+            transition: "background-color 0.3s ease-in-out",
+          }}
+        >
+          <Typography
+            variant="h6"
+            style={{
+              marginBottom: "5px",
+              lineHeight: "1.2",
+              textAlign: "center",
+              fontSize: 16,
+              fontFamily: "IBM Plex Mono, monospace",
+            }}
+          >
+            Explore Design Scenarios
+          </Typography>
+          <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+          <Typography
+            variant="body1"
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              fontFamily: "IBM Plex Mono, monospace",
+            }}
+          >
+            Generate designs options
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+            onClick={toggleState}
+          >
+            <CustomPlay
+              checked={isOn}
+              color="default"
+              inputProps={{ "aria-label": "toggle" }}
+            />
+          </Box>
+        </Box>
+      </Stack>
+    </>
   );
 };
 
@@ -833,6 +917,7 @@ export const StreetNew = () => {
       </div>
       {/* <StreetPanel setShowRightPanel={setShowRightPanel} setData={setData} /> */}
         {/* {showRightPanel ? <RightPanel data={data} /> : ""} */}
+        <TogglePanel sdata={setStatData} />
         <RightPanel data={statdata} />
     </>
   );
