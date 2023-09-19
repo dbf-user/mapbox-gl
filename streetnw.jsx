@@ -613,8 +613,8 @@ export function renderToDOM(container, setStatData) {
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
-      [-0.140922, 51.500648],
-      [-0.10464, 51.52127],
+      [-0.128784, 51.510215],
+      [-0.1184279, 51.5188687],
     ],
   });
 
