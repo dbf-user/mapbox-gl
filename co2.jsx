@@ -803,7 +803,6 @@ export function renderToDOM(container, data) {
       source: "buildings",
       paint: {
         "fill-color": ["get", "color"],
-        "fill-outline-color": "#00008B",
         "fill-emissive-strength": 1,
         "fill-opacity": 0.6,
       },
