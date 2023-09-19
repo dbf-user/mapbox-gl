@@ -15,6 +15,10 @@
     gap: 10px;
     padding-bottom: 1.25vh;
   }
+
+  .mapboxgl-control-container{
+    display: none;
+}
   
   .map-button {
     width: 150px;

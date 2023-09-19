@@ -615,6 +615,7 @@ export function renderToDOM(container, setStatData) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
+    attributionControl: false,
     center: [-0.1233747, 51.5142924],
     zoom: 16.8,
     pitch: 71,
@@ -625,6 +626,7 @@ export function renderToDOM(container, setStatData) {
       [-0.1184279, 51.5188687],
     ],
   });
+  
 
   const modelOrigin = [-0.119360145693761, 51.5148376818842];
   const modelAltitude = 0;
