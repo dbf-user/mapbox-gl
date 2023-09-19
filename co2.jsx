@@ -68,7 +68,7 @@ const LegendPanel = () => {
       <Box
         sx={{
           width: "120px",
-          borderRadius: 5,
+          borderRadius: 2,
           mb: 2,
           backgroundColor: "black",
           color: "white",
@@ -146,7 +146,7 @@ const TogglePanel = () => {
         <Box
           sx={{
             width: "120px",
-            borderRadius: 5,
+            borderRadius: 2,
             backgroundColor: "black",
             color: "white",
             padding: 2,

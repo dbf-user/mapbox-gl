@@ -258,7 +258,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         left: 20,
         bottom: "23vh",
         width: 120,
-        borderRadius: 5,
+        borderRadius: 2,
         backgroundColor: "black",
         color: "white",
         padding: "1.85vh",
@@ -425,7 +425,7 @@ const TogglePanel = ({sdata}) => {
           <Box
             sx={{
               width: "150px",
-              borderRadius: 5,
+              borderRadius: 2,
               backgroundColor: "black",
               color: "white",
               padding: 2,
