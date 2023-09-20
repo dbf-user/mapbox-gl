@@ -399,7 +399,7 @@ const LegendPanel = () => {
       <Box
         sx={{
           width: "150px",
-          borderRadius: 2,
+          borderRadius: "4px",
           mb: 2,
           backgroundColor: "black",
           color: "white",
@@ -421,7 +421,7 @@ const LegendPanel = () => {
             fontFamily: "IBM Plex Mono, monospace",
           }}
         >
-          Street Betweenness
+          Pedestrian Traffic
         </Typography>
         <Divider sx={{ width: "100%", backgroundColor: "white" }} />
         <img
@@ -460,7 +460,7 @@ const TogglePanel = ({ sdata }) => {
         <Box
           sx={{
             width: "150px",
-            borderRadius: 2,
+            borderRadius: "4px",
             backgroundColor: "black",
             color: "white",
             padding: 2,
