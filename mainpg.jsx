@@ -618,7 +618,7 @@ export function renderToDOM(container, setStatData) {
     attributionControl: false,
     center: [-0.1233747, 51.5142924],
     zoom: 16.8,
-    pitch: 71,
+    pitch: 69,
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
     maxBounds: [
