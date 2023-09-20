@@ -730,7 +730,7 @@ export function renderToDOM(container, setStatData) {
   //   });
 
   map.on("click", (e) => {
-    clearInterval(animationInterval);
+    //clearInterval(animationInterval);
     stopCameraRotation();
   });
 
