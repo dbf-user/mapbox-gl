@@ -132,7 +132,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
     switch (buttonName) {
       case "Community":
         setShowRightPanel(true);
-        mapStat=false;
+        mapStat = false;
         setData({
           propertyName: "Endell Complex",
           address: "2 Endell St, London, UK",
@@ -166,7 +166,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         break;
       case "Caring":
         setShowRightPanel(true);
-        mapStat=false;
+        mapStat = false;
         setData({
           propertyName: "Kemble Caring Center",
           address: "1 Kemble St, London, UK",
@@ -202,7 +202,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
       case "Learning":
         //Learning button click event
         setShowRightPanel(true);
-        mapStat=false;
+        mapStat = false;
         setData({
           propertyName: "Surrey Edu-Hub",
           address: "12 Temple Pl, London, UK",
@@ -270,7 +270,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         transition: "background-color 0.3s ease-in-out",
       }}
     >
-         {/* <Box>
+      {/* <Box>
       <CustomPlay
               //checked={isOn}
               color="default"
@@ -420,15 +420,15 @@ const LegendPanel = () => {
         }}
       >
         <Typography
-              variant="h6"
-              style={{
-                marginBottom: "5px",
-                lineHeight: "1.2",
-                textAlign: "center",
-                fontSize: 14,
-                fontFamily: "IBM Plex Mono, monospace",
-              }}
-            >
+          variant="h6"
+          style={{
+            marginBottom: "5px",
+            lineHeight: "1.2",
+            textAlign: "center",
+            fontSize: 14,
+            fontFamily: "IBM Plex Mono, monospace",
+          }}
+        >
           Street Betweenness
         </Typography>
         <Divider sx={{ width: "100%", backgroundColor: "white" }} />
@@ -442,90 +442,85 @@ const LegendPanel = () => {
   );
 };
 
-const TogglePanel = ({sdata}) => {
-    const [isOn, setIsOn] = useState(false);
-    const toggleState = () => {
-      setIsOn(!isOn);
-      if (isOn === false) {
-        //stop button event
-        clearInterval(animationInterval);
-        stopCameraRotation();
-      } else if (isOn === true) {
-        //play button event
-        animationInterval = setInterval(() => {
-            AnimateBuilding("my_test1", communityBuild, sdata);
-          }, 150);
-          setTimeout(() => {
-            rotateCameraAround();
-          }, 200);
-      }
-    };
-  
-    return (
-      <>
-        <Stack sx={{ position: "fixed", left: 20, bottom: "23vh" }}>
-        <LegendPanel />
-          <Box
-            sx={{
-              width: "150px",
-              borderRadius: 2,
-              backgroundColor: "black",
-              color: "white",
-              padding: 2,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
-              transition: "background-color 0.3s ease-in-out",
-            }}
-          >
-            <Typography
-              variant="h6"
-              style={{
-                marginBottom: "5px",
-                lineHeight: "1.2",
-                textAlign: "center",
-                fontSize: 16,
-                fontFamily: "IBM Plex Mono, monospace",
-              }}
-            >
-              Explore Design Scenarios
-            </Typography>
-            <Divider sx={{ width: "100%", backgroundColor: "white" }} />
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-  
-                cursor: "pointer",
-                marginTop: "10px",
-              }}
-              onClick={toggleState}
-            >
-              <CustomPlay
-                checked={isOn}
-                color="default"
-                inputProps={{ "aria-label": "toggle" }}
-              />
-            </Box>
-          </Box>
-        </Stack>
-      </>
-    );
+const TogglePanel = ({ sdata }) => {
+  const [isOn, setIsOn] = useState(false);
+  const toggleState = () => {
+    setIsOn(!isOn);
+    if (isOn === false) {
+      //stop button event
+      clearInterval(animationInterval);
+      stopCameraRotation();
+    } else if (isOn === true) {
+      //play button event
+      animationInterval = setInterval(() => {
+        AnimateBuilding("my_test1", communityBuild, sdata);
+      }, 150);
+      setTimeout(() => {
+        rotateCameraAround();
+      }, 200);
+    }
   };
 
-const RightPanel = ({
-  data,
-}) => {
+  return (
+    <>
+      <Stack sx={{ position: "fixed", left: 20, bottom: "23vh" }}>
+        <LegendPanel />
+        <Box
+          sx={{
+            width: "150px",
+            borderRadius: 2,
+            backgroundColor: "black",
+            color: "white",
+            padding: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            boxShadow: "-5px 0px 5px rgba(0, 0, 0, 0.2)",
+            transition: "background-color 0.3s ease-in-out",
+          }}
+        >
+          <Typography
+            variant="h6"
+            style={{
+              marginBottom: "5px",
+              lineHeight: "1.2",
+              textAlign: "center",
+              fontSize: 16,
+              fontFamily: "IBM Plex Mono, monospace",
+            }}
+          >
+            Explore Design Scenarios
+          </Typography>
+          <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+
+              cursor: "pointer",
+              marginTop: "10px",
+            }}
+            onClick={toggleState}
+          >
+            <CustomPlay
+              checked={isOn}
+              color="default"
+              inputProps={{ "aria-label": "toggle" }}
+            />
+          </Box>
+        </Box>
+      </Stack>
+    </>
+  );
+};
+
+const RightPanel = ({ data }) => {
   return (
     <div className="st-container">
       <div className="st-title">Statistics</div>
-      <div className="st-separator"></div>
-
-        <div className="st-horizontal-lines">
-
+      <div className="st-horizontal-lines">
         <div className="st-vertical-rows">
-        <div className="st-row">
+          <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Design Score:</div>
             </div>
@@ -533,6 +528,7 @@ const RightPanel = ({
               <div className="st-text-dist">{data.DesignScore}</div>
             </div>
           </div>
+          <div className="st-line-after"></div>
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Gross Floor Area:</div>
@@ -541,6 +537,7 @@ const RightPanel = ({
               <div className="st-text-dist">{data.GrossFloorArea}</div>
             </div>
           </div>
+          <div className="st-line-after"></div>
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Site Coverage:</div>
@@ -549,6 +546,7 @@ const RightPanel = ({
               <div className="st-text-dist">{data.SiteCoverage}</div>
             </div>
           </div>
+          <div className="st-line-after"></div>
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Height:</div>
@@ -557,12 +555,68 @@ const RightPanel = ({
               <div className="st-text-dist">{data.Height}</div>
             </div>
           </div>
+          <div className="st-line-after"></div>
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">Units:</div>
             </div>
             <div className="st-text-align-dist">
               <div className="st-text-dist">{data.Units}</div>
+            </div>
+          </div>
+          <div className="st-line-after"></div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Residential</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Residential} %</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-progress-bar">
+                <div
+                  className="st-progress-bar-inner"
+                  style={{ width: `${data.Residential}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Commercial</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Commercial} %</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-progress-bar">
+                <div
+                  className="st-progress-bar-inner"
+                  style={{ width: `${data.Commercial}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-text-prop">Community</div>
+            </div>
+            <div className="st-text-align-dist">
+              <div className="st-text-dist">{data.Community} %</div>
+            </div>
+          </div>
+          <div className="st-row">
+            <div className="st-text-align-prop">
+              <div className="st-progress-bar">
+                <div
+                  className="st-progress-bar-inner"
+                  style={{ width: `${data.Community}%` }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
@@ -572,7 +626,6 @@ const RightPanel = ({
 };
 
 const AnimateBuilding = (source, buildings, setStatData) => {
-  
   map.getSource(source).setData(buildings[currentIndex]);
   setStatData({
     DesignScore: buildings[currentIndex].data.DesignScore,
@@ -580,6 +633,9 @@ const AnimateBuilding = (source, buildings, setStatData) => {
     SiteCoverage: buildings[currentIndex].data.SiteCoverage,
     Height: buildings[currentIndex].data.Height,
     Units: buildings[currentIndex].data.Units,
+    Residential: buildings[currentIndex].data.Residential,
+    Commercial: buildings[currentIndex].data.Commercial,
+    Community: buildings[currentIndex].data.Community,
   });
   currentIndex = (currentIndex + 1) % buildings.length;
 };
@@ -626,7 +682,6 @@ export function renderToDOM(container, setStatData) {
       [-0.1184279, 51.5188687],
     ],
   });
-  
 
   const modelOrigin = [-0.119360145693761, 51.5148376818842];
   const modelAltitude = 0;
@@ -913,7 +968,7 @@ export function renderToDOM(container, setStatData) {
 }
 
 export const Mainpg = () => {
-    const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedButton, setSelectedButton] = useState(null);
   const [showRightPanel, setShowRightPanel] = useState(false);
   const [data, setData] = useState({
     propertyName: "",
@@ -930,6 +985,9 @@ export const Mainpg = () => {
     SiteCoverage: "",
     Height: "",
     Units: "",
+    Residential: "",
+    Commercial: "",
+    Community: "",
   });
 
   const [showText, setShowText] = useState(
@@ -1067,4 +1125,3 @@ export const Mainpg = () => {
 };
 export default Mainpg;
 ReactDOM.render(<Mainpg />, document.getElementById("app"));
-
