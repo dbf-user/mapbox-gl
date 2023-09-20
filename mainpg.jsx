@@ -521,17 +521,12 @@ const RightPanel = ({ data }) => {
       <div className="st-horizontal-lines">
         <div className="st-vertical-rows">
           <div className="st-row">
-            <div className="st-text-align-prop">
-              <div className="st-text-prop">Design Score:</div>
-            </div>
-            <div className="st-text-align-dist">
-              <div className="st-text-dist">{data.DesignScore}</div>
-            </div>
+            
           </div>
-          <div className="st-line-after"></div>
+
           <div className="st-row">
             <div className="st-text-align-prop">
-              <div className="st-text-prop">Gross Floor Area:</div>
+              <div className="st-text-prop">GFA:</div>
             </div>
             <div className="st-text-align-dist">
               <div className="st-text-dist">{data.GrossFloorArea}</div>
@@ -558,16 +553,7 @@ const RightPanel = ({ data }) => {
           <div className="st-line-after"></div>
           <div className="st-row">
             <div className="st-text-align-prop">
-              <div className="st-text-prop">Units:</div>
-            </div>
-            <div className="st-text-align-dist">
-              <div className="st-text-dist">{data.Units}</div>
-            </div>
-          </div>
-          <div className="st-line-after"></div>
-          <div className="st-row">
-            <div className="st-text-align-prop">
-              <div className="st-text-prop">Residential</div>
+              <div className="st-text-prop1">Residential</div>
             </div>
             <div className="st-text-align-dist">
               <div className="st-text-dist">{data.Residential} %</div>
@@ -585,7 +571,7 @@ const RightPanel = ({ data }) => {
           </div>
           <div className="st-row">
             <div className="st-text-align-prop">
-              <div className="st-text-prop">Commercial</div>
+              <div className="st-text-prop1">Commercial</div>
             </div>
             <div className="st-text-align-dist">
               <div className="st-text-dist">{data.Commercial} %</div>
@@ -603,7 +589,7 @@ const RightPanel = ({ data }) => {
           </div>
           <div className="st-row">
             <div className="st-text-align-prop">
-              <div className="st-text-prop">Community</div>
+              <div className="st-text-prop1">Community</div>
             </div>
             <div className="st-text-align-dist">
               <div className="st-text-dist">{data.Community} %</div>
