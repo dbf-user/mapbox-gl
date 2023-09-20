@@ -309,6 +309,10 @@
     "GrossFloorArea": "50,551 M2",
     "SiteCoverage": "61 %",
     "Height": "78 m",
-    "Units": "287"
+    "Units": "287",
+    "Residential": 48,
+    "Commercial": 20, 
+    "Community": 32
+    
   }
 }
