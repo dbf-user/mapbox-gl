@@ -401,7 +401,8 @@ const LegendPanel = () => {
           width: "150px",
           borderRadius: "4px",
           mb: 2,
-          backgroundColor: "black",
+          border: "2px solid white",
+          backgroundColor: "rgba(65, 65, 65, 0.8)",
           color: "white",
           padding: 2,
           display: "flex",
@@ -423,7 +424,7 @@ const LegendPanel = () => {
         >
           Pedestrian Traffic
         </Typography>
-        <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+        {/* <Divider sx={{ width: "100%", backgroundColor: "white" }} /> */}
         <img
           src={legend2}
           alt="Co2 legend"
@@ -461,9 +462,10 @@ const TogglePanel = ({ sdata }) => {
           sx={{
             width: "150px",
             borderRadius: "4px",
-            backgroundColor: "black",
+            backgroundColor: "rgba(65, 65, 65, 0.8)",
             color: "white",
             padding: 2,
+            border: "2px solid white",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -483,7 +485,7 @@ const TogglePanel = ({ sdata }) => {
           >
             Explore Design Scenarios
           </Typography>
-          <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+          {/* <Divider sx={{ width: "100%", backgroundColor: "white" }} /> */}
           <Box
             sx={{
               display: "flex",

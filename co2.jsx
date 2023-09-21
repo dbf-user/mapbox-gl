@@ -34,7 +34,7 @@ import grocery from "./icons/grocery.png";
 import metroIcon from "./icons/metroIcon.png";
 import rest from "./icons/rest.png";
 import pharm from "./icons/pharm.png";
-import legend2 from "./icons/co2legend2.png";
+import legend2 from "./icons/c0legend.png";
 import { Stack } from "@mui/system";
 
 // Set your Mapbox token here
@@ -70,7 +70,8 @@ const LegendPanel = () => {
           width: "120px",
           borderRadius: "4px",
           mb: 2,
-          backgroundColor: "black",
+          backgroundColor: "rgba(65, 65, 65, 0.8)",
+          border: "2px solid white",
           color: "white",
           padding: 2,
           display: "flex",
@@ -86,17 +87,17 @@ const LegendPanel = () => {
             marginBottom: "5px",
             lineHeight: "1.2",
             textAlign: "center",
-            fontSize: 13,
+            fontSize: 14,
             fontFamily: "IBM Plex Mono, monospace",
           }}
         >
           Accessible Area
         </Typography>
-        <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+        {/* <Divider sx={{ width: "100%", backgroundColor: "white" }} /> */}
         <img
           src={legend2}
           alt="Co2 legend"
-          style={{ width: "auto", height: "60px", marginTop: "15px" }}
+          style={{ width: "120px", height: "50px", marginTop: "15px" }}
         />
       </Box>
     </>
@@ -147,7 +148,8 @@ const TogglePanel = () => {
           sx={{
             width: "120px",
             borderRadius: "4px",
-            backgroundColor: "black",
+            backgroundColor: "rgba(65, 65, 65, 0.8)",
+            border: "2px solid white",
             color: "white",
             padding: 2,
             display: "flex",
@@ -169,7 +171,7 @@ const TogglePanel = () => {
           >
             Trips to key facilities
           </Typography>
-          <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+          {/* <Divider sx={{ width: "100%", backgroundColor: "white" }} /> */}
           <Typography
             variant="body1"
             style={{
