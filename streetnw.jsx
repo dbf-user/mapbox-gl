@@ -87,6 +87,14 @@ import CustomPlay from "./customPlay.jsx";
 //import CustomSwitch from "./customSwitch";
 import { Stack } from "@mui/system";
 
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { useDispatch, useSelector } from "react-redux";
+import { selectGlobalCity, setGlobalCity } from "./store/common-slice";
+
 // Set your Mapbox token here
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2xtNXQwdHhvMWd3cjNmcDY2aGc4NDZrNSJ9.1OTywkIt0KA1sMPAxUrCzg";
@@ -435,6 +443,66 @@ const LegendPanel = () => {
   );
 };
 
+const CityDropDown = ({ myGlobal }) => {
+  if (myGlobal === undefined || myGlobal === null) {
+    myGlobal = "";
+  }
+  const dispatch = useDispatch();
+  const [selectedValue, setSelectedValue] = useState(myGlobal);
+  const handleChange = (event) => {
+    dispatch(setGlobalCity(event.target.value));
+    setSelectedValue(event.target.value);
+  };
+  const menuItemStyle = {
+    color: "white",
+  };
+
+  return (
+    <div>
+      <FormControl sx={{ m: 1, minWidth: 250 }}>
+        <Select
+          value={selectedValue}
+          onChange={handleChange}
+          displayEmpty
+          inputProps={{ "aria-label": "Without label" }}
+          MenuProps={{
+            PaperProps: {
+              style: {
+                backgroundColor: "black",
+              },
+            },
+          }}
+          sx={{
+            "& .Mui-selected::before": {
+              color: "white",
+            },
+            backgroundColor: "white",
+          }}
+        >
+          <MenuItem disabled value="" style={{ color: "white" }}>
+            <em>City</em>
+          </MenuItem>
+          <MenuItem value={"London"} style={menuItemStyle}>
+            London
+          </MenuItem>
+          <MenuItem value={"Boston"} style={menuItemStyle}>
+            Boston
+          </MenuItem>
+          <MenuItem value={"Mumbai"} style={menuItemStyle}>
+            Mumbai
+          </MenuItem>
+          <MenuItem value={"Changi"} style={menuItemStyle}>
+            Changi
+          </MenuItem>
+          <MenuItem value={"Colombo"} style={menuItemStyle}>
+            Colombo
+          </MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
+};
+
 const TogglePanel = ({ sdata }) => {
   const [isOn, setIsOn] = useState(false);
   const toggleState = () => {
@@ -514,8 +582,7 @@ const RightPanel = ({ data }) => {
       <div className="st-title">Statistics</div>
       <div className="st-horizontal-lines">
         <div className="st-vertical-rows">
-          <div className="st-row">
-          </div>
+          <div className="st-row"></div>
           <div className="st-row">
             <div className="st-text-align-prop">
               <div className="st-text-prop">GFA:</div>
@@ -645,19 +712,27 @@ const stopCameraRotation = () => {
   }
 };
 
-export function renderToDOM(container, setStatData) {
+export function renderToDOM(container, setStatData, city) {
+  let coord = [-0.1233747, 51.5142924];
+
+  if (city === "London") {
+    coord = [-0.1233747, 51.5142924];
+  } else if (city === "Changi") {
+    coord = [103.85198037663784, 1.2821717891061526];
+  }
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
-    center: [-0.1233747, 51.5142924],
+    center: coord,
+    // center: [-0.1233747, 51.5142924],
     zoom: 16.8,
     pitch: 69,
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
-    maxBounds: [
-      [-0.128784, 51.510215],
-      [-0.1184279, 51.5188687],
-    ],
+    // maxBounds: [
+    //   [-0.128784, 51.510215],
+    //   [-0.1184279, 51.5188687],
+    // ],
   });
 
   const modelOrigin = [-0.119360145693761, 51.5148376818842];
@@ -946,6 +1021,7 @@ export function renderToDOM(container, setStatData) {
 
 export const StreetNew = () => {
   const [showRightPanel, setShowRightPanel] = useState(false);
+  const globalCity = useSelector(selectGlobalCity);
   const [data, setData] = useState({
     propertyName: "",
     address: "",
@@ -967,8 +1043,8 @@ export const StreetNew = () => {
   });
 
   useEffect(() => {
-    renderToDOM(document.getElementById("map"), setStatData);
-  }, []);
+    renderToDOM(document.getElementById("map"), setStatData, globalCity);
+  }, [globalCity]);
 
   return (
     <>
@@ -985,6 +1061,9 @@ export const StreetNew = () => {
       {/* {showRightPanel ? <RightPanel data={data} /> : ""} */}
       <TogglePanel sdata={setStatData} />
       <RightPanel data={statdata} />
+      <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+        <CityDropDown myGlobal={globalCity} />
+      </div>
     </>
   );
 };

@@ -87,9 +87,20 @@ import CustomPlay from "./customPlay.jsx";
 import CustomSwitch from "./customSwitch";
 import { Stack } from "@mui/system";
 
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { store } from "./store";
+import { selectGlobalCity, setGlobalCity } from "./store/common-slice";
+
 // Set your Mapbox token here
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2xtNXQwdHhvMWd3cjNmcDY2aGc4NDZrNSJ9.1OTywkIt0KA1sMPAxUrCzg";
+// mapboxgl.accessToken =
+//   "pk.eyJ1IjoiZGlnaXRhbC1ibHVlLWZvYW0iLCJhIjoiY2w2b2h6aHE2MDd3NzNtcnI5ZjlieHkyZyJ9.lA1YnLC0rCHy9uUWQL0LDA";
 
 let maxValue = 500;
 let minValue = 0;
@@ -143,6 +154,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         });
         map.flyTo({
           center: [-0.123385, 51.514332],
+          //center:[103.85198037663784, 1.2821717891061526],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.4,
           zoom: 16,
@@ -177,6 +189,7 @@ const StreetPanel = ({ setShowRightPanel, setData }) => {
         });
         map.flyTo({
           center: [-0.119385, 51.514826],
+          //center:[103.85198037663784, 1.2821717891061526],
           essential: true, // this animation is considered essential with respect to prefers-reduced-motion
           speed: 0.4,
           zoom: 17,
@@ -442,6 +455,63 @@ const LegendPanel = () => {
   );
 };
 
+const CityDropDown = ({ myGlobal }) => {
+  const [selectedValue, setSelectedValue] = useState(myGlobal);
+  const dispatch = useDispatch();
+  const handleChange = (event) => {
+    dispatch(setGlobalCity(event.target.value));
+    setSelectedValue(event.target.value);
+  };
+  const menuItemStyle = {
+    color: "white",
+  };
+
+  return (
+    <div>
+      <FormControl sx={{ m: 1, minWidth: 250 }}>
+        <Select
+          value={selectedValue}
+          onChange={handleChange}
+          displayEmpty
+          inputProps={{ "aria-label": "Without label" }}
+          MenuProps={{
+            PaperProps: {
+              style: {
+                backgroundColor: "black",
+              },
+            },
+          }}
+          sx={{
+            "& .Mui-selected::before": {
+              color: "white",
+            },
+            backgroundColor: "white",
+          }}
+        >
+          <MenuItem disabled value="" style={{ color: "white" }}>
+            <em>City</em>
+          </MenuItem>
+          <MenuItem value={"London"} style={menuItemStyle}>
+            London
+          </MenuItem>
+          <MenuItem value={"Boston"} style={menuItemStyle}>
+            Boston
+          </MenuItem>
+          <MenuItem value={"Mumbai"} style={menuItemStyle}>
+            Mumbai
+          </MenuItem>
+          <MenuItem value={"Changi"} style={menuItemStyle}>
+            Changi
+          </MenuItem>
+          <MenuItem value={"Colombo"} style={menuItemStyle}>
+            Colombo
+          </MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
+};
+
 const TogglePanel = ({ sdata }) => {
   const [isOn, setIsOn] = useState(false);
   const toggleState = () => {
@@ -520,9 +590,7 @@ const RightPanel = ({ data }) => {
       <div className="st-title">Statistics</div>
       <div className="st-horizontal-lines">
         <div className="st-vertical-rows">
-          <div className="st-row">
-            
-          </div>
+          <div className="st-row"></div>
 
           <div className="st-row">
             <div className="st-text-align-prop">
@@ -653,20 +721,29 @@ const stopCameraRotation = () => {
   }
 };
 
-export function renderToDOM(container, setStatData) {
+export function renderToDOM(container, setStatData, city) {
+  let coord = [-0.1233747, 51.5142924];
+
+  if (city === "London") {
+    coord = [-0.1233747, 51.5142924];
+  } else if (city === "Changi") {
+    coord = [103.85198037663784, 1.2821717891061526];
+  }
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
     attributionControl: false,
-    center: [-0.1233747, 51.5142924],
+    center: coord,
+    //center: [-0.1233747, 51.5142924],
+    //center:[103.85198037663784, 1.2821717891061526],
     zoom: 16.8,
     pitch: 69,
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
-    maxBounds: [
-      [-0.128784, 51.510215],
-      [-0.1184279, 51.5188687],
-    ],
+    // maxBounds: [
+    //   [-0.128784, 51.510215],
+    //   [-0.1184279, 51.5188687],
+    // ],
   });
 
   const modelOrigin = [-0.119360145693761, 51.5148376818842];
@@ -956,6 +1033,7 @@ export function renderToDOM(container, setStatData) {
 export const Mainpg = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [showRightPanel, setShowRightPanel] = useState(false);
+  const globalCity = useSelector(selectGlobalCity);
   const [data, setData] = useState({
     propertyName: "",
     address: "",
@@ -964,6 +1042,8 @@ export const Mainpg = () => {
     Metro: "",
     Mdistance: "",
   });
+
+  //console.log('Citytyt', city);
 
   const [statdata, setStatData] = useState({
     DesignScore: "",
@@ -984,8 +1064,8 @@ export const Mainpg = () => {
   const [showAnotherComponent, setShowAnotherComponent] = useState(false);
 
   useEffect(() => {
-    renderToDOM(document.getElementById("map"), setStatData);
-  }, []);
+    renderToDOM(document.getElementById("map"), setStatData, globalCity);
+  }, [globalCity]);
 
   const handleButtonClick = (buttonId) => {
     if (selectedButton === buttonId) {
@@ -1106,8 +1186,19 @@ export const Mainpg = () => {
         <RightPanel data={statdata} />
       </div>
       {renderSelectedComponent()}
+      <div
+        className={`app-container ${showAnotherComponent ? "hide" : ""}`}
+        style={{ position: "absolute", top: "20px", right: "20px" }}
+      >
+        <CityDropDown myGlobal={globalCity}/>
+      </div>
     </>
   );
 };
 export default Mainpg;
-ReactDOM.render(<Mainpg />, document.getElementById("app"));
+ReactDOM.render(
+  <Provider store={store}>
+    <Mainpg />
+  </Provider>,
+  document.getElementById("app")
+);
