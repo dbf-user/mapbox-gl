@@ -4,7 +4,7 @@ import mapboxgl from "mapbox-gl";
 import { id1200 } from "./data/1200Id.js";
 import { id1500 } from "./data/1500Id.js";
 import { id900 } from "./data/900Id.js";
-import { idx } from "./data/bIds.js";
+import { idx } from "./data/singa parks.js";
 import parks from "./data/parks.json";
 import park_names from "./data/park_names.json";
 import "./RadioPanel.css";
@@ -203,15 +203,15 @@ export function renderToDOM(container, data) {
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
-    center: [-0.127997, 51.507969],
+    center: [103.85198037663784, 1.2821717891061526],
     zoom: 16,
     pitch: 45,
     minZoom: 15, // Set the minimum zoom level
     maxZoom: 18, // Set the maximum zoom level
-    maxBounds: [
-      [-0.140922, 51.500648],
-      [-0.10464, 51.52127],
-    ],
+    // maxBounds: [
+    //   [-0.140922, 51.500648],
+    //   [-0.10464, 51.52127],
+    // ],
   });
 
   map.on("load", () => {
