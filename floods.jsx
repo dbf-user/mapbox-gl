@@ -33,7 +33,7 @@ const SliderPanel = ({ city }) => {
   let bCount;
   if (city === "London") {
     colorData = id600;
-  } else if (city === "Changi") {
+  } else if (city === "Singapore") {
     colorData = id600c;
   }
 
@@ -207,7 +207,7 @@ export function renderToDOM(container, city) {
   if (city === "London") {
     coord = [-0.1233747, 51.5142924];
     cityData = id600;
-  } else if (city === "Changi") {
+  } else if (city === "Singapore") {
     coord = [103.85198037663784, 1.2821717891061526];
     cityData = id600c;
   }

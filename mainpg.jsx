@@ -491,20 +491,23 @@ const CityDropDown = ({ myGlobal }) => {
           <MenuItem disabled value="" style={{ color: "white" }}>
             <em>City</em>
           </MenuItem>
+          <MenuItem value={"Capetown"} style={menuItemStyle}>
+            Capetown
+          </MenuItem>
           <MenuItem value={"London"} style={menuItemStyle}>
             London
           </MenuItem>
-          <MenuItem value={"Boston"} style={menuItemStyle}>
-            Boston
+          <MenuItem value={"Miami"} style={menuItemStyle}>
+            Miami
           </MenuItem>
-          <MenuItem value={"Mumbai"} style={menuItemStyle}>
-            Mumbai
+          <MenuItem value={"Rio"} style={menuItemStyle}>
+            Rio
           </MenuItem>
-          <MenuItem value={"Changi"} style={menuItemStyle}>
-            Changi
+          <MenuItem value={"Singapore"} style={menuItemStyle}>
+            Singapore
           </MenuItem>
-          <MenuItem value={"Colombo"} style={menuItemStyle}>
-            Colombo
+          <MenuItem value={"Sydney"} style={menuItemStyle}>
+            Sydney
           </MenuItem>
         </Select>
       </FormControl>
@@ -723,10 +726,26 @@ const stopCameraRotation = () => {
 
 export function renderToDOM(container, setStatData, city) {
   let coord = [-0.1233747, 51.5142924];
+  const layersToRemove = [
+    "add-3d-buildings",
+    "park",
+    "baseM",
+    "extrusion1",
+    "lines",
+  ];
+  
+  const sourcesToRemove = [
+    "par",
+    "base",
+    "my_test",
+    "my_test1",
+    "my_test2",
+    "street",
+  ];
 
   if (city === "London") {
     coord = [-0.1233747, 51.5142924];
-  } else if (city === "Changi") {
+  } else if (city === "Singapore") {
     coord = [103.85198037663784, 1.2821717891061526];
   }
   map = new mapboxgl.Map({
@@ -859,6 +878,19 @@ export function renderToDOM(container, setStatData, city) {
   map.on("load", () => {
     clearInterval(animationInterval);
     stopCameraRotation();
+
+    layersToRemove.forEach((layerId) => {
+        if (map.getLayer(layerId)) {
+          map.removeLayer(layerId);
+        }
+      });
+      
+      sourcesToRemove.forEach((sourceId) => {
+        if (map.getSource(sourceId)) {
+          map.removeSource(sourceId);
+        }
+      });
+      
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",
@@ -1002,9 +1034,9 @@ export function renderToDOM(container, setStatData, city) {
     map.moveLayer("baseM");
 
     map.moveLayer("lines");
-    map.moveLayer("extrusion");
+    //map.moveLayer("extrusion");
     map.moveLayer("extrusion1");
-    map.moveLayer("extrusion2");
+    //map.moveLayer("extrusion2");
 
     map.moveLayer("add-3d-buildings");
 
@@ -1033,7 +1065,8 @@ export function renderToDOM(container, setStatData, city) {
 export const Mainpg = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const [showRightPanel, setShowRightPanel] = useState(false);
-  const globalCity = useSelector(selectGlobalCity);
+  let globalCity = useSelector(selectGlobalCity);
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     propertyName: "",
     address: "",
@@ -1042,8 +1075,6 @@ export const Mainpg = () => {
     Metro: "",
     Mdistance: "",
   });
-
-  //console.log('Citytyt', city);
 
   const [statdata, setStatData] = useState({
     DesignScore: "",
@@ -1056,6 +1087,90 @@ export const Mainpg = () => {
     Community: "",
   });
 
+  const [userLocation, setUserLocation] = useState(null);
+  const [cityLocations, setCityLocations] = useState([
+    { name: "Capetown", latitude: -33.912796, longitude: 18.416861 },
+    { name: "London", latitude: 51.5142924, longitude: -0.1233747 },
+    { name: "Miami", latitude: 25.766228, longitude: -80.190658 },
+    { name: "Rio", latitude: -22.972135, longitude: -43.186595 },
+    {
+      name: "Singapore",
+      latitude: 1.2821717891061526,
+      longitude: 103.85198037663784,
+    },
+    { name: "Sydney", latitude: -33.875779, longitude: 151.201626 },
+  ]);
+
+  const [nCity, setNcity] = useState("London");
+  const [shortestDistanceCityAvailable, setShortestDistanceCityAvailable] = useState(false);
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setUserLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      }, (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            setShortestDistanceCityAvailable(true);
+            console.log("User denied permission.");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            setShortestDistanceCityAvailable(true);
+            console.log("Location information is unavailable.");
+            break;
+          case error.TIMEOUT:
+            setShortestDistanceCityAvailable(true);
+            console.log("Request for location timed out.");
+            break;
+          default:
+            console.log("An unknown error occurred.");
+            break;
+        }
+      });
+    } else {
+      console.log("Geolocation is not supported in the user's browser.");
+    }
+  }, []);
+
+  // Calculating the shortest distance from user's location to city locations
+  useEffect(() => {
+    if (userLocation) {
+      const distances = cityLocations.map((city) => {
+        const R = 6371; // Earth's radius in km
+        const lat1 = userLocation.latitude;
+        const lon1 = userLocation.longitude;
+        const lat2 = city.latitude;
+        const lon2 = city.longitude;
+
+        const dLat = ((lat2 - lat1) * Math.PI) / 180;
+        const dLon = ((lon2 - lon1) * Math.PI) / 180;
+
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos((lat1 * Math.PI) / 180) *
+            Math.cos((lat2 * Math.PI) / 180) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = R * c; // distance in km
+
+        return { name: city.name, distance };
+      });
+
+      distances.sort((a, b) => a.distance - b.distance);
+      const shortestDistance = distances[0];
+
+      dispatch(setGlobalCity(shortestDistance.name));
+      setNcity(shortestDistance.name);
+      globalCity = shortestDistance.name;
+      setShortestDistanceCityAvailable(true);
+    }
+  }, [userLocation, cityLocations]);
+
   const [showText, setShowText] = useState(
     <h1 style={{ fontSize: "1rem" }}>
       Generate development scenarios for future-proof urban transformation
@@ -1065,7 +1180,7 @@ export const Mainpg = () => {
 
   useEffect(() => {
     renderToDOM(document.getElementById("map"), setStatData, globalCity);
-  }, [globalCity]);
+  }, [shortestDistanceCityAvailable, globalCity]);
 
   const handleButtonClick = (buttonId) => {
     if (selectedButton === buttonId) {
@@ -1190,7 +1305,7 @@ export const Mainpg = () => {
         className={`app-container ${showAnotherComponent ? "hide" : ""}`}
         style={{ position: "absolute", top: "20px", right: "20px" }}
       >
-        <CityDropDown myGlobal={globalCity}/>
+        {shortestDistanceCityAvailable && <CityDropDown myGlobal={nCity} />}
       </div>
     </>
   );

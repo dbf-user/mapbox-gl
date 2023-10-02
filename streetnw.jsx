@@ -482,20 +482,23 @@ const CityDropDown = ({ myGlobal }) => {
           <MenuItem disabled value="" style={{ color: "white" }}>
             <em>City</em>
           </MenuItem>
+          <MenuItem value={"Capetown"} style={menuItemStyle}>
+            Capetown
+          </MenuItem>
           <MenuItem value={"London"} style={menuItemStyle}>
             London
           </MenuItem>
-          <MenuItem value={"Boston"} style={menuItemStyle}>
-            Boston
+          <MenuItem value={"Miami"} style={menuItemStyle}>
+            Miami
           </MenuItem>
-          <MenuItem value={"Mumbai"} style={menuItemStyle}>
-            Mumbai
+          <MenuItem value={"Rio"} style={menuItemStyle}>
+            Rio
           </MenuItem>
-          <MenuItem value={"Changi"} style={menuItemStyle}>
-            Changi
+          <MenuItem value={"Singapore"} style={menuItemStyle}>
+            Singapore
           </MenuItem>
-          <MenuItem value={"Colombo"} style={menuItemStyle}>
-            Colombo
+          <MenuItem value={"Sydney"} style={menuItemStyle}>
+            Sydney
           </MenuItem>
         </Select>
       </FormControl>
@@ -717,7 +720,7 @@ export function renderToDOM(container, setStatData, city) {
 
   if (city === "London") {
     coord = [-0.1233747, 51.5142924];
-  } else if (city === "Changi") {
+  } else if (city === "Singapore") {
     coord = [103.85198037663784, 1.2821717891061526];
   }
   map = new mapboxgl.Map({
@@ -1022,6 +1025,7 @@ export function renderToDOM(container, setStatData, city) {
 export const StreetNew = () => {
   const [showRightPanel, setShowRightPanel] = useState(false);
   const globalCity = useSelector(selectGlobalCity);
+  console.log('StreetNw', globalCity);
   const [data, setData] = useState({
     propertyName: "",
     address: "",
