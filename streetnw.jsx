@@ -1025,7 +1025,6 @@ export function renderToDOM(container, setStatData, city) {
 export const StreetNew = () => {
   const [showRightPanel, setShowRightPanel] = useState(false);
   const globalCity = useSelector(selectGlobalCity);
-  console.log('StreetNw', globalCity);
   const [data, setData] = useState({
     propertyName: "",
     address: "",
