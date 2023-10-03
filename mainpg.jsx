@@ -746,8 +746,9 @@ export function renderToDOM(container, setStatData, city) {
   if (city === "London") {
     coord = [-0.1233747, 51.5142924];
   } else if (city === "Singapore") {
-    coord = [103.85198037663784, 1.2821717891061526];
+    coord = [-43.175413, -22.906382];// [103.85198037663784, 1.2821717891061526]; 
   }
+
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
@@ -758,7 +759,7 @@ export function renderToDOM(container, setStatData, city) {
     zoom: 16.8,
     pitch: 69,
     minZoom: 15, // Set the minimum zoom level
-    maxZoom: 18, // Set the maximum zoom level
+    maxZoom: 17, // Set the maximum zoom level
     // maxBounds: [
     //   [-0.128784, 51.510215],
     //   [-0.1184279, 51.5188687],
