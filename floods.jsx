@@ -4,7 +4,11 @@ import mapboxgl from "mapbox-gl";
 import { id1200 } from "./data/1200Id.js";
 import { id1500 } from "./data/1500Id.js";
 import { id600 } from "./data/build_flood.js";
-import { id600c } from "./data/city/changi/SG_floods.js";
+import { id600_singapore } from "./data/city/singapore/SG_floods.js";
+import { id600_rio } from "./data/city/rio/rio_floods.js";
+import { id600_ct } from "./data/city/capetown/ct_floods.js";
+import { id600_miami } from "./data/city/miami/miami_floods.js";
+import { id600_sydney } from "./data/city/sydney/sydneyid600.js";
 import { idx } from "./data/bIds.js";
 import parks from "./data/parks.json";
 import park_names from "./data/park_names.json";
@@ -34,8 +38,20 @@ const SliderPanel = ({ city }) => {
   if (city === "London") {
     colorData = id600;
   } else if (city === "Singapore") {
-    colorData = id600c;
+    colorData = id600_singapore;
   }
+  else if (city === "Rio") {
+    colorData = id600_rio;
+  } else if (city === "Capetown") {
+    colorData = id600_ct;
+  } else if (city === "Miami") {
+    colorData = id600_miami;
+  } else if (city === "Sydney") {
+    colorData = id600_sydney;
+  }
+
+  
+  
 
   const handleRadioChange = (event) => {
     //setSelectedOption(value);
@@ -202,24 +218,69 @@ const SliderPanel = ({ city }) => {
 };
 
 export function renderToDOM(container, city) {
-  let coord = [-0.1233747, 51.5142924];
+  let coord = [-0.127997, 51.507969];
+  let coord1 = [-0.123730, 51.503625];
+  let cityPitch = 45;
+  let finalPitch = 45;
+  let bear = 0;
   let cityData;
   if (city === "London") {
-    coord = [-0.1233747, 51.5142924];
+    coord = [-0.127997, 51.507969];
+    coord1 = [-0.123730, 51.503625]; 
+    cityPitch = 45; 
+    bear = 0; 
+    finalPitch = 45; 
     cityData = id600;
   } else if (city === "Singapore") {
-    coord = [103.85198037663784, 1.2821717891061526];
-    cityData = id600c;
+    coord = [103.8523409, 1.28532];
+    coord1 = [103.8523409, 1.28532];
+    bear = -90;
+    cityData = id600_singapore;
+    finalPitch = 50;
+    cityPitch = 60;
+  } else if (city === "Rio") {
+    coord = [-43.175413, -22.906382];
+    coord1 = [-43.17536, -22.904265];
+    bear = -134.1;
+    cityData = id600_rio;
+    finalPitch = 56;
+    cityPitch = 60;
+  } else if (city === "Capetown") {   // /// id600_miami
+    coord = [ 18.425599, -33.919698];   
+    coord1 = [18.427416, -33.916859];
+    bear = -138.9;
+    cityData = id600_ct;
+    finalPitch = 54;
+    cityPitch = 60;
+  }  else if (city === "Miami") {   // /// 
+    coord = [-80.190658, 25.766228];    
+    coord1 = [-80.189348, 25.764918]; 
+    bear = -47.3;
+    cityData = id600_miami;
+    finalPitch = 50;
+    cityPitch = 60;
+  }  else if (city === "Sydney") {   // /// 
+    coord = [151.226618, -33.870015];     
+    coord1 = [151.226618, -33.870015];  
+    bear = -139.3;
+    cityData = id600_sydney;
+    finalPitch = 51;
+    cityPitch = 60;
   }
+
+  
+
+
   map = new mapboxgl.Map({
     style: "mapbox://styles/digital-blue-foam/clmkep6bq01rb01pj1f7phtt0",
     container,
     //center: [-0.127997, 51.507969],
     center: coord,
     zoom: 16,
-    pitch: 45,
+    pitch: cityPitch,
+    bearing: bear,
     minZoom: 14, // Set the minimum zoom level
-    maxZoom: 18, // Set the maximum zoom level
+    maxZoom: 16, // Set the maximum zoom level
     // maxBounds: [
     //   [-0.140922, 51.500648],
     //   [-0.10464, 51.52127],
@@ -278,7 +339,8 @@ export function renderToDOM(container, city) {
     map.moveLayer("add-3d-buildings");
     map.flyTo({
       //center: [-0.123730, 51.503625],
-      center: coord,
+      center: coord1,
+      pitch: finalPitch,
       essential: true, // this animation is considered essential with respect to prefers-reduced-motion
       speed: 0.03,
       zoom: 15.5,

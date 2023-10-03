@@ -464,6 +464,8 @@ const CityDropDown = ({ myGlobal }) => {
   };
   const menuItemStyle = {
     color: "white",
+    fontSize: 14,
+    fontFamily: "IBM Plex Mono, monospace",
   };
 
   return (
@@ -477,7 +479,8 @@ const CityDropDown = ({ myGlobal }) => {
           MenuProps={{
             PaperProps: {
               style: {
-                backgroundColor: "black",
+                
+                backgroundColor: "rgba(65, 65, 65, 0.8)",
               },
             },
           }}
@@ -485,12 +488,13 @@ const CityDropDown = ({ myGlobal }) => {
             "& .Mui-selected::before": {
               color: "white",
             },
-            backgroundColor: "white",
+            backgroundColor: "rgba(65, 65, 65, 0.8)",
+            height: "7vh",
+            color: "white",
+            fontSize: 14.5,
+            fontFamily: "IBM Plex Mono, monospace",
           }}
         >
-          <MenuItem disabled value="" style={{ color: "white" }}>
-            <em>City</em>
-          </MenuItem>
           <MenuItem value={"Capetown"} style={menuItemStyle}>
             Capetown
           </MenuItem>
