@@ -479,7 +479,6 @@ const CityDropDown = ({ myGlobal }) => {
           MenuProps={{
             PaperProps: {
               style: {
-                
                 backgroundColor: "rgba(65, 65, 65, 0.8)",
               },
             },
@@ -737,7 +736,7 @@ export function renderToDOM(container, setStatData, city) {
     "extrusion1",
     "lines",
   ];
-  
+
   const sourcesToRemove = [
     "par",
     "base",
@@ -750,7 +749,7 @@ export function renderToDOM(container, setStatData, city) {
   if (city === "London") {
     coord = [-0.1233747, 51.5142924];
   } else if (city === "Singapore") {
-    coord = [-43.175413, -22.906382];// [103.85198037663784, 1.2821717891061526]; 
+    coord = [-43.175413, -22.906382]; // [103.85198037663784, 1.2821717891061526];
   }
 
   map = new mapboxgl.Map({
@@ -885,17 +884,17 @@ export function renderToDOM(container, setStatData, city) {
     stopCameraRotation();
 
     layersToRemove.forEach((layerId) => {
-        if (map.getLayer(layerId)) {
-          map.removeLayer(layerId);
-        }
-      });
-      
-      sourcesToRemove.forEach((sourceId) => {
-        if (map.getSource(sourceId)) {
-          map.removeSource(sourceId);
-        }
-      });
-      
+      if (map.getLayer(layerId)) {
+        map.removeLayer(layerId);
+      }
+    });
+
+    sourcesToRemove.forEach((sourceId) => {
+      if (map.getSource(sourceId)) {
+        map.removeSource(sourceId);
+      }
+    });
+
     map.addLayer({
       id: "add-3d-buildings",
       source: "composite",
@@ -1107,34 +1106,38 @@ export const Mainpg = () => {
   ]);
 
   const [nCity, setNcity] = useState("London");
-  const [shortestDistanceCityAvailable, setShortestDistanceCityAvailable] = useState(false);
+  const [shortestDistanceCityAvailable, setShortestDistanceCityAvailable] =
+    useState(false);
 
   useEffect(() => {
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setUserLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
-      }, (error) => {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            setShortestDistanceCityAvailable(true);
-            console.log("User denied permission.");
-            break;
-          case error.POSITION_UNAVAILABLE:
-            setShortestDistanceCityAvailable(true);
-            console.log("Location information is unavailable.");
-            break;
-          case error.TIMEOUT:
-            setShortestDistanceCityAvailable(true);
-            console.log("Request for location timed out.");
-            break;
-          default:
-            console.log("An unknown error occurred.");
-            break;
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              setShortestDistanceCityAvailable(true);
+              console.log("User denied permission.");
+              break;
+            case error.POSITION_UNAVAILABLE:
+              setShortestDistanceCityAvailable(true);
+              console.log("Location information is unavailable.");
+              break;
+            case error.TIMEOUT:
+              setShortestDistanceCityAvailable(true);
+              console.log("Request for location timed out.");
+              break;
+            default:
+              console.log("An unknown error occurred.");
+              break;
+          }
         }
-      });
+      );
     } else {
       console.log("Geolocation is not supported in the user's browser.");
     }
@@ -1143,36 +1146,30 @@ export const Mainpg = () => {
   // Calculating the shortest distance from user's location to city locations
   useEffect(() => {
     if (userLocation) {
-      const distances = cityLocations.map((city) => {
-        const R = 6371; // Earth's radius in km
-        const lat1 = userLocation.latitude;
-        const lon1 = userLocation.longitude;
-        const lat2 = city.latitude;
-        const lon2 = city.longitude;
-
-        const dLat = ((lat2 - lat1) * Math.PI) / 180;
-        const dLon = ((lon2 - lon1) * Math.PI) / 180;
-
-        const a =
-          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos((lat1 * Math.PI) / 180) *
-            Math.cos((lat2 * Math.PI) / 180) *
-            Math.sin(dLon / 2) *
-            Math.sin(dLon / 2);
-
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        const distance = R * c; // distance in km
-
-        return { name: city.name, distance };
-      });
-
-      distances.sort((a, b) => a.distance - b.distance);
-      const shortestDistance = distances[0];
-
-      dispatch(setGlobalCity(shortestDistance.name));
-      setNcity(shortestDistance.name);
-      globalCity = shortestDistance.name;
-      setShortestDistanceCityAvailable(true);
+      // const distances = cityLocations.map((city) => {
+      //   const R = 6371; // Earth's radius in km
+      //   const lat1 = userLocation.latitude;
+      //   const lon1 = userLocation.longitude;
+      //   const lat2 = city.latitude;
+      //   const lon2 = city.longitude;
+      //   const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      //   const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      //   const a =
+      //     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      //     Math.cos((lat1 * Math.PI) / 180) *
+      //       Math.cos((lat2 * Math.PI) / 180) *
+      //       Math.sin(dLon / 2) *
+      //       Math.sin(dLon / 2);
+      //   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      //   const distance = R * c; // distance in km
+      //   return { name: city.name, distance };
+      // });
+      // distances.sort((a, b) => a.distance - b.distance);
+      // const shortestDistance = distances[0];
+      // dispatch(setGlobalCity(shortestDistance.name));
+      // setNcity(shortestDistance.name);
+      // globalCity = shortestDistance.name;
+      // setShortestDistanceCityAvailable(true);
     }
   }, [userLocation, cityLocations]);
 
@@ -1259,6 +1256,8 @@ export const Mainpg = () => {
             height: "100%",
           }}
         ></div>
+        <div></div>
+
         <div>
           <h1 style={{ fontSize: "2rem" }}>{showText}</h1>
         </div>
@@ -1310,7 +1309,7 @@ export const Mainpg = () => {
         className={`app-container ${showAnotherComponent ? "hide" : ""}`}
         style={{ position: "absolute", top: "20px", right: "20px" }}
       >
-        {shortestDistanceCityAvailable && <CityDropDown myGlobal={nCity} />}
+        {/* {shortestDistanceCityAvailable && <CityDropDown myGlobal={nCity} />} */}
       </div>
     </>
   );
