@@ -1065,7 +1065,7 @@ export const StreetNew = () => {
       <TogglePanel sdata={setStatData} />
       <RightPanel data={statdata} />
       <div style={{ position: "absolute", top: "20px", right: "20px" }}>
-        <CityDropDown myGlobal={globalCity} />
+        {/* <CityDropDown myGlobal={globalCity} /> */}
       </div>
     </>
   );
